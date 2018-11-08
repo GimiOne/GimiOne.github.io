@@ -1,0 +1,158 @@
+html{
+	font:18px 'Open Sans',Arial,sans-serif;
+	height: 2000px;
+	overflow-x: hidden;
+}
+
+body{
+	background:url(http://365psd.ru/images/backgrounds/extra_clean_paper.png);
+}
+
+
+.zagol{
+	display: block;
+	width: 200px;	
+	margin: 0 auto;
+	text-align: center;
+	font-size: 35px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	border-bottom: 2px solid black;
+	
+}
+
+
+.container{			
+	display: flex;
+
+	margin: 0 auto;
+	max-width: 1250px;
+	height: auto;
+	margin-top: 50px;
+	
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+}
+
+
+.item{
+	margin-bottom: 100px;
+	cursor: default;
+	outline: none;
+}
+
+
+.left{
+	position: relative;
+	width: 160px;
+	height: 51px;
+	background:black;
+	border-radius:  8px 0 0 8px;
+	z-index: 2;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	transition: .5s;
+	
+}
+
+.download{
+	position: absolute;
+	width: 200px;
+	height: 40px;
+	margin-left: 60px;
+	margin-top: -45px;
+	background-color: white;
+	cursor: pointer;
+	outline: none;
+    -ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	z-index: 0;
+}
+
+
+.right{
+	position: relative;
+	width: 160px;
+	height: 51px;
+	background:black;
+	margin-left: 160px;
+	margin-top: -51px;
+	border-radius: 0 8px 8px 0;
+	z-index: 2;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	transition: .3s;
+}
+
+.left_text{
+	position: absolute;
+	color: white;
+	right: 0;
+	line-height: 14px;
+}
+
+.item:focus .left{
+	transform: translateX(-50px);
+}
+
+
+.item:focus .right{
+	transform: translateX(50px);
+}
+
+.download:active{
+	filter: blur(2px);
+
+}
+
+
+
+.content{
+	position: absolute;
+	width: 320px;
+	height: 310px;
+	overflow-y:auto;
+	z-index: 999;
+	background:url(http://365psd.ru/images/backgrounds/extra_clean_paper.png);
+	transform-origin: 160px 0;
+	transform: scale(0);
+	transition: .5s;
+
+}
+
+
+a{
+	text-decoration: none;
+	color:black;
+}
+
+
+img {
+	display: block;
+	margin: 0 auto;
+	width: 200px;
+}
+
+.text_content{
+	margin-top: 50px;
+}
+
+
+.zagol{
+	animation: anim 1s;
+}
+
+@keyframes anim{
+	0%{transform: scale(0);}
+	70%{transform: scale(1.1);}
+	100%{transform: scale(1);}
+}

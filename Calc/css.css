@@ -1,0 +1,173 @@
+body{
+
+
+
+	background: url(grad1.jpg);
+
+	background-size: 100%;
+
+	color:white;
+
+	font-family: Arial;
+
+}
+
+
+#button{
+	position: absolute;
+	margin: 0px 0 0 0;
+	width: 200px;
+	height: 50px;
+	background: none;
+	border: 2px solid white;
+	border-radius: 5px;
+	color:white;
+	text-align: center;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+
+
+
+
+
+
+
+#diva{
+
+	margin:0 auto;
+
+	margin-top: 250px;
+
+
+
+	font-size: 100px;
+
+	width: 500px;
+
+	height:300px;
+
+	
+
+	text-align: center;
+
+	display: none;
+
+
+
+}
+
+
+
+
+
+.text{
+
+	font-family: Arial;
+	font-size: 24pt;
+	user-select: none;
+
+}
+
+
+
+.res{
+
+	display: block;position: absolute;
+
+}
+
+
+
+
+
+
+
+#dvd{
+
+	margin: 0 0 0 -200px;
+	padding-top: 20px;
+	width: 0px;
+	min-height: 40px;
+	font-size: 35px;
+	border-bottom: 2px solid white;
+
+}
+
+#dvd:hover{
+	width: 800px;
+}
+
+
+
+#lol{
+
+	background: rgba(255,255,255,0.1);
+
+	font-size: 20px;
+
+	width: 500px;
+
+	height: 40px;
+
+	border: 2px solid white;
+
+	border-radius: 4px;
+
+	color:white;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+#lol:focus { outline: none; }
+
+
+
+#emo{
+	
+	margin-top: 10px;
+
+	left: 50%;
+
+  margin-left: -260px;
+
+  position: absolute;
+
+  width: 500px;
+
+}
+
+
+
+.spec{
+	transform: scale(0);
+	display: block;
+
+	width: 800px;
+
+	padding: 20px;
+
+	margin-left: -160px;
+
+	font-size: 20px;
+
+	text-align: center;
+
+	border-top:2px dashed white;
+
+	border-bottom:2px dashed white;
+
+}
