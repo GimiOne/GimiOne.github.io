@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+
+@font-face {
+  font-family: 'Magistral';
+  src:url('fonts/magistralc.eot');
+  src:url('fonts/magistralc.eot') format('embedded-opentype'),
+    url('fonts/magistralc.woff') format('woff'),
+    url('fonts/magistralc.ttf') format('truetype'),
+    url('fonts/magistralc.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+html,body{
+	font-family: Magistral,Arial,Tahoma,sans-serif;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+
+.back{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 110%;
+	height: 2000px;
+
+	background-image: url(http://tehnot.com/wp-content/uploads/2016/02/mirrors_edge_catalyst-1920x1080.jpg);
+	background-size: 120%;
+	animation: blura 10s infinite alternate ease-in-out;
+}
+
+@keyframes blura{
+	0%{filter: blur(0px);}
+	50%{transform: translate3d(-30px,-30px,20px);filter: blur(5px);}
+	70%{transform: translate3d(-20px,-40px,20px);}
+	71%{filter:blur(0px);}
+	76%{filter:blur(10px);}
+	80%{filter:blur(0px);}
+	100%{transform: translate3d(-0px,-50px,20px);filter: blur(5px);}
+	
+}
+
+
+h1{
+	
+	font-family: 'Open Sans',Arial,Tahoma,sans-serif;
+	color:red;
+	font-size: 30px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+#butsound{
+	font-family: 'Open Sans';
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	right: 20px;
+	top: 20px;
+	background:white;
+	border:2px solid red;
+	border-radius: 50%;
+	outline: none;
+	animation: tarnsl 5s infinite alternate ease-in-out;
+}
+
+
+@keyframes tarnsl{
+	0%{transform: translateY(0px);}
+	50%{ filter: blur(1px);}
+	100%{filter: blur(1px);}
+	
+}
+
+.stuff{
+	text-decoration: none;
+	color: red;
+}
+
+#main > p > a{
+	
+	
+	text-decoration: none;
+	
+	font-size: 20px;
+	padding: 20px;
+	color:black;
+
+	
+}
+
+#main > p > a:hover{
+color:white;
+}
+
+p{
+	text-align: center;
+	margin-bottom:40px;
+}
+
+
+
+#main{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	animation:jump 0.8s ;
+}
+
+
+@keyframes jump{
+	0%{transform: translateX(-300px);}
+	50%{transform: translateX(30px);}
+	100%{transform: translateX(0px);}
+}
+
+h1{
+	animation:prig 1s ;
+}
+
+@keyframes prig{
+	0%{transform: translateY(-100px);}
+	30%{transform: translateY(20px);}
+	100%{transform: translateY(0px);}
+}
+
+
+@media screen and (max-device-width:400px){
+	
+	
+	.back{
+	
+
+	background-image: url(edgephone.jpg);
+	
+}
+	
+}
+
+
+.preloader{
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	
+
+	background: black;
+	z-index: 998;
+	transition: 0.8s;
+}
+
+
+.hide{
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.preloader1{
+	
+
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	border:5px solid white;
+	border-top-color:red;
+	border-bottom-color: rgba(255,255,255,1);
+	border-left-color: rgba(0,0,0,0);
+	border-right-color: rgba(0,0,0,0);
+	border-radius: 50%;
+	
+	
+
+	z-index: 999;
+	animation:rotatee 1s linear infinite;
+	opacity: 1;
+	transition: 1s;
+
+}
+
+.done{
+	opacity: 0;
+	visibility: hidden;
+}
+
+
+@keyframes rotatee {
+	from{transform:rotate(0deg);}
+	to{transform:rotate(360deg);}
+}
