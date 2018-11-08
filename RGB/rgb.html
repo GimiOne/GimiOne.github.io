@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en" id="para" >
+
+<head>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="css.css">
+
+  <script src="js.js"></script>
+
+  
+
+  
+
+</head>
+
+<body >
+
+<div class="mainsuk">  
+
+<div class="divv">
+
+
+
+
+
+<a  class="rgb">R:</a>
+
+<input class="lol1" type="text" name="" id="in1" onkeyup="test(event)" maxlength="3" onkeydown = "javascript: return ((event.keyCode>47)&&(event.keyCode<58)||(event.keyCode===8)||(event.keyCode===9))" >
+
+
+
+
+
+<a  class="rgb">G:</a>
+
+<input class="lol2" type="text" name="" id="in2" onkeyup="test(event)" maxlength="3"onkeydown = "javascript: return ((event.keyCode>47)&&(event.keyCode<58)||(event.keyCode===8)||(event.keyCode===9))">
+
+<a  class="rgb">B:</a>
+
+<input class="lol3" type="text" name="" id="in3" onkeyup="test(event)" maxlength="3"onkeydown = "javascript: return ((event.keyCode>47)&&(event.keyCode<58)||(event.keyCode===8)||(event.keyCode===9))">
+
+
+
+	<div class="buttons">
+
+		<input class="mrbut" type="button" name="" value="Установить" onclick ="slider2()">
+
+		<input class="btn-clipboard" data-clipboard-target="#copy" type="button" value="Копировать" onclick ="copy()"></input>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div id="odin"><input id="rangeValue" class="slid" type="range" min="0" max="255" step="1" value="127" oninput ="slider()"  ></div></br> 
+
+  <input id="rangeValue2" class="slid" type="range" min="0" max="255" step="1" value="127" oninput ="slider()" align="center"> <br>
+
+  <input id="rangeValue3" class="slid" type="range" min="0" max="255" step="1" value="127" oninput ="slider()" align="center"> <br>
+
+  </div>  
+
+ <p id="copy"></p>
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+  <script type="text/javascript" src="clipboard.min.js"></script>
+
+  <script>
+
+new Clipboard('.btn-clipboard');
+
+</script>
+
+</body>
+
+</html>
+

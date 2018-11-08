@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spiro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js.js" defer></script>
+</head>
+<body>
+
+<header>
+	<div class="black"></div>
+	<div class="circle"><h1 class="h11"><a class="firstA" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D1%84_(%D0%B8%D0%B3%D1%80%D1%83%D1%88%D0%BA%D0%B0)">СПИРО</a></h1><h1 class="h12"><a class="secondA" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D1%84_(%D0%B8%D0%B3%D1%80%D1%83%D1%88%D0%BA%D0%B0)">ГРАФ</a></h1></div>
+</header>
+
+
+<div class="help-block">
+	<div class="help">HELP</div>
+	<div class="alert"><b>Эту картинку можно сохранить</b>:<br/> кликнуть правой кнопкой мыши по рисунку и выбрать "Cохранить как". Изображение сохраняется в PNG формате, поэтому картинка сохранится с прозрачным фоном.</div>
+
+</div>
+<div id="blk-color">
+				<div id="blk-circle"></div>
+				<input type="color" id="inp-color" oninput="changeColor()">
+			</div>
+
+<div class="most-main">
+	<canvas id="c1" width="600" height="600"></canvas>
+	<div class="main">
+		<div class="inp-range">
+			<input type="range" value="200" name="range1" id="range1" min="1" max="200" oninput="inpRange(value,'inp1')">
+			<input type="range" value="140" name="range2" id="range2" min="1" max="200" oninput="inpRange(value,'inp2')">
+			<input type="range" value="120" name="range3" id="range3" min="1" max="200" oninput="inpRange(value,'inp3')">
+			<input type="range" value="10" name="range4" id="range4" min="1" max="200" oninput="inpRange(value,'inp4')">
+			
+			
+			<button id="clear">Очистить</button>
+
+		</div>
+		<div class="labels-inpText">
+			<div class="labels">
+				<label for="">R: </label>
+				<label for="">r: </label>
+				<label for="">d: </label>
+				<label for="">r0: </label>
+				<label for="">time: </label>
+			</div>
+			<div class="inp-text">
+				<input type="text" value="200" id="inp1" onkeypress="inpText(event,value)"/>
+				<input type="text" value="140" id="inp2"/onkeypress="inpText(event,value)">
+				<input type="text" value="120" id="inp3"/onkeypress="inpText(event,value)">
+				<input type="text" value="10" id="inp4"/onkeypress="inpText(event,value)">
+				<input type="text" value="5" id="inp5"/onkeypress="inpText(event,value)">
+			</div>
+		</div>
+		<div class="buttonsSS">
+			<button id="start">Старт</button>
+			<button id="stop">Стоп</button>
+		</div>
+		
+	</div>
+</div>
+
+<div class="forCenterArrow">
+	<div id="arrowForBlockContent"></div>
+</div>
+<div id="BlockContent">
+<section class="secWhat">
+	<img class="spiro-gif" src="Spiograph_Animation.gif" alt="" width="300">
+	<h1>Что такое Спирограф?</h1>
+	<p><a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D1%84_(%D0%B8%D0%B3%D1%80%D1%83%D1%88%D0%BA%D0%B0)">Сприрограф</a> — детская игрушка, состоит из пластмассовой пластины с вырезанными кругами разных диаметров и набора колёс меньшего диаметра с отверстиями внутри. Края кругов и колёс зубчатые, чтобы предотвратить проскальзывание. Метод использования: пластина прикладывается к листу бумаги, внутрь выбранного кругового отверстия помещается одно из зубчатых колёс, в одно из отверстий которого вставляется шариковая ручка или карандаш. Затем зубчатое колесо приводится в движение лёгким нажимом на пишущий элемент, который оставляет на бумаге спиральный след. </p>
+	<h3>Формула в декартовых координатах:</h3>
+	<p>R - радиус большого круга.<br/>
+	   r - радиус маленького круга.<br/>
+	   d - расстояние от центра маленького круга до центра большого.
+	</p>
+	<img src="1.png" alt="Формула №1" width="300">
+	<img src="2.png" alt="Формула №2" width="300">
+</section>
+
+<section class="first">
+	<img src="spirogr.jpg" alt="" width="380">
+	<h1>Для чего это нужно?</h1>
+	<p>Изобретатель этого изделия решил выпустить его в качестве игрушки.После этого спирограф был назван лучшей обучающей игрушкой мира четыре года подряд, с 1965 по 1969 год. Это хорошая игрушка для обучения, которая помогает развивать абстрактное мышление путем изменения значений, создавая в голове результат до рисования фигуры на экране.<br/><br/>
+	А также вы можете использовать его для создания иконок или картинок для сайтов. Это можно сделать так: кликнуть правой кнопкой мыши по рисунку и выбрать "Cохранить как". Изображение сохраняется в PNG формате, поэтому картинка сохранится с прозрачным фоном.</p>
+</section>
+
+<section class="sec1">
+	
+	<h2 class="sec-h2">Спирографические фигуры</h2><br/>
+	<div class="pictures">
+		<div class="p">
+			<p>R:200; r:140; d:120; r0:50.</p>
+			<img src="spiro7.png" alt="spiro1" class="spiro-img">
+		</div>
+		<div class="p">
+			<p>R:400; r:140; d:120; r0:10.</p>
+			<img src="spiro2.png" alt="spiro1" class="spiro-img">
+		</div>
+		<div class="p">
+			<p>R:200; r:38; d:100; r0:3.</p>
+			<img src="spiro8.png" alt="spiro1" class="spiro-img">
+		</div>
+			
+		<div class="twopic">
+			<div class="p">
+			<p>R:144; r:99; d:126; r0:10.</p>
+			<img src="spiro3.png" alt="spiro1" class="spiro-img">
+		</div>
+		<div class="p">
+			<p>R:110; r:66; d:136; r0:8.</p>
+			<img src="spiro4.png" alt="spiro1" class="spiro-img">
+		</div>
+		<div class="p">
+			<p>R:(200,160,...); r:1, d:1, r0:10</p>
+			<img src="spiro5.png" alt="spiro1" class="spiro-img">
+		</div>
+		</div>	
+	</div>
+</section>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

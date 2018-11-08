@@ -1,0 +1,95 @@
+html{
+	font-size: 15px;
+	font-family: Arial;
+	height: 2000px;
+}
+
+body{
+position: relative;
+
+}
+
+#SText{
+	margin-top:30px;
+}
+
+#help{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	background:black;
+	border-radius: 50%;
+	color:white;
+	line-height: 60px;
+	text-align: center;
+	top:0px;
+	right: 0px;
+	z-index: 999;
+	border:5px solid red transparent;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+         -o-user-select: none;
+            user-select: none;
+}
+
+#main{
+	position: absolute;
+	
+	top:0px;
+	right: 0px;
+	cursor: pointer;
+}
+
+.bar{
+	position: absolute;
+	top: -1000px;
+	list-style: none;
+	right: 20px;
+	width: 400px; 
+
+	opacity: 0;
+	transition: 1s opacity;
+}
+
+.bar > li{
+	transition: 0.5s all;
+	padding: 20px;
+	margin-top: 2px; 
+	background: lightblue;
+	border: 5px solid transparent;
+border-radius: 10px;
+
+	
+}
+
+.barli{
+	
+}
+
+
+#main:hover .bar{
+	top:45px;
+	opacity: 1;
+
+}
+
+
+
+@keyframes lol{
+	transition:2s;
+}
+
+
+@media screen and (max-device-width:900px){
+	
+
+.barli{
+
+
+margin-left:100px;
+}
+}
+

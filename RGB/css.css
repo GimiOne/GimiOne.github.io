@@ -1,0 +1,227 @@
+body {
+
+	font: 1em 'PT Sans',Arial,sans-serif;
+
+	color: black;
+
+	padding: 50px;
+
+
+
+}
+
+
+
+.container{
+
+	
+
+	
+
+	margin: 50px;
+
+}
+
+
+
+
+
+
+
+
+
+.slid {
+
+	display: block;
+
+	margin: 0 auto;
+
+	width: 300px;
+
+	border-radius: 5px;
+
+	margin-top: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+.rgb{
+
+	 
+
+	font-size: 20px;
+
+	margin-bottom: 5px;
+
+	background-color: white;
+
+	padding: 3px 5px;
+
+	border-radius: 3px;
+
+}
+
+
+
+
+
+
+
+
+
+ a{
+
+ 	text-decoration: none;
+
+ }
+
+
+
+
+
+
+
+.divv {
+
+	
+
+	margin: 0 auto;
+
+	margin-bottom: 20px;
+
+	width: 320px;
+
+}
+
+
+
+.buttons{
+
+	position: relative;
+
+	left: 308px;
+
+	bottom: 30px;
+
+}
+
+
+
+.lol1,.lol2,.lol3{
+
+	margin-right: 10px;
+
+	width: 50px;
+
+	font-size: 20px;
+
+ }
+
+
+
+ .mrbut{
+
+ 	margin-right: 10px;
+
+
+
+ 	padding: 8px 5px 5px 5px;
+
+ 	background-color: rgb(226,223,225);
+
+ 	font-family: "Arial";
+
+ 	font-size: 16px;
+
+ 	border: none;
+
+ 	border-radius: 3px;
+
+ }
+
+
+
+.mrbut:hover{
+
+	background-color: rgb(255,166,0);
+
+	color: white;
+
+	cursor: pointer;
+
+}
+
+
+
+
+
+#copy{
+
+	color: white;
+
+	font:20px Arial;
+
+	cursor:default;
+
+}
+
+
+
+.btn-clipboard{
+
+	margin-right: 10px;
+
+
+
+ 	padding: 8px 5px 5px 5px;
+
+ 	background-color: rgb(226,223,225);
+
+ 	font-family: "Arial";
+
+ 	font-size: 16px;
+
+ 	border: none;
+
+ 	border-radius: 3px;
+
+}
+
+
+
+.btn-clipboard:hover{
+
+	background-color: rgb(142,210,225);
+
+	color: white;
+
+	cursor: pointer;
+
+}
+
+.mainsuk{
+	display:flex;
+	max-width:1000px;
+	margin:0 auto;
+	justify-content:center;
+	flex-direction:column;
+}
+
+
+@media screen and (max-width:400px){
+	.mainsuk{
+		
+}
+
+
+}
+
+
+

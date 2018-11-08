@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+html{
+
+	padding: 0;
+
+	margin: 0;
+
+	font:18px 'Open Sans',Arial,sans-serif;
+
+	
+
+	background: radial-gradient(circle,#010225,black);
+	
+}
+
+
+
+
+
+body{
+
+	padding: 0;
+
+	margin: 0;
+
+}
+
+
+.gif{
+	position: absolute;
+	width: 300px;
+	height: 500px;
+	margin: 0 auto;
+	top: 100px;
+	-webkit-transform: translateX(-20px);
+	    -ms-transform: translateX(-20px);
+	        transform: translateX(-20px);
+	background: url(3.gif) no-repeat;
+	background-size:350px 350px;
+	z-index: -1;
+}
+
+#game{
+
+	width: 300px;
+
+	height: 300px;
+
+	
+
+
+
+}
+
+
+
+.block{
+
+	width: 100px;
+
+	height: 100px;
+
+	float: left;
+
+	border:1px solid #03CBFC;
+
+
+
+	-webkit-box-sizing: border-box;
+
+
+
+	        box-sizing: border-box;
+
+	font-size: 30px;
+
+	
+
+	cursor: pointer;
+
+	-webkit-transition: 1s;
+
+	-o-transition: 1s;
+
+	transition: 1s;
+
+	outline:none;
+
+	
+
+
+
+}
+
+
+
+.block:active {
+
+    outline: none;
+
+}
+
+
+
+.podblock1{
+
+	width: 98px;
+
+	height: 98px;
+
+	-webkit-transition: 1s;
+
+	-o-transition: 1s;
+
+	transition: 1s;
+
+}
+
+
+
+.circle{
+
+	width: 57px;
+
+	height: 57px;
+
+	border:3px solid #03CBFC;
+
+	border-radius: 50%;
+
+	-webkit-transform: translate(18px,18px);
+
+	    -ms-transform: translate(18px,18px);
+
+	        transform: translate(18px,18px);
+
+	-webkit-box-shadow: 0 0 30px #03CBFC;
+
+	        box-shadow: 0 0 30px #03CBFC;
+
+	-webkit-transition: 1s;
+
+	-o-transition: 1s;
+
+	transition: 1s;
+
+
+
+
+
+}
+
+
+
+
+
+.podblock2{
+
+	position: relative;
+
+	width: 99px;
+
+	height: 99px;
+
+	
+
+}
+
+
+
+
+
+.x1{
+
+	position: absolute;
+
+	width: 5px;
+
+	height: 70px;
+
+	background-color: #03CBFC;
+
+	top: 15px;
+
+	left:46px;
+
+	-webkit-transform: rotate(45deg);
+
+	    -ms-transform: rotate(45deg);
+
+	        transform: rotate(45deg);
+
+	border-radius: 50%;
+
+	-webkit-box-shadow: 0 0 20px #03CBFC;
+
+	        box-shadow: 0 0 20px #03CBFC;
+
+}
+
+
+
+.x2{
+
+	width: 5px;
+
+	height: 70px;
+
+	background-color: #03CBFC;
+
+	-webkit-transform: rotate(-90deg);
+
+	    -ms-transform: rotate(-90deg);
+
+	        transform: rotate(-90deg);
+
+	border-radius: 50%;
+
+	-webkit-box-shadow: 0 0 20px #03CBFC;
+
+	        box-shadow: 0 0 20px #03CBFC;
+
+	
+
+}
+
+
+
+.main{
+
+	display: -webkit-box;
+
+	display: -ms-flexbox;
+
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	margin-top: -300px;
+}
+
+
+
+
+
+.header{
+
+	width: 330px;
+
+	text-align: center;
+
+	font-size: 30px;
+
+	margin-bottom: 50px;
+
+	color: #03CBFC;
+
+	border-radius: 5px;
+
+	-webkit-box-shadow: 0 0 20px #03CBFC;
+
+	        box-shadow: 0 0 20px #03CBFC;
+
+	
+
+}
+
+
+
+
+
+.window{
+
+	font-size: 25px;
+
+	position: relative;
+
+	width: 300px;
+
+	height: 300px;
+
+	margin: 0 auto;
+
+	top:182px;
+
+	text-align: center;
+
+	line-height: 300px;
+
+	-webkit-transform: scale(0);
+
+	    -ms-transform: scale(0);
+
+	        transform: scale(0);
+
+	color:white;
+
+	-webkit-box-shadow: 0 0 20px #03CBFC;
+
+	        box-shadow: 0 0 20px #03CBFC;
+
+	
+
+	text-shadow: 0 0 5px #03CBFC;
+
+	z-index: 900;
+
+	cursor: pointer;
+
+	-webkit-transition: .4s;
+
+	-o-transition: .4s;
+
+	transition: .4s;
+
+}
+
+
+
+.times{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 300px;
+
+	-webkit-box-pack: justify;
+
+	    -ms-flex-pack: justify;
+
+	        justify-content: space-between;
+	margin: 0 auto;
+}
+
+.x{
+	color: #00d0ff;
+	text-shadow: 0 0 10px #00d0ff;
+}
+
+.o{
+	color:#00d0ff;
+	text-shadow: 0 0 10px #00d0ff;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 422px){
+
+	.header{
+
+		position: -webkit-sticky;
+
+		position: sticky;
+
+		top: 0px;
+
+		width: 100%;
+
+		border-radius: 0px;
+
+		
+
+		z-index: 991;
+
+	}
+
+
+
+	.main{
+
+		margin-top: -330px;
+
+	}
+
+
+
+	html{
+		
+		height: 100%;
+		overflow-y:hidden;
+	}
+
+
+
+	.window{
+
+		top:151px;
+
+	}
+
+}

@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Распознавание речи</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="stylesheet" type="text/css" href="styleind.css">
+</head>
+<body id="back">
+<style>
+#SText{
+font-family:Arial;
+font-size:18px;
+width:100%;
+}
+
+#PandS{
+background:lightblue;
+border:1px solid white;
+border-radius:3px;
+padding:10px;
+font-size:18px;
+color:white;
+}
+
+#PandS:hover{
+	background:rgb(255,191,0);
+cursor:pointer;
+}
+
+#PandS:focus{
+	outline:none;
+}
+
+
+span{
+text-align: ceneter;
+font-size:20px;
+}
+</style>
+
+  <button id="PandS" onclick="speech()">Нажми и говори</button>
+  <button class="stop" id="PandS" onclick="stoped()">Стоп</button>
+
+
+
+  <br>
+  <textarea   rows="20" id="SText"></textarea>	
+  <div id="main">
+  <div id="help">HELP</div>
+
+
+
+  <ul id="bar-menu" class="bar">
+
+    <li class="barli"><span><b>Команды:</b></span><br>
+<b><i>OK Остановить</i></b> - остановить запись.<br>
+<b><i>OK Яндекс</i></b> - открывает в новой вкладке поисковый сайт <b>yandex.ru</b><br>
+<b><i>OK Google</i></b> - открывает в новой вкладке поисковый сайт <b>google.com</b><br>
+<b><i>OK YouTube</i></b> - открывает в новой вкладке видеохостинг <b>youtube.com</b><br>
+<b><i>OK VK</i></b> - открывает в новой вкладке социальную сеть <b>vk.com</b>.</br>
+<b><i>OK музыка VK</i></b> - открывает в новой вкладке аудиозаписи <b>vk.com</b></li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+<script>
+var strok = "";
+var i = 0;
+  // Создаем распознаватель
+  var recognizer = new webkitSpeechRecognition();
+
+  // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+  recognizer.interimResults = true;
+
+  // Какой язык будем распознавать?
+  recognizer.lang = 'ru-Ru';
+//recognizer.continuous= true;
+
+
+/////////// LINKS ////////////
+var links = {
+yandex: 'https://yandex.ru',
+yandexMail:'https://mail.yandex.ru',
+google: 'https://google.com',
+mailru: 'https://e.mail.ru/messages/inbox',
+mailcloud: 'https://cloud.mail.ru/home/',
+youtube: 'https://youtube.com',
+vk: 'https://vk.com',
+vkim: 'https://vk.com/im',
+translate: 'https://translate.google.ru',
+cfu: 'http://cfuv.ru',
+phiztex: 'http://abitur.cfuv.ru/abitur/vysshee-obrazovanie/reytingovyie-spiski-abiturientov/fiziko-tekhnicheskijj-institut',
+books:'https://dimzaikin2013.000webhostapp.com/css%20animation/example.html',
+sorax:'https://www.youtube.com/user/ArtSorax/videos',
+winderton:'https://www.youtube.com/channel/UC4omkhNHsYLagT1o6hnmKQw/videos',
+main:'https://dimzaikin2013.000webhostapp.com',
+audioVK:'https://vk.com/audio'
+}
+///////////END LINKS////////////////////////////////////////////////////////
+  // Используем колбек для обработки результатов
+  recognizer.onresult = function (event) {
+    var result = event.results[event.resultIndex];
+    if (result.isFinal) {
+      document.getElementById('SText').innerHTML = result[0].transcript;
+    } 
+
+
+
+	if((result[0].transcript).includes('OK Яндекс')||
+	(result[0].transcript).includes('Ok Яндекс')){
+		if (result.isFinal) {
+      		window.open(links.yandex,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	if((result[0].transcript).includes('OK почта Яндекс')||
+	(result[0].transcript).includes('Ok почта Яндекс')||
+	(result[0].transcript).includes('окей почта Яндекс')){
+		if (result.isFinal) {
+      		window.open(links.yandexMail,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	if((result[0].transcript).includes('OK Google')||
+	(result[0].transcript).includes('Ok Google')||
+	(result[0].transcript).includes('окей гугл')){
+		if (result.isFinal) {
+      		window.open(links.google,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	if((result[0].transcript).includes('OK почта mail')||
+	(result[0].transcript).includes('Ok почта mail')||
+	(result[0].transcript).includes('окей почта mail')){
+		if (result.isFinal) {
+      		window.open(links.mailru,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+
+	if((result[0].transcript).includes('OK облако mail')||
+	(result[0].transcript).includes('Ok облако mail')||
+	(result[0].transcript).includes('окей облако mail')||
+	(result[0].transcript).includes('OK Облако mail')||
+	(result[0].transcript).includes('Ok Облако mail')||
+	(result[0].transcript).includes('окей Облако mail')){
+		if (result.isFinal) {
+      		window.open(links.mailcloud,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+
+	
+
+	if((result[0].transcript).includes('OK YouTube')||
+	(result[0].transcript).includes('Ok YouTube')||
+	(result[0].transcript).includes('окей YouTube')){
+		if (result.isFinal) {
+      		window.open(links.youtube,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+
+	if((result[0].transcript).includes('OK VK')||
+	(result[0].transcript).includes('Ok VK')||
+	(result[0].transcript).includes('окей VK')){
+		if (result.isFinal) {
+      		window.open(links.vk,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+
+	if((result[0].transcript).match(/ok сообщени(е||я) vk/gi)){
+		if (result.isFinal) {
+      		window.open(links.vkim,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+
+	if((result[0].transcript).match(/ok крымский федеральный университет/gi)){
+		if (result.isFinal) {
+      		window.open(links.cfu,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	if((result[0].transcript).match(/ok физтех/gi)){
+		if (result.isFinal) {
+      		window.open(links.phiztex,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+
+	if((result[0].transcript).match(/ok книги/gi)){
+		if (result.isFinal) {
+      		window.open(links.books,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	if((result[0].transcript).match(/ok топчик/gi)){
+		if (result.isFinal) {
+      		window.open(links.sorax,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+
+	if((result[0].transcript).match(/ok winderton/gi)){
+		if (result.isFinal) {
+      		window.open(links.winderton,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	if((result[0].transcript).match(/ok главн(а||о)(я||е)/gi)){
+		if (result.isFinal) {
+      		window.open(links.main,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	if((result[0].transcript).match(/ok музыка VK/gi)){
+		if (result.isFinal) {
+      		window.open(links.audioVK,'_blank')
+   		}
+		result[0].transcript = "";
+	}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+if ((result[0].transcript).match(/ok остановить/gi)){
+	stoped();
+document.getElementsByClassName('stop')[0].style.background = "red";
+}
+		
+
+
+ document.getElementById('SText').innerHTML = result[0].transcript;
+      console.log('Промежуточный результат: ', result[0].transcript);
+    
+  };
+
+
+
+  function speech () {
+    // Начинаем слушать микрофон и распознавать голос
+    recognizer.start();
+document.getElementsByClassName('stop')[0].style.background = "lightblue";
+document.getElementsByClassName('stop')[0].style.transition = ".5s";
+  }
+
+  var synth = window.speechSynthesis;
+  var utterance = new SpeechSynthesisUtterance('Почему не работает?');
+
+  function talk() {
+    synth.speak (utterance);
+  }
+
+  function stop () {
+    synth.pause();
+  }
+
+function stoped(){
+recognizer.stop();
+}
+  </script>
+</body>
+</html>

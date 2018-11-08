@@ -1,0 +1,540 @@
+html{
+	height: 4000px;
+}
+
+
+
+
+.vk {
+	width: 150px;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.vk:hover {
+	transform: rotate(10deg);
+	
+}
+
+.hoverC{
+	position: absolute;
+	margin-top: -350px;
+	margin-left: -100px;
+	font-size: 40px;
+	
+	text-align: center;
+
+	width: 200px;
+	padding: 100px 0;
+	
+	
+	line-height: 0;
+	border-radius: 100px;
+	font-family: "Arial";
+	background-color: lightblue;
+	cursor: pointer;
+	animation: rotataa 1s;
+	transition: 1s;
+}
+
+@keyframes rotataa{
+	0%{transform: rotate(0deg);background-color: red}
+	100%{transform: rotate(360deg);}
+
+}
+
+
+
+
+.hoverC:hover{
+	transform: rotate(360deg);
+	background-color: red;
+	color:white;
+}
+
+
+.hoverC1{
+	position: absolute;
+	margin-top: -350px;
+	margin-left: 400px;
+	font-size: 40px;
+	
+	text-align: center;
+
+	width: 200px;
+	padding: 100px 0;
+	
+	
+	line-height: 0;
+	border-radius: 100px;
+	font-family: "Arial";
+	font-weight: lighter;
+	background-color: lightblue;
+	cursor: pointer;
+	animation: rotataa 1s;
+	transition: 1s;
+}
+
+
+
+.hoverC1:hover{
+	transform: rotate(360deg);
+	background-color: red;
+	color:white;
+}
+
+
+.circle {
+
+	
+	font-size: 40px;
+	
+	text-align: center;
+
+	width: 500px;
+	padding: 250px 0;
+	margin:0 auto;
+	line-height: 0;
+	border-radius: 250px;
+	border: 3px solid lightblue;
+	font-family: "Magistral";
+	background-color: white;
+	cursor: pointer;
+	transition: 1s;
+	
+}
+
+
+.circle:hover{
+	
+	background-color: lightblue;
+color: white;
+	}
+
+.lol{
+	position: absolute;
+
+
+	transform-origin: 0px 5px;
+	animation-name: rotata;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	
+}
+
+
+.lol2{
+	position: absolute;
+	
+
+	transform-origin: 0px 5px;
+	animation-name: rotata2;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	
+}
+
+
+.lol3{
+	position: absolute;
+	
+	
+	transform-origin: 0px 5px;
+	animation-name: rotata3;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	
+}
+
+.lol,.lol2,.lol3{
+	margin:0 0 0 250px;
+	font-size: 50px;
+}
+
+
+@keyframes rotata{
+	0%{transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+
+}
+
+@keyframes rotata2{
+	0%{transform: rotate(120deg);}
+	100%{transform: rotate(480deg);}
+
+}
+
+@keyframes rotata3{
+	0%{transform: rotate(240deg);}
+	100%{transform: rotate(600deg);}
+
+}
+
+
+.second{
+	position: absolute;
+	width: 250px;
+	height: 6px;
+	background-color: red;
+	border-radius: 20px  20px 20px 20px;
+	margin-top: 0px;
+	margin-left: 247px;
+	transition: 2s;
+	transform-origin: 3px 2px;
+	animation-name: rotate;
+	animation-iteration-count: infinite;
+	animation-duration: 60s;
+	animation-timing-function: linear;
+}
+
+
+.minute{
+	position: absolute;
+	width: 210px;
+	height: 6px;
+	background-color: red;
+	border-radius: 20px  20px 20px 20px;
+	margin-top: 0px;
+	margin-left: 247px;
+	transition: 2s;
+	transform-origin: 3px 2px;
+	animation-name: rotate;
+	animation-iteration-count: infinite;
+	animation-duration: 3600s;
+	animation-timing-function: linear;
+}
+
+
+
+.hour{
+	position: absolute;
+	width: 180px;
+	height: 6px;
+	background-color: red;
+	border-radius: 20px  20px 20px 20px;
+	margin-top: 0px;
+	margin-left: 247px;
+	transition: 2s;
+	transform-origin: 3px 2px;
+	animation-name: rotate;
+	animation-iteration-count: infinite;
+	animation-duration: 86400s;
+	animation-timing-function: linear;
+}
+
+
+@keyframes rotate{
+	0%{transform: rotate(-90deg);}
+	100%{transform: rotate(270deg);}
+}
+
+
+.ball{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	border-radius: 100px;
+	animation: jump 3s linear infinite;
+}
+
+@keyframes jump{
+	0%{bottom: 100%}
+	25%{bottom: 0;width: 200px;height: 200px;}
+	27%{bottom: 0;height: 170px;width: 210px;}
+	30%{bottom: 0;height: 200px;width: 200px;}
+	
+	70%{bottom: 100%}
+	100%{bottom: 100%}
+}
+
+.rel{
+	position: relative;
+}
+
+.trans{
+	
+	background: pink;
+	
+	border-top: 50px solid transparent;
+	border-bottom: 50px solid transparent;
+transition: 3s;
+}
+
+
+.trans:hover{
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+
+}
+
+
+.krug{
+	background-color: rgb(19,155,154);
+	width: 200px;
+	height: 200px;
+	margin:0 auto;
+	margin-top: 400px;
+	line-height: 200px;
+	font-family: "Magistral","Arial";
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	border:3px solid rgb(19,155,154);
+	border-radius: 100px;
+	position: relative;
+	cursor: pointer;
+}
+.krug::after{
+	content: "";
+	width: 200px;
+	height: 200px;
+	background: black;
+	display: block;
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transition: .5s;
+
+}
+
+.krug span {
+	position: relative;
+	z-index: 100;
+}
+
+
+.krug:hover::after {
+filter: blur(20px);
+	width: 0;
+	height: 0;
+	background-color: #3d3d3d;
+	top: 100px;
+	left: 100px;
+	cursor: pointer;
+}
+
+.tet {
+	position: relative;
+	z-index: 1000;
+}
+
+
+
+.css{
+	background-color: rgb(19,155,154);
+	width: 500px;
+	height: 100px;
+	margin:0 auto;
+	position: relative;
+	line-height: 100px;
+	font-family: "Magistral","Arial";
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	border-radius: 10px;
+	position: relative;
+	cursor: pointer;
+	box-shadow: 5px 5px 20px black;
+	
+	animation: lal 1s;
+}
+
+.css::after{
+	content: "CSS3";
+	width: 500px;
+	height: 100px;
+	background: linear-gradient(to top left,black,grey);
+	display: block;
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	transition: .5s;
+}
+
+
+
+.css:hover::after{
+	width: 0px;
+	height: 0px;
+	background: gradient-linear(to top left,black,grey);
+	top:50px;
+	left: 1000px;
+}
+
+.tett{
+	opacity: 0;
+	padding: 30px 0 30px 0;
+	transition: 2s;
+}
+
+
+.tett:hover {
+	opacity: 1;
+}
+
+@keyframes lal{
+	0%{transform: translateY(-200px);}
+	50%{transform: translateY(50px);}
+	100%{transform: translateY(0px);}
+}
+
+
+.krugok{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin-top: 400px;
+	background: red;
+	text-align: center;
+	line-height: 200px;
+	border-radius: 50%;
+	color:white;
+	font-family: "Magistral";
+	font-size: 25px;
+	box-shadow: 0px 0px 25px black;
+	cursor: pointer;
+	transition: .5s;
+}
+
+
+
+
+
+#krugok2{
+	margin-left: -50px;
+}
+
+
+.krugok:hover  {
+	background: lightblue;
+}
+
+
+.rel{
+	font-family: "Arial";
+}
+
+
+
+.shar{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin-top: 100px;
+	background: lightgrey;
+	text-align: center;
+	line-height: 200px;
+	border-radius: 50%;
+	color:white;
+	font-family: "Magistral";
+	font-size: 25px;
+	margin-left: 50px;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.shar:hover{
+	box-shadow: 0px 0px 25px black;
+	
+}
+
+.shar:active{
+	box-shadow: 0px 0px 25px black inset;
+
+}
+
+.down{
+	display: block;
+	position: relative;
+}
+
+.down:active{
+	color: red;
+	margin-top:3px;
+}
+
+.orr{
+	display: block;
+	width: 100px;
+	height:100px;
+	margin-top: 9px;
+	margin-left: 9px;
+	padding: 40px 40px;
+}
+
+.orr:active{
+	width: 97px;
+	height: 97px;
+}
+
+.rule{
+	margin-top: -430px;
+}
+
+.kruto{
+	position: relative;
+	top:300px;
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+#spin{
+	background-image: url(spin.png);
+	background-size: 300px;
+	margin:0 auto;
+
+	width: 300px;
+	height: 300px;
+z-index: -1;
+}
+
+
+
+@keyframes spiner{
+	0%{transition: 2s;}
+	100%{transition: 2s;
+		transform: rotate(3600deg);}
+}
+
+
+
+.spin1{
+	display: block;
+	width: 300px;
+	margin: 0 auto;
+}
+
+.spin1:activ{
+	opacity: 0;
+}
+
+
+.roll{
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	top:0;
+	
+}
+
+
+#spidd{
+	position: relative;
+	bottom: 300px;
+	width: 300px;
+	height: 300px;
+	background-image: url(spin1.png);
+	background-size: 300px;
+	z-index: 999;
+}
+
+
