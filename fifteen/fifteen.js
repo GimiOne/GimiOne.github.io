@@ -17,6 +17,7 @@
         });
 	    document.getElementById('shufflebutton').addEventListener('mousedown', scramble);
 		setTimeout(scramble,500);
+    	
 	};
 
 	/**
@@ -24,6 +25,7 @@
 	 *
 	 */
 	function solve(){
+		var time = performance.now();
 		var puzzlearea = document.getElementById('puzzlearea');
 		if(STATE == 0){
 			return;
@@ -65,7 +67,8 @@
 
 			}
 		}
-
+		
+		 console.log(performance.now()-time)
 	}
 
 	/**
@@ -114,6 +117,7 @@
 	 *
 	 */
 	function getEmptyAdjacentelement(element){
+
 		// Gets all adjacent elements
 		var adjacent = getAdjacentelements(element);
 		// Searches for empty element
