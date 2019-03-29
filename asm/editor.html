@@ -1,0 +1,215 @@
+<!doctype HTML public "-//W3O//DTD W3 HTML 3.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Перевод: Поляков А.В. http://www.avprog.narod.ru</TITLE>
+<META name="description" content="What is an assembly language?">
+<META name="keywords" content="emu8086, 8086, tutorial, programming, assembler tutorial, tutorial for begginers">
+<META name="robots" content="nofollow">
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#007099" alink="#FF0000">
+
+<TABLE WIDTH=80%>
+<TR><TD>
+<FONT FACE="Verdana" SIZE=3>
+<FONT SIZE=+1>
+<B>Редактор исходного кода</B>
+</FONT><BR><BR>
+<FONT SIZE=1>
+Перевод: Поляков А.В. <A HREF="http://www.avprog.narod.ru">http://www.avprog.narod.ru</A>
+</FONT><BR><BR><BR>
+<B>Использование мыши</B><BR><BR>
+Редактор поддерживает следующие действия мыши:<BR><BR>
+
+<FONT FACE="Fixedsys">
+
+<TABLE BORDER=1 WIDTH=100% CELLPADDING=7>
+<TR>
+<TD BGCOLOR=YELLOW>Действие мыши </TD><TD BGCOLOR=YELLOW>      Результат </TD>
+</TR>
+
+<TR>
+<TD WIDTH=70%>Щелчок левой кнопкой над текстом	     </TD><TD>               Изменение позиции курсора
+</TR>
+<TR>
+<TD>Щелчок правой кнопкой	                </TD><TD>                Отображение контекстного меню
+</TR>
+<TR>
+<TD>Нажатие левой кнопки над выделенным участком текста и перетаскивание	  </TD><TD>      Перемещение текста
+</TR>
+<TR>
+<TD>Ctrl + Нажатие левой кнопки над выделенным участком текста и перетаскивание</TD><TD>	Копирование текста
+</TR>
+<TR>
+<TD>Щелчок левой кнопкой по левому краю	     </TD><TD>           Выделение строки
+</TR>
+<TR>
+<TD>Нажатие левой кнопки на левом краю и перетаскивание	</TD><TD>    Выделение нескольких строк
+</TR>
+<TR>
+<TD>Alt + Нажатие левой кнопки и перетаскивание	    </TD><TD>            Выделение колонки текста
+</TR>
+<TR>
+<TD>Двойной щелчок левой кнопки над текстом	     </TD><TD>           Выбор слова под курсором
+</TR>
+<TR>
+<TD>Вращение колеса мыши	   </TD><TD>             Вертикальная прокрутка окна
+</TR>
+<TR>
+<TD>Щелчок по колесу	</TD><TD>        Выбор слова под курсором
+</TR>
+<TR>
+<TD>Двойной щелчок по колесу	</TD><TD>        Выделение строки под курсором
+</TR>
+
+
+</TABLE>
+
+</FONT>
+
+
+
+<BR><BR>
+
+<HR>
+
+<BR><BR>
+
+<B>Горячие клавиши редактора</B>:
+
+<BR>
+
+<PRE><FONT FACE="Fixedsys">
+Команда                  Сочетание клавиш
+=======================================================================
+Вставить закладку        Control + F2
+Следующая закладка       F2
+Предыдущая закладка      Shift + F2
+
+Копирование              Control + C, Control + Insert
+Вырезание                Control + X, Shift + Delete, Control + Alt + W
+Вырезание строки         Control + Y
+Вырезание предложения    Control + Alt + K
+Вставка                  Control + V, Shift + Insert
+
+Отмена                   Control + Z, Alt + Backspace
+
+Конец документа          Control + End
+Выделение текста от
+курсора до конца
+документа                Control + Shift + End
+Начало документа         Control + Home
+Выделение текста от
+курсора до начала
+документа                Control + Shift + Home
+
+Поиск                    Control + F, Alt + F3
+Продолжить поиск         F3
+Найти следующее слово    Control + F3
+Найти предыдущее         Shift + F3
+Найти предыдущее слово   Control + Shift + F3
+Найти и заменить         Control + H, Control + Alt + F3
+Перейти к строке         Control + G
+
+Выделить все             Control + A
+Выделить строку          Control + Alt + F8
+
+Вставить новую строку
+выше                     Control + Shift + N
+
+Табуляция                Tab
+Отмена табуляции         Shift + Tab
+
+Снятие выделения         Control + Shift + T
+Снятие выделения         Control + Shift + Space
+
+Перевод выделения в
+верхний регистр          Control + L
+Перевод выделения в
+нижний регистр           Control + U, Control + Shift + U
+
+Левое слово              Control + Left
+Правое слово             Control + Right
+Левое предложение        Control + Alt + Left
+Правое предложение       Control + Alt + Right
+
+Перепечатывание          Insert
+Отобразить пробелы       Control + Alt + T
+
+Прокрутка окна вверх     Control + Down
+Прокрутка окна вниз      Control + Up
+Прокрутка окна влево     Control + PageUp
+Прокрутка окна вправо    Control + PageDown
+
+Удаление слова справа    Control + Delete
+Удаление слова слева     Control + Backspace
+
+Выделение символа слева  Shift + Left
+Выделение символа справа Shift + Right
+Выделение слова слева    Control + Shift + Left
+Выделение слова справа   Control + Shift + Right
+Выделение строки слева   Shift + Home
+Выделение строки справа  Shift + End
+Выделение верхней строки Shift + Up
+Выделение нижней строки  Shift + Down
+Выделение страницы вверх Shift + PgUp
+Выделение страницы вниз  Shift + PgDown
+
+Записать макрос          Control + Shift + R
+Установить счетчик
+повтора                  Control + R
+
+</FONT></PRE>
+
+<HR>
+
+<BR><BR>
+
+<B>Допустимые правила синтаксиса выражений для поиска и замены</B>
+
+<PRE><FONT FACE="Fixedsys">
+Шаблоны:
+        ? (для любых символов),
+        + (для одного или более),
+        * (для нуля или более).
+
+Наборы символов:
+        Символы, заключенные в квадратные скобки,
+        трактуются как набор опций.
+
+        Диапазон символов может быть определен
+        с помощью дефиса (например, [a-c]).
+
+Логическое ИЛИ:
+        Подвыражения могут содержать логическое ИЛИ,
+        которое обозначается символом |.
+
+</FONT></PRE>
+
+<HR>
+
+<BR>
+
+	Если появятся проблемы с редактором исходного кода, вы
+	можете вручную скопировать файл "<B>cmax20.ocx</B>" из
+	каталога, где установлена программа, в папку <B>Windows\System</B>
+	или  <B>Windows\System32</B>, заменив существующую версию
+	этого файла (после этого может потребоваться перезагрузка компьютера).
+
+<BR><BR>
+
+<HR>
+<BR>
+
+Авторское право: 1997-2002 Barry Allyn.  Все права защищены.
+
+</FONT>
+
+</TD></TR>
+</TABLE>
+
+<BR>
+
+</BODY>
+
+</HTML>

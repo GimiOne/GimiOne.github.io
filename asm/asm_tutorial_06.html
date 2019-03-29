@@ -1,0 +1,333 @@
+<!doctype HTML public "-//W3O//DTD W3 HTML 3.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Перевод: Поляков А.В. http://www.avprog.narod.ru</TITLE>
+<META name="description" content="Interrupts - 8086 Assembler">
+<META name="keywords" content="interrupts, 8086, tutorial, programming, assembler tutorial, tutorial for begginers">
+<META name="robots" content="nofollow">
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#007099" alink="#FF0000">
+<TABLE WIDTH=80%>
+<TR><TD>
+<FONT FACE="Verdana" SIZE=3>
+<FONT SIZE=+1>
+<B>Уроки Ассемблера 8086 для начинающих (Часть 6)</B>
+</FONT><BR><BR>
+<FONT SIZE=+2><B>Арифметические и логические команды</B></FONT>
+<BR><BR>
+<FONT SIZE=1>
+Перевод: Поляков А.В. <A HREF="http://www.avprog.narod.ru">http://www.avprog.narod.ru</A>
+</FONT><BR><BR><BR>
+Большинство арифметических и логических команд влияют на регистр состояния процессора
+(или <B>Флаги</B>)
+<BR><BR>
+<IMG SRC="flags.gif">
+
+<BR><BR>
+Как вы можете видеть, в этом регистре 16 бит. Каждый бит называется <B>флагом</B>
+и может принимать значение <B>1</B> или <B>0</B>.
+<BR><BR>
+
+<UL>
+
+<LI><B>Carry Flag (CF) - перенос</B> - этот флаг устанавливается в <B>1</B>,
+когдаслучается <B>беззнаковое переполнение</B>. Например, если вы
+увеличили байт <B>255 + 1</B> (результат не помещается в диапазоне 0...255).
+Если переполнение не происходит, этот флаг установлен в <B>0</B>.
+
+<BR><BR>
+</LI>
+
+<LI><B>Zero Flag (ZF) - ноль</B> - устанавливается в <B>1</B>, если
+результат равен <B>нулю</B>. Если результат не нулевой, то этот флаг
+устанавливается в <B>0</B>.
+
+<BR><BR>
+</LI>
+
+<LI><B>Sign Flag (SF) - знак</B> - установлен в <B>1</B>, если
+результат - <B>отрицательное число</B>. Если результат <B>положительный</B>,
+то этот флаг устанавливается в <B>0</B>. Обычно этот флаг принимает
+значение старшего значащего бита.
+
+
+<BR><BR>
+</LI>
+
+<LI><B>Overflow Flag (OF) - переполнение</B> - устанавливается в <B>1</B>,
+если случается <B>переполнение</B> при арифметических операциях со знаком.
+Например, если вы увеличили байт <B>100 + 50</B> (результат не помещается в диапазоне -128...127).
+
+<BR><BR>
+</LI>
+
+<LI><B>Parity Flag (PF) - контроль четности</B> - этот флаг устанавливается в <B>1</B>, если
+в младших 8-битовых данных четное число. Если число нечетное, то этот бит установлен в <B>0</B>.
+Даже если результат - это слово, то анализируются только 8 младших бит!
+
+<BR><BR>
+</LI>
+
+<LI><B>Auxiliary Flag (AF) - внешний перенос</B> - установлен в <B>1</B>,
+если случилось <B>переполнение без знака</B> младших 4-х битов (т.е. перенос из 3-го бита).
+
+<BR><BR>
+</LI>
+
+<LI><B>Interrupt enable Flag (IF) - прерывание</B> - если этот флаг установлен в <B>1</B>, то
+процессор реагирует на прерывание от внешних устройств.
+
+<BR><BR>
+</LI>
+
+<LI><B>Direction Flag (DF) - направление</B> - этот флаг используется
+некоторыми командами для обработки цепочки данных. Если флаг установлен
+в <B>0</B> - обработка происходит в прямом направлении, если <B>1</B> -
+в обратном.
+
+<BR><BR>
+</LI>
+
+</UL>
+
+<HR>
+
+<BR>
+
+Имеются три группы команд.<BR><BR>
+
+<HR>
+<BR>
+
+Первая группа: <B>ADD</B>, <B>SUB</B>,<B>CMP</B>, <B>AND</B>, <B>TEST</B>,
+                        <B>OR</B>, <B>XOR</B><BR><BR>
+
+
+Эти типы операндов поддерживаются:<BR><BR>
+<BLOCKQUOTE>
+<FONT FACE="Fixedsys">
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+</FONT>
+</BLOCKQUOTE>
+
+<B>REG</B>:<FONT SIZE=-1> AX, BX, CX, DX, AH, AL, BL, BH, CH, CL, DH, DL, DI, SI, BP, SP.</FONT><BR><BR>
+<B>memory</B>: [BX], [BX+SI+7], переменная, и т.п...<BR><BR>
+<B>immediate</B>: 5, -24, 3Fh, 10001101b, и т.п...<BR><BR>
+
+После операции между операндами результат всегда записывается в первый операнд.
+Команды <B>CMP</B> и <B>TEST</B> воздействуют только на флаги и не
+записывают результат (эта команда используется для принятия решения во
+время выполнения программы).
+<BR><BR>
+
+Эти команды влияют только на флаги:<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;<B>CF</B>, <B>ZF</B>,
+<B>SF</B>, <B>OF</B>, <B>PF</B>, <B>AF</B>.<BR><BR>
+
+<UL>
+
+<LI><B>ADD</B> - Прибавить второй операнд к первому.
+<BR><BR></LI>
+
+<LI><B>SUB</B> - Вычесть второй операнд из первого.
+<BR><BR></LI>
+
+<LI><B>CMP</B> - Вычесть второй операнд из первого <B>только для флагов</B>.
+<BR><BR></LI>
+
+<LI><B>AND</B> - Логическое И между всеми битами двух операндов. При этом соблюдаются правила:<BR>
+                 <BLOCKQUOTE>
+                 <FONT FACE="Fixedsys">
+                 1 AND 1 = 1<BR>
+                 1 AND 0 = 0<BR>
+                 0 AND 1 = 0<BR>
+                 0 AND 0 = 0<BR>
+                 </FONT>
+                 </BLOCKQUOTE>
+				 Как видите, мы получаем <B>1</B> только в том случае,
+				 если оба бита равны <B>1</B>.
+<BR><BR></LI>
+
+<LI><B>TEST</B> - То же самое, что <B>AND</B>, но <B>только для флагов</B>.
+<BR><BR></LI>
+
+<LI><B>OR</B> - Логическое ИЛИ между всеми битами двух операндов. При этом соблюдаются правила:<BR>
+                 <BLOCKQUOTE>
+                 <FONT FACE="Fixedsys">
+                 1 OR 1 = 1<BR>
+                 1 OR 0 = 1<BR>
+                 0 OR 1 = 1<BR>
+                 0 OR 0 = 0<BR>
+                 </FONT>
+                 </BLOCKQUOTE>
+				 Как видите, мы получаем <B>1</B> каждый раз, когда
+				 хотя бы один бит равен <B>1</B>.
+<BR><BR></LI>
+
+<LI><B>XOR</B> - Логическое XOR (исключающее ИЛИ) между всеми битами двух операндов. При этом соблюдаются правила:<BR>
+                 <BLOCKQUOTE>
+                 <FONT FACE="Fixedsys">
+                 1 XOR 1 = 0<BR>
+                 1 XOR 0 = 1<BR>
+                 0 XOR 1 = 1<BR>
+                 0 XOR 0 = 0<BR>
+                 </FONT>
+                 </BLOCKQUOTE>
+				 Как видите, мы получаем <B>1</B> каждый раз, когда
+				 биты имеют различное значение.
+<BR><BR></LI>
+
+</UL>
+
+<HR>
+<BR>
+
+Вторая группа: <B>MUL</B>, <B>IMUL</B>, <B>DIV</B>, <B>IDIV</B><BR><BR>
+
+Эти типы операндов поддерживаются:<BR><BR>
+<BLOCKQUOTE>
+<FONT FACE="Fixedsys">
+	REG<BR>
+	memory<BR>
+</FONT>
+</BLOCKQUOTE>
+
+<B>REG</B>:<FONT SIZE=-1> AX, BX, CX, DX, AH, AL, BL, BH, CH, CL, DH, DL, DI, SI, BP, SP.</FONT><BR><BR>
+<B>memory</B>: [BX], [BX+SI+7], переменная, и т.п...<BR><BR>
+
+Команды <B>MUL</B> и <B>IMUL</B> влияют только на эти флаги:<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;<B>CF</B>, <B>OF</B><BR>
+Если результат превышает размер операнда, то эти флаги установлены в <B>1</B>,
+если результат умещается в размер операнда, то эти флаги установлены в <B>0</B>.
+<BR><BR>
+
+Для команд <B>DIV</B> и <B>IDIV</B> флаги не определены.<BR><BR>
+
+<UL>
+
+<LI><B>MUL</B> - беззнаковое умножение:
+				 <BLOCKQUOTE>
+				 	 если операнд - это <B>байт</B>:<BR>
+					 <FONT FACE="Fixedsys">AX = AL * операнд</FONT>.
+				 </BLOCKQUOTE>
+
+				 <BLOCKQUOTE>
+				    если операнд - это <B>слово</B>:<BR>
+					<FONT FACE="Fixedsys">(DX AX) = AX * операнд</FONT>.
+				 </BLOCKQUOTE>
+</LI>
+
+<LI><B>IMUL</B> - умножение со знаком:
+				 <BLOCKQUOTE>
+				 	 если операнд - это <B>байт</B>:<BR>
+					 <FONT FACE="Fixedsys">AX = AL * операнд</FONT>.
+				 </BLOCKQUOTE>
+
+				 <BLOCKQUOTE>
+				    если операнд - это <B>слово</B>:<BR>
+					<FONT FACE="Fixedsys">(DX AX) = AX * операнд</FONT>.
+				 </BLOCKQUOTE>
+</LI>
+
+<LI><B>DIV</B> - беззнаковое деление:
+				 <BLOCKQUOTE>
+				 	 если операнд - это <B>байт</B>:<BR>
+					 <FONT FACE="Fixedsys">AL = AX / операнд<BR>
+					 AH = остаток (модуль).
+					 </FONT>.
+				 </BLOCKQUOTE>
+
+				 <BLOCKQUOTE>
+				    если операнд - это <B>слово</B>:<BR>
+					<FONT FACE="Fixedsys">AX = (DX AX) / операнд<BR>
+					DX = остаток (модуль).
+					</FONT>.
+				 </BLOCKQUOTE>
+</LI>
+
+<LI><B>IDIV</B> - деление со знаком:
+				 <BLOCKQUOTE>
+				 	 если операнд - это <B>байт</B>:<BR>
+					 <FONT FACE="Fixedsys">AL = AX / операнд<BR>
+					 AH = остаток (модуль).
+					 </FONT>.
+				 </BLOCKQUOTE>
+
+				 <BLOCKQUOTE>
+				    если операнд - это <B>слово</B>:<BR>
+					<FONT FACE="Fixedsys">AX = (DX AX) / операнд<BR>
+					DX = остаток (модуль).
+					</FONT>.
+				 </BLOCKQUOTE>
+</LI>
+</UL>
+
+<HR>
+<BR>
+
+Третья группа: <B>INC</B>, <B>DEC</B>, <B>NOT</B>, <B>NEG</B><BR><BR>
+
+Эти типы операндов поддерживаются:<BR><BR>
+<BLOCKQUOTE>
+<FONT FACE="Fixedsys">
+	REG<BR>
+	memory<BR>
+</FONT>
+</BLOCKQUOTE>
+
+<B>REG</B>:<FONT SIZE=-1> AX, BX, CX, DX, AH, AL, BL, BH, CH, CL, DH, DL, DI, SI, BP, SP.</FONT><BR><BR>
+<B>memory</B>: [BX], [BX+SI+7], переменная, и т.п...<BR><BR>
+
+Команды <B>INC</B> и <B>DEC</B> влияют только на эти флаги:<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;<B>ZF</B>, <B>SF</B>, <B>OF</B>, <B>PF</B>, <B>AF</B>.<BR><BR>
+
+Команда <B>NOT</B> не влияет ни на какие флаги!<BR><BR>
+
+Команда <B>NEG</B> влияет только на эти флаги:<BR>
+&nbsp; &nbsp; &nbsp; &nbsp;<B>CF</B>, <B>ZF</B>, <B>SF</B>, <B>OF</B>, <B>PF</B>, <B>AF</B>.<BR><BR>
+
+
+<UL>
+
+<LI><B>NOT</B> - инвертирование каждого бита операнда.
+<BR><BR>
+</LI>
+
+<LI><B>NEG</B> - Меняет знак операнда (дополнение до двух).
+				Обычно она инвертирует каждый бит операнда, а затем
+				прибавляет к нему единицу. Например, 5 преобразуется в -5,
+				а -2 преобразуется в 2.
+</LI>
+
+</UL>
+
+
+
+<HR>
+
+
+
+<BR><BR><BR>
+
+<HR>
+<CENTER>
+<A HREF="asm_tutorial_05.html"><B> &lt;&lt;&lt; Предыдущая часть &lt;&lt;&lt; </B></A>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="asm_tutorial_07.html"><B> >>> Следующая часть >>> </B></A>
+</CENTER>
+<HR>
+
+<BR>
+
+</FONT>
+
+
+</TD></TR>
+</TABLE>
+
+</BODY>
+
+</HTML>

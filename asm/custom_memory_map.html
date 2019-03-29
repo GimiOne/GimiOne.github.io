@@ -1,0 +1,99 @@
+<!doctype HTML public "-//W3O//DTD W3 HTML 3.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Перевод: Поляков А.В. http://www.avprog.narod.ru</TITLE>
+<META name="description" content="What is an assembly language?">
+<META name="keywords" content="emu8086, 8086, tutorial, programming, assembler tutorial, tutorial for begginers">
+<META name="robots" content="nofollow">
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#007099" alink="#FF0000">
+
+<TABLE WIDTH=80%>
+<TR><TD>
+<FONT FACE="Verdana" SIZE=3>
+<FONT SIZE=+1>
+<B>Пользовательская таблица памяти</B>
+</FONT><BR><BR>
+<FONT SIZE=1>
+Перевод: Поляков А.В. <A HREF="http://www.avprog.narod.ru">http://www.avprog.narod.ru</A>
+</FONT><BR><BR><BR>
+Вы можете определить свою собственную таблицу памяти (отличающуюся от IBM-PC).
+Для этого требуется создать файл "<B>CUSTOM_MEMORY_MAP.inf</B>" в
+том же каталоге, где установлена <B>Emu8086.exe</B>. Использование
+следующего формата добавляет информацию в этот конфигурационный файл:<BR><BR>
+
+<FONT FACE="Fixedsys">
+Адрес - ИмяФайла<BR>
+...
+</FONT>
+
+<BR><BR>
+
+Например:<BR><BR>
+
+<TABLE BORDER=1 CELLPADDING=10><TR><TD>
+
+<FONT FACE="Fixedsys">
+0000:0000 - System.bin<BR>
+F000:0000 - Rom.bin<BR>
+12AC - Data.dat<BR>
+</FONT>
+
+</TD></TR>
+</TABLE>
+
+<BR><BR>
+Адрес может быть как физическим (без ":"), так и логическим. Значение
+должно быть в шестнадцатиричной форме. Эмулятор будет искать файл, имя
+которого указано после символа "-", и загрузит его в память по указанному адресу.
+
+<BR><BR>
+Эмулятор не будет изменять <B>Область системной информации (паямть от 00400h до 00500h)</B>,
+если ваш конфигурационный файл имеет директиву "<B>NO_SYS_INFO</B>" (в отдельной строке).
+Пример:<BR><BR>
+
+<TABLE BORDER=1 CELLPADDING=10><TR><TD>
+
+<FONT FACE="Fixedsys">
+NO_SYS_INFO<BR>
+0000:0000 - System.bin<BR>
+F000:0000 - Rom.bin<BR>
+12AC - Data.dat<BR>
+</FONT>
+
+</TD></TR>
+</TABLE>
+
+<BR><BR>
+Эмулятор позволит вам загрузить "<B>.bin</B>"-файлы по любому адресу
+памяти (будьте осторожны - не загружайте их в вашу системную область
+или область данных).
+
+
+<BR><BR>
+<B>Предупреждение!</B> стандартные прерывания не будут работать, если
+вы измените таблицу памяти и не предусмотрите для них замену. Отменить
+изменения можно просто удвлив или переименовав файл "<B>CUSTOM_MEMORY_MAP.inf</B>",
+и перезагрузив программу.
+
+
+<BR><BR>
+<BR>См. также:
+<A HREF="memory.html"><B>Глобальная таблица памяти</B></A>
+<BR><BR><BR>
+
+</FONT>
+
+</TD></TR>
+</TABLE>
+
+
+
+<BR>
+
+
+
+</BODY>
+
+</HTML>

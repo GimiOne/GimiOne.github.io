@@ -1,0 +1,474 @@
+<!doctype HTML public "-//W3O//DTD W3 HTML 3.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Перевод: Поляков А.В. http://www.avprog.narod.ru</TITLE>
+<META name="description" content="Interrupts - 8086 Assembler">
+<META name="keywords" content="interrupts, 8086, tutorial, programming, assembler tutorial, tutorial for begginers">
+<META name="robots" content="nofollow">
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#007099" alink="#FF0000">
+<TABLE WIDTH=80%>
+<TR><TD>
+<FONT FACE="Verdana" SIZE=3>
+<FONT SIZE=+1>
+<B>Уроки Ассемблера 8086 для начинающих (Часть 7)</B>
+</FONT><BR><BR>
+<FONT SIZE=+2><B>Управление ходом программы</B></FONT>
+<BR><BR>
+<FONT SIZE=1>
+Перевод: Поляков А.В. <A HREF="http://www.avprog.narod.ru">http://www.avprog.narod.ru</A>
+</FONT><BR><BR><BR>
+
+Управление ходом программы - очень важная вещь. Это то, что заставляет
+программу принимать решения, в зависимости от некоторых условий.
+
+<BR><BR>
+
+<UL>
+
+<LI><B>Безусловные переходы</B><BR><BR>
+ Основная команда, которая передает управление в другую точку программы - это <B>JMP</B>.
+ <BR><BR>
+ Основной синтаксис команды <B>JMP</B>:
+ <BLOCKQUOTE>
+ <FONT FACE="Fixedsys">
+ JMP <U>метка</U>
+ </FONT>
+ </BLOCKQUOTE>
+
+ Чтобы объявить <I>метку</I> в вашей программе, просто напечатайте ее имя и
+ в конце добавьте двоеточие "<B>:</B>". Метка может быть любой комбинацией
+ символов, но не должна начинаться с цифры. Например, ниже представлены три правильных
+ объявления меток:
+ <BLOCKQUOTE>
+ <FONT FACE="Fixedsys">
+ label1:<BR>
+ label2:<BR>
+ a:
+ </FONT>
+ </BLOCKQUOTE>
+ Метка может быть объявлена на отдельной строке или перед любой другой
+ командой, например:
+ <BLOCKQUOTE>
+ <FONT FACE="Fixedsys">
+ x1:<BR>
+ MOV AX, 1<BR><BR>
+ x2: MOV AX, 2<BR>
+ </FONT>
+ </BLOCKQUOTE>
+
+ Здесь представлен пример команды <B>JMP</B>:<BR><BR>
+
+<TABLE BORDER=1 CELLPADDING=10 WIDTH=50%><TR><TD>
+<PRE><FONT FACE="Fixedsys">
+ORG    100h
+
+MOV    AX, 5          ; записать в AX число 5.
+MOV    BX, 2          ; записать в ВX число 5.
+
+JMP    calc           ; перейти к 'calc'.
+
+back:  JMP stop       ; перейти к 'stop'.
+
+calc:
+ADD    AX, BX         ; прибавить BX к AX.
+JMP    back           ; перейти к 'back'.
+
+stop:
+
+RET                   ; вернуться в операционную систему.
+
+END                   ; директива для прекращения компиляции.</FONT></PRE>
+</TD></TR></TABLE>
+
+<BR>
+
+Конечно, есть более простой путь для вычисления результата с двумя
+числами, но это хороший пример применения команды <B>JMP</B>.
+
+<BR>
+Как вы можете видеть из этого примера, команда <B>JMP</B> может
+передавать управление другому участку программы, который может
+находиться как после этой команды, так и перед ней. Этот переход
+может быть осуществлен в пределах текущего сегмента кода (65,535 байтов).
+
+<BR><BR><BR>
+
+</LI>
+
+
+<LI><B>Короткие условные переходы</B><BR><BR>
+
+ Подобно команде <B>JMP</B>, которая выполняет безусловный переход,
+ существуют команды, которые осуществляют условный переход (переход,
+ который осуществляется только в том случае, если выполняется определенное
+ условие). Эти команды разделяются на три группы. Первая группа только проверяет
+ отдельный флаг, вторая - сравнивает числа со знаком, третья -
+ сравнивает числа без знака.
+ <BR><BR>
+
+	<B>Команды перехода, проверяющие одиночный флаг</B>
+	<BR><BR>
+
+	<FONT FACE="Fixedsys">
+
+	<TABLE BORDER=1 CELLPADDING=7>
+	<TR>
+	<TD BGCOLOR=yellow>Команда</TD> <TD BGCOLOR=yellow>Описание</TD>
+	<TD BGCOLOR=yellow>Условие</TD>
+	<TD BGCOLOR=yellow>Обратная команда</TD>
+	</TR>
+
+	<TR>
+    <TD>JZ , JE</TD> <TD>Переход, если "равно" ("нуль"). Т.е. если сравниваемые значения равны, то ZF = 1 и переход выполняется</TD> <TD>&nbsp;ZF = 1</TD> <TD>JNZ, JNE</TD>
+	</TR>
+
+	<TR>
+    <TD><NOBR>JC , JB, JNAE</NOBR></TD> <TD>Переход, если есть перенос ("ниже", "не выше или равно").</TD>
+    <TD>&nbsp;CF = 1</TD> <TD>JNC, JNB, JAE</TD>
+	</TR>
+
+	<TR>
+    <TD>JS</TD> <TD>Переход по знаку.</TD> <TD>&nbsp;SF = 1</TD> <TD>JNS</TD>
+	</TR>
+
+	<TR>
+    <TD>JO</TD> <TD>Переход по переполнению.</TD> <TD>&nbsp;OF = 1</TD> <TD>JNO</TD>
+	</TR>
+
+	<TR>
+    <TD>JPE, JP</TD> <TD>Переход, если есть паритет или паритет четный.</TD> <TD>&nbsp;PF = 1</TD> <TD>JPO</TD>
+	</TR>
+
+	<TR><TD></TD></TR>
+
+	<TR>
+    <TD>JNZ , JNE</TD> <TD>Переход по "не равно" или по "не нуль"</TD> <TD>&nbsp;ZF = 0</TD> <TD>JZ, JE</TD>
+	</TR>
+
+	<TR>
+    <TD><NOBR>JNC , JNB, JAE</NOBR></TD> <TD>Переход, если нет переноса ("выше или равно" или "не ниже").</TD>
+    <TD>&nbsp;CF = 0</TD> <TD>JC, JB, JNAE</TD>
+	</TR>
+
+	<TR>
+    <TD>JNS</TD> <TD>Переход, если нет знака.</TD> <TD>&nbsp;SF = 0</TD> <TD>JS</TD>
+	</TR>
+
+	<TR>
+    <TD>JNO</TD> <TD>Переход, если нет переполнения.</TD> <TD>&nbsp;OF = 0</TD> <TD>JO</TD>
+	</TR>
+
+	<TR>
+    <TD>JPO, JNP</TD> <TD>Переход, если нет паритета или паритет нечетный.</TD> <TD>&nbsp;PF = 0</TD> <TD>JPE, JP</TD>
+	</TR>
+
+	</TABLE>
+
+	</FONT>
+
+	<BR><BR>
+	Как вы можете видеть, существуют команды, которые выполняют
+	одинаковые действия. Это нормально. Они даже ассемблируются в
+	одинаковый машинный код, поэтому будет неплохо, если вы запомните,
+	что при компиляции команды <B>JE</B>, после дизассемблирования
+	вы получите ее как: <B>JZ</B>.<BR>
+	Различные имена используются для того, чтобы делать программы
+	более легкими для понимания и кодирования.
+
+<BR><BR><BR>
+
+	<B>Команды перехода для чисел со знаками</B>
+	<BR><BR>
+
+	<FONT FACE="Fixedsys">
+
+	<TABLE BORDER=1 CELLPADDING=7>
+	<TR>
+	<TD BGCOLOR=yellow>Команда</TD> <TD BGCOLOR=yellow>Описание</TD>
+	<TD BGCOLOR=yellow>Условие</TD>
+	<TD BGCOLOR=yellow>Обратная команда</TD>
+	</TR>
+
+	<TR>
+    <TD>JE , JZ</TD> <TD>Переход, если "равно" (<FONT COLOR=red>=</FONT>).<BR>
+                           переход, если "ноль".</TD>
+                           <TD ALIGN=Center>ZF = 1</TD> <TD>JNE, JNZ</TD>
+	</TR>
+
+	<TR>
+    <TD>JNE , JNZ</TD> <TD>Переход, если "не равно" (<FONT COLOR=red><></FONT>).<BR>
+                           Переход, если "не ноль".</TD>
+                           <TD ALIGN=Center>ZF = 0</TD> <TD>JE, JZ</TD>
+	</TR>
+
+	<TR>
+    <TD>JG , JNLE</TD> <TD>Переход, если "больше" (<FONT COLOR=red>></FONT>).<BR>
+                           Переход, если "не меньше или равно" <NOBR>(<FONT COLOR=red>not &lt;=</FONT>).</NOBR></TD>
+                           <TD ALIGN=Center>ZF = 0<BR>and<BR>SF = OF</TD> <TD>JNG, JLE</TD>
+	</TR>
+
+	<TR>
+    <TD>JL , JNGE</TD> <TD>Переход, если "меньше" (<FONT COLOR=red><</FONT>).<BR>
+                           Переход, если "не больше или равно" <NOBR>(<FONT COLOR=red>not >=</FONT>).</NOBR></TD>
+                           <TD ALIGN=Center>SF &lt;> OF</TD> <TD>JNL, JGE</TD>
+	</TR>
+
+	<TR>
+    <TD>JGE , JNL</TD> <TD><NOBR>Переход, если "больше или равно" (<FONT COLOR=red>>=</FONT>).</NOBR><BR>
+                           Переход, если "не меньше"  (<FONT COLOR=red>not &lt;</FONT>).</TD>
+                           <TD ALIGN=Center>SF = OF</TD> <TD>JNGE, JL</TD>
+	</TR>
+
+
+	<TR>
+    <TD>JLE , JNG</TD> <TD><NOBR>Переход, если "меньше или равно" (<FONT COLOR=red>&lt;=</FONT>).</NOBR><BR>
+                           Переход, если "не больше"  <NOBR>(<FONT COLOR=red>not ></FONT>).</NOBR></TD>
+                           <TD ALIGN=Center>ZF = 1<BR>or<BR>SF <> OF</TD> <TD>JNLE, JG</TD>
+	</TR>
+
+	</TABLE>
+
+	</FONT>
+
+	<BR><BR>
+
+	<FONT FACE="Fixedsys">&lt;></FONT> - этот знак означает "не равно".
+
+
+<BR><BR><BR>
+
+	<B>Команды перехода для чисел без знаков</B>
+	<BR><BR>
+
+	<FONT FACE="Fixedsys">
+
+	<TABLE BORDER=1 CELLPADDING=7>
+	<TR>
+	<TD BGCOLOR=yellow>Команда</TD> <TD BGCOLOR=yellow>Описание</TD>
+	<TD BGCOLOR=yellow>Условие</TD>
+	<TD BGCOLOR=yellow>Обратная команда</TD>
+	</TR>
+
+	<TR>
+    <TD>JE , JZ</TD> <TD>Переход, если "равно" (<FONT COLOR=red>=</FONT>).<BR>
+                           Переход, если "ноль".</TD>
+                           <TD ALIGN=Center>ZF = 1</TD> <TD>JNE, JNZ</TD>
+	</TR>
+
+	<TR>
+    <TD>JNE , JNZ</TD> <TD>Переход, если "не равно" (<FONT COLOR=red><></FONT>).<BR>
+                           Переход, если "не ноль".</TD>
+                           <TD ALIGN=Center>ZF = 0</TD> <TD>JE, JZ</TD>
+	</TR>
+
+	<TR>
+    <TD>JA , JNBE</TD> <TD>Переход, если "выше" (<FONT COLOR=red>></FONT>).<BR>
+                           Переход, если "не ниже или равно" <NOBR>(<FONT COLOR=red>not &lt;=</FONT>).</NOBR></TD>
+                           <TD ALIGN=Center>CF = 0<BR>and<BR>ZF = 0</TD> <TD>JNA, JBE</TD>
+	</TR>
+
+
+	<TR>
+    <TD><NOBR>JB , JNAE, JC</NOBR></TD> <TD>Переход, если "ниже"  (<FONT COLOR=red>&lt;</FONT>).<BR>
+                           Переход, если "не выше или равно" <NOBR>(<FONT COLOR=red>not >=</FONT>).</NOBR><BR>
+                           Переход по переносу.</TD>
+                           <TD ALIGN=Center>CF = 1</TD> <TD>JNB, JAE, JNC</TD>
+	</TR>
+
+
+	<TR>
+    <TD><NOBR>JAE , JNB, JNC</NOBR></TD> <TD>Переход, если "выше или равно" (<FONT COLOR=red>>=</FONT>).<BR>
+                           Переход, если "не ниже" <NOBR>(<FONT COLOR=red>not &lt;</FONT>).</NOBR><BR>
+                           Переход, если "нет переноса".</TD>
+                           <TD ALIGN=Center>CF = 0</TD> <TD>JNAE, JB</TD>
+	</TR>
+
+
+	<TR>
+    <TD><NOBR>JBE , JNA</NOBR></TD> <TD>Переход, если "ниже или равно" (<FONT COLOR=red>&lt;=</FONT>).<BR>
+                           Переход, если "не выше" <NOBR>(<FONT COLOR=red>not ></FONT>).</NOBR></TD>
+                           <TD ALIGN=Center>CF = 1<BR>or<BR>ZF = 1</TD> <TD>JNBE, JA</TD>
+	</TR>
+
+	</TABLE>
+
+	</FONT>
+
+
+	<BR><BR>
+	Обычно, если требуется сравнить два числовых значения, то
+	используют команду <B>CMP</B> (она делает то же самое, что и команда
+	<B>SUB</B> (вычитание), но не сохраняет результат, а влияет
+	только на флаги.<BR><BR>
+	Логика очень простая, например:<BR><BR>
+	требуется сравнить числа
+	<FONT FACE="Fixedsys">5</FONT> и <FONT FACE="Fixedsys">2</FONT>,<BR><BR>
+	<FONT FACE="Fixedsys">5 - 2 = 3</FONT><BR><BR>
+	результат - НЕ НОЛЬ (Флаг Нуля - Zero Flag (ZF) установлен в <FONT FACE="Fixedsys">0</FONT>).
+
+	<BR><BR>
+	Другой пример:<BR><BR>
+	требуется сравнить <FONT FACE="Fixedsys">7</FONT> и
+	<FONT FACE="Fixedsys">7</FONT>,<BR><BR>
+    <FONT FACE="Fixedsys">7 - 7 = 0</FONT><BR><BR>
+    результат - НОЛЬ! (Флаг Нуля - Zero Flag (ZF) установлен в
+    <FONT FACE="Fixedsys">1</FONT> и команды <B>JZ</B> или <B>JE</B> выполнят переход).
+
+	<BR><BR>
+ Ниже приведен пример команды <B>CMP</B> и условного перехода:<BR><BR>
+
+<TABLE BORDER=1 CELLPADDING=10 WIDTH=50%><TR><TD>
+<PRE><FONT FACE="Fixedsys">
+include emu8086.inc
+
+ORG    100h
+
+MOV    AL, 25     ; записать в AL число 25.
+MOV    BL, 10     ; записать в BL число 10.
+
+CMP    AL, BL     ; сравнить AL с BL.
+
+JE     equal      ; если AL = BL (ZF = 1), то перейти к метке equal.
+
+PUTC   'N'        ; иначе, если AL &lt;> BL, то продолжить выполнение
+JMP    stop       ; программы - напечатать 'N' и перейти к метке stop.
+
+equal:            ; если программа на этой метке,
+PUTC   'Y'        ; то AL = BL, поэтому выводим на экран 'Y'.
+
+stop:
+
+RET               ; сюда приходим в любом случае
+
+END</FONT></PRE>
+</TD></TR></TABLE>
+
+<BR><BR>
+Попробуйте вышеописанный пример с различными числами в <B>AL</B> и <B>BL</B>,
+откройте флаги, щелкнув по кнопке [<B>FLAGS</B>]. Используйте
+[<B>Single Step - пошаговый режим</B>] и наблюдайте за происходящим.
+Не забывайте перекомпилировать и перезагружать вашу программу после
+кажого сделанного вами в ней изменения (используйте клавишу <B>F5</B>).
+
+<BR><BR>
+
+<HR>
+
+<BR>
+Все условные переходы имеют одно серьезное ограничение - в отличие от
+команды <B>JMP</B>, они могут выполнять переход только на <B>127</B>
+байтов вперед или на <B>128</B> байтов назад (учтите, что большие
+команды ассемблируются в 3 и более байтов).
+<BR><BR>
+Мы можем легко преодолеть это ограничение, используя следующий метод:<BR><BR>
+		<UL>
+		<LI>Взять обратную команду из приведенной выше таблицы
+		    и выполнить переход к метке <I>label_x</I>.
+			 <BR><BR></LI>
+		<LI>Использовать команду <B>JMP</B> для перехода
+		    к нужному участку программы.
+			 <BR><BR></LI>
+		<LI>Определить метку <I>label_x:</I> только после
+		    команды <B>JMP</B>.
+			 <BR><BR></LI>
+		</UL>
+
+		<I>label_x:</I> - может быть любым именем.
+
+		<BR><BR>
+
+		Пример:<BR><BR>
+
+<TABLE BORDER=1 CELLPADDING=10 WIDTH=50%><TR><TD>
+<PRE><FONT FACE="Fixedsys">
+include emu8086.inc
+
+ORG    100h
+
+MOV    AL, 25     ; записать в AL число 25.
+MOV    BL, 10     ; записать в BL число 10.
+
+CMP    AL, BL     ; сравнить AL с BL.
+
+<FONT COLOR=green>
+JNE    not_equal  ; переход, если AL &lt;> BL (ZF = 0).
+JMP    equal
+not_equal:
+</FONT>
+
+; представим, что здесь у нас
+; размещается код, который ассмеблируется
+; более чем в 127 байтов...
+
+
+PUTC   'N'        ; если мы оказались здесь, то AL &lt;> BL,
+JMP    stop       ; тогда печатаем 'N', и переходим к метке stop.
+
+equal:            ; если мы оказались здесь,
+PUTC   'Y'        ; то AL = BL, тогда печатаем 'Y'.
+
+stop:
+
+RET               ; сюда приходим в любом случае.
+
+END</FONT></PRE>
+</TD></TR></TABLE>
+
+</UL>
+
+<BR><BR>
+
+<HR>
+
+<BR>
+Другой, реже используемый метод, представляет собой применение
+непосредственного значения (адреса) вместо метки. Если непосредственное
+значение начинается с символа '$',
+то выполняется относительный переход - переход относительно
+текущего адреса. Компилятор вычисляет команду, которая находится по заданному
+смещению, и выполняет переход непосредственно к ней. Например:<BR><BR>
+<TABLE BORDER=1 CELLPADDING=10 WIDTH=50%><TR><TD>
+<PRE><FONT FACE="Fixedsys">ORG    100h
+
+; безусловный переход вперед:
+; пропускаем следующие два байта,
+JMP $2
+a DB 3    ; 1 байт.
+b DB 4    ; 1 байт.
+
+; переход назад на 7 байтов, если BL <> 0:
+; (Команда JMP занимает 2 байта)
+MOV BL,9
+DEC BL      ; 2 байта.
+CMP BL, 0   ; 3 байта.
+JNE $-7
+
+RET
+
+END</FONT></PRE>
+</TD></TR></TABLE>
+
+<BR><BR><BR>
+
+<HR>
+<CENTER>
+<A HREF="asm_tutorial_06.html"><B> &lt;&lt;&lt; Предыдущая часть &lt;&lt;&lt; </B></A>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="asm_tutorial_08.html"><B> >>> Следующая часть >>> </B></A>
+</CENTER>
+<HR>
+
+
+
+<BR>
+
+</FONT>
+
+
+</TD></TR>
+</TABLE>
+
+
+</BODY>
+
+</HTML>

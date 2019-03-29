@@ -1,0 +1,5598 @@
+<!doctype HTML public "-//W3O//DTD W3 HTML 3.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Перевод: Поляков А.В. http://www.avprog.narod.ru</TITLE>
+<META name="description" content="What is an assembly language?">
+<META name="keywords" content="emu8086, 8086, tutorial, programming, assembler tutorial, tutorial for begginers">
+<META name="robots" content="nofollow">
+</HEAD>
+
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#007099" alink="#FF0000">
+
+<TABLE WIDTH=80%>
+<TR><TD>
+<FONT FACE="Verdana" SIZE=3>
+<FONT SIZE=+1>
+<B>Полный набор команд процессора 8086</B>
+</FONT><BR><BR>
+<FONT SIZE=1>
+Перевод: Поляков А.В. <A HREF="http://www.avprog.narod.ru">http://www.avprog.narod.ru</A>
+</FONT><BR><BR><BR>
+
+
+<!-- 116 instructions -->
+
+<HR>
+<BR>
+Быстрые ссылки:<BR><BR>
+<FONT FACE="Fixedsys">
+
+<TABLE BORDER=0 WIDTH=100%>
+<TR>
+
+<TD>
+<A HREF="#AAA">AAA</A>  <BR>
+<A HREF="#AAD">AAD</A>  <BR>
+<A HREF="#AAM">AAM</A>  <BR>
+<A HREF="#AAS">AAS</A>  <BR>
+<A HREF="#ADC">ADC</A>  <BR>
+<A HREF="#ADD">ADD</A>  <BR>
+<A HREF="#AND">AND</A>  <BR>
+
+<A HREF="#CALL">CALL</A>  <BR>
+<A HREF="#CBW">CBW</A>  <BR>
+<A HREF="#CLC">CLC</A>  <BR>
+<A HREF="#CLD">CLD</A>  <BR>
+<A HREF="#CLI">CLI</A>  <BR>
+<A HREF="#CMC">CMC</A>  <BR>
+<A HREF="#CMP">CMP</A>  <BR>
+</TD><TD>
+<A HREF="#CMPSB">CMPSB</A>  <BR>
+<A HREF="#CMPSW">CMPSW</A>  <BR>
+<A HREF="#CWD">CWD</A>  <BR>
+<A HREF="#DAA">DAA</A>  <BR>
+<A HREF="#DAS">DAS</A>  <BR>
+<A HREF="#DEC">DEC</A>  <BR>
+<A HREF="#DIV">DIV</A>  <BR>
+
+<A HREF="#HLT">HLT</A>  <BR>
+
+<A HREF="#IDIV">IDIV</A>  <BR>
+<A HREF="#IMUL">IMUL</A>  <BR>
+
+<A HREF="#IN">IN</A>  <BR>
+
+<A HREF="#INC">INC</A>  <BR>
+<A HREF="#INT">INT</A>  <BR>
+<A HREF="#INTO">INTO</A>  <BR>
+<A HREF="#IRET">IRET</A>  <BR>
+<A HREF="#JA">JA</A>  <BR>
+</TD><TD>
+<A HREF="#JAE">JAE</A>  <BR>
+<A HREF="#JB">JB</A>  <BR>
+<A HREF="#JBE">JBE</A>  <BR>
+<A HREF="#JC">JC</A>  <BR>
+<A HREF="#JCXZ">JCXZ</A>  <BR>
+<A HREF="#JE">JE</A>  <BR>
+<A HREF="#JG">JG</A>  <BR>
+
+<A HREF="#JGE">JGE</A>  <BR>
+<A HREF="#JL">JL</A>  <BR>
+<A HREF="#JLE">JLE</A>  <BR>
+<A HREF="#JMP">JMP</A>  <BR>
+<A HREF="#JNA">JNA</A>  <BR>
+<A HREF="#JNAE">JNAE</A>  <BR>
+<A HREF="#JNB">JNB</A>  <BR>
+</TD><TD>
+<A HREF="#JNBE">JNBE</A>  <BR>
+<A HREF="#JNC">JNC</A>  <BR>
+<A HREF="#JNE">JNE</A>  <BR>
+<A HREF="#JNG">JNG</A>  <BR>
+<A HREF="#JNGE">JNGE</A>  <BR>
+<A HREF="#JNL">JNL</A>  <BR>
+<A HREF="#JNLE">JNLE</A>  <BR>
+
+<A HREF="#JNO">JNO</A>  <BR>
+<A HREF="#JNP">JNP</A>  <BR>
+<A HREF="#JNS">JNS</A>  <BR>
+<A HREF="#JNZ">JNZ</A>  <BR>
+<A HREF="#JO">JO</A>  <BR>
+<A HREF="#JP">JP</A>  <BR>
+<A HREF="#JPE">JPE</A>  <BR>
+</TD><TD>
+<A HREF="#JPO">JPO</A>  <BR>
+<A HREF="#JS">JS</A>  <BR>
+<A HREF="#JZ">JZ</A>  <BR>
+<A HREF="#LAHF">LAHF</A>  <BR>
+<A HREF="#LDS">LDS</A>  <BR>
+<A HREF="#LEA">LEA</A>  <BR>
+<A HREF="#LES">LES</A>  <BR>
+
+<A HREF="#LODSB">LODSB</A>  <BR>
+<A HREF="#LODSW">LODSW</A>  <BR>
+<A HREF="#LOOP">LOOP</A>  <BR>
+<A HREF="#LOOPE">LOOPE</A>  <BR>
+<A HREF="#LOOPNE">LOOPNE</A>  <BR>
+<A HREF="#LOOPNZ">LOOPNZ</A>  <BR>
+<A HREF="#LOOPZ">LOOPZ</A>  <BR>
+</TD><TD>
+<A HREF="#MOV">MOV</A>  <BR>
+<A HREF="#MOVSB">MOVSB</A>  <BR>
+<A HREF="#MOVSW">MOVSW</A>  <BR>
+<A HREF="#MUL">MUL</A>  <BR>
+<A HREF="#NEG">NEG</A>  <BR>
+<A HREF="#NOP">NOP</A>  <BR>
+
+<A HREF="#NOT">NOT</A>  <BR>
+
+<A HREF="#OR">OR</A>  <BR>
+
+<A HREF="#OUT">OUT</A>  <BR>
+
+<A HREF="#POP">POP</A>  <BR>
+<A HREF="#POPA">POPA</A>  <BR>
+<A HREF="#POPF">POPF</A>  <BR>
+<A HREF="#PUSH">PUSH</A>  <BR>
+<A HREF="#PUSHA">PUSHA</A>  <BR>
+<A HREF="#PUSHF">PUSHF</A>  <BR>
+<A HREF="#RCL">RCL</A>  <BR>
+</TD><TD>
+<A HREF="#RCR">RCR</A>  <BR>
+<A HREF="#REP">REP</A>  <BR>
+<A HREF="#REPE">REPE</A>  <BR>
+<A HREF="#REPNE">REPNE</A>  <BR>
+<A HREF="#REPNZ">REPNZ</A>  <BR>
+<A HREF="#REPZ">REPZ</A>  <BR>
+<A HREF="#RET">RET</A>  <BR>
+
+<A HREF="#RETF">RETF</A>  <BR>
+<A HREF="#ROL">ROL</A>  <BR>
+<A HREF="#ROR">ROR</A>  <BR>
+<A HREF="#SAHF">SAHF</A>  <BR>
+<A HREF="#SAL">SAL</A>  <BR>
+<A HREF="#SAR">SAR</A>  <BR>
+<A HREF="#SBB">SBB</A>  <BR>
+</TD><TD>
+<A HREF="#SCASB">SCASB</A>  <BR>
+<A HREF="#SCASW">SCASW</A>  <BR>
+<A HREF="#SHL">SHL</A>  <BR>
+<A HREF="#SHR">SHR</A>  <BR>
+<A HREF="#STC">STC</A>  <BR>
+<A HREF="#STD">STD</A>  <BR>
+<A HREF="#STI">STI</A>  <BR>
+
+<A HREF="#STOSB">STOSB</A>  <BR>
+<A HREF="#STOSW">STOSW</A>  <BR>
+<A HREF="#SUB">SUB</A>  <BR>
+<A HREF="#TEST">TEST</A>  <BR>
+<A HREF="#XCHG">XCHG</A>  <BR>
+<A HREF="#XLATB">XLATB</A>  <BR>
+<A HREF="#XOR">XOR</A>  <BR>
+</TD>
+</TR>
+</TABLE>
+
+</FONT>
+<BR><BR>
+
+<HR>
+
+
+Типы операндов:<BR><BR>
+
+<B>REG</B>: AX, BX, CX, DX, AH, AL, BL, BH, CH, CL, DH, DL, DI, SI, BP, SP.<BR><BR>
+
+<B>SREG</B>: DS, ES, SS, и только как второй операнд: CS.<BR><BR>
+
+<B>memory</B>: [BX], [BX+SI+7], переменная и т.п...(см. <A HREF="asm_tutorial_02.html"><B>Доступ к памяти</B></A>).<BR><BR>
+
+<B>immediate</B>: 5, -24, 3Fh, 10001101b, и т.п...<BR><BR>
+
+<HR>
+
+<BR>
+Примечания:<BR><BR>
+<UL>
+<LI>Если для команды требуются два операнда, то они разделяются запятой. Например:<BR><BR>
+	<FONT FACE="Fixedsys">
+	REG, memory
+	</FONT>
+	<BR><BR></LI>
+<LI>Если это два операнда, то они должны иметь одинаковый размер
+(кроме команд сдвига и циклического сдвига). Например:<BR><BR>
+    <FONT FACE="Fixedsys">
+	AL, DL<BR>
+	DX, AX<BR>
+	<FONT COLOR=#005555>
+	m1 DB ?<BR>
+	</FONT>
+	AL, m1<BR>
+	<FONT COLOR=#005555>
+	m2 DW ?<BR>
+	</FONT>
+	AX, m2
+	</FONT>
+	<BR><BR>
+    </LI>
+	<LI>Некоторые команды допускают несколько комбинаций операндов.
+	Например:<BR><BR>
+	<FONT FACE="Fixedsys">
+		memory, immediate<BR>
+		REG, immediate<BR><BR>
+		memory, REG<BR>
+		REG, SREG
+	</FONT><BR><BR>
+	</LI>
+
+ <LI>Некоторые примеры содержат макросы, поэтому желательно
+ использовать "горячую клавишу" <NOBR><B>Shift + F8</B></NOBR>, чтобы
+ <I>Пропустить шаг</I> (чтобы выполнить код макроса с максимальной
+ скоростью, установите <B>step delay - задержку между выполнением команд</B>
+ на ноль), иначе эмулятор будет выполнять каждую команду макроса. Ниже приведен
+ пример, который использует макрос PRINTN:
+ <PRE>
+ <FONT FACE="Fixedsys">
+   #make_COM#
+   include 'emu8086.inc'
+   ORG 100h
+   MOV AL, 1
+   MOV BL, 2
+   PRINTN 'Hello World!'   ; макрос.
+   MOV CL, 3
+   PRINTN 'Welcome!'       ; макрос.
+   RET</FONT></PRE>
+ </LI>
+
+</UL>
+<BR>
+
+<HR>
+<BR><BR>
+Эти знаки используются для отображения состояния флагов:<BR><BR>
+<B>1</B> - команда устанавливает этот флаг в <B>1</B>.<BR>
+<B>0</B> - команда устанавливает этот флаг в <B>0</B>.<BR>
+<B>r</B> - значение флага зависит от результата выполнения команды.<BR>
+<B>?</B> - значение флага не определено (может быть <B>1</B> или <B>0</B>).<BR>
+<BR><BR>
+
+<HR>
+
+<BR><BR><B>
+Некоторые команды генерируются в абсолютно одинаковый машинный код,
+поэтому дизассемблер может иметь проблемы при декодировании вашего
+оригинального кода. Это особенно важно в командах условного перехода
+(см. "<A HREF="asm_tutorial_07.html">Управление ходом программы</A>").</B>
+<BR><BR><BR>
+<HR>
+
+<BR><BR>
+Команды в алфавитном порядке:
+
+<BR><BR>
+
+<TABLE BORDER=1 WIDTH=100% CELLPADDING=10>
+
+<TR>
+<TD>Команда</TD> <TD>Операнды</TD> <TD>Описание
+			<A NAME="AAA">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+AAA
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Коррекция ASCII-формата после сложения.<BR>
+Корректирует результат в регистрах AH и AL после сложения
+при работе с BCD-значениями. <BR><BR> Она работает согласно следующему алгоритму<BR><BR>
+<FONT FACE="Fixedsys">
+Если младшие (правые) четыре бита<BR> регистра AL > 9 или флаг AF = 1, то:<BR>
+<UL>
+<LI>AL = AL + 6</LI>
+<LI>AH = AH + 1</LI>
+<LI>AF = 1</LI>
+<LI>CF = 1</LI>
+</UL>
+иначе
+<UL>
+<LI>AF = 0</LI>
+<LI>CF = 0</LI>
+</UL>
+в любом случае:<BR>
+очистить старшие четыре бита регистра AL.
+</FONT>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 15   ; AH = 00, AL = 0Fh
+AAA          ; AH = 01, AL = 05
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+			<A NAME="AAD">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+AAD
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Коррекция ASCII-формата перед делением.<BR>
+Подготавливает два BCD-значения для деления. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>AL = (AH * 10) + AL</LI>
+<LI>AH = 0</LI>
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 0105h   ; AH = 01, AL = 05
+AAD             ; AH = 00, AL = 0Fh (15)
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>?</TD> <TD>r</TD> <TD>r</TD> <TD>?</TD> <TD>r</TD> <TD>?</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="AAM">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+AAM
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Коррекция ASCII-формата после умножения.<BR>
+Корректирует результат умножения двух BCD-значений. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>AH = AL / 10</LI>
+<LI>AL = остаток</LI>
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 15   ; AL = 0Fh
+AAM          ; AH = 01, AL = 05
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>?</TD> <TD>r</TD> <TD>r</TD> <TD>?</TD> <TD>r</TD> <TD>?</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="AAS">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+AAS
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Коррекция ASCII-формата после вычитания.<BR>
+Корректирует результат в регистрах AH и AL после вычитания при
+работе с BCD-значениями. <BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+если младшие четыре бита<BR>
+регистра AL > 9 или AF = 1, то:<BR>
+<UL>
+<LI>AL = AL - 6</LI>
+<LI>AH = AH - 1</LI>
+<LI>AF = 1</LI>
+<LI>CF = 1</LI>
+</UL>
+иначе
+<UL>
+<LI>AF = 0</LI>
+<LI>CF = 0</LI>
+</UL>
+в любом случае:<BR>
+очистить старшие четыре бита регистра AL.
+</FONT>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 02FFh  ; AH = 02, AL = 0FFh
+AAS            ; AH = 01, AL = 09
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="ADC">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+ADC
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Сложение с переносом.<BR>
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand1 = operand1 + operand2 + CF
+</FONT>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">STC        ; установить CF = 1
+MOV AL, 5  ; AL = 5
+ADC AL, 1  ; AL = 7
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="ADD">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+ADD
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Сложение.<BR>
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand1 = operand1 + operand2
+</FONT>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 5   ; AL = 5
+ADD AL, -3  ; AL = 2
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="AND">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+AND
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Логическое И между всеми битами двух операндов. Результат записывается в 1-й операнд.<BR><BR>
+Действуют следующие правила:<BR><BR>
+<FONT FACE="Fixedsys">
+1 AND 1 = 1<BR>
+1 AND 0 = 0<BR>
+0 AND 1 = 0<BR>
+0 AND 0 = 0<BR>
+</FONT>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 'a'        ; AL = 01100001b
+AND AL, 11011111b  ; AL = 01000001b  ('A')
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> </TR>
+<TR> <TD>0</TD> <TD>r</TD> <TD>r</TD> <TD>0</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CALL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CALL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	имя процедуры<BR>
+	метк<BR>
+	4-х байтовый адрес<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Передает управление процедуре, заносит в стек адрес следующей команды (из IP).
+<I>4-х байтовый адрес</I> может быть введен в следующей форме:
+<FONT FACE="Fixedsys">1234h:5678h</FONT>, первое значение - сегмент,
+второе значение - смещение (в случае дальнего вызова регистр CS также
+заносится в стек).<BR>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">#make_COM#
+ORG 100h  ; для СОМ-файла.
+
+CALL p1
+
+ADD AX, 1
+
+RET         ; вернуться в операционную систему.
+
+p1 PROC     ; объявление процедуры.
+    MOV AX, 1234h
+    RET     ; возвращение в программу.
+p1 ENDP</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CBW">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CBW
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Преобразует байт в слово. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+Если старший бит AL = 1, то:
+<UL>
+<LI>AH = 255 (0FFh)</LI>
+</UL>
+<BR>
+иначе
+<UL>
+<LI>AH = 0</LI>
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 0   ; AH = 0, AL = 0
+MOV AL, -5  ; AX = 000FBh (251)
+CBW         ; AX = 0FFFBh (-5)
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CLC">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CLC
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Очищает флаг переноса (CF). <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+CF = 0
+</FONT>
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> </TR>
+<TR> <TD>0</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CLD">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CLD
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Очищает флаг направления (DF).
+Clear Direction flag. Значения регистров SI и DI будут увеличиваться
+командами: CMPSB, CMPSW, LODSB, LODSW, MOVSB, MOVSW, STOSB, STOSW. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+DF = 0
+</FONT>
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>D</TD> </TR>
+<TR> <TD>0</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CLI">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CLI
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Очищает флаг прерывания (IF). Это отключает аппаратные прерывания.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+IF = 0
+</FONT>
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>I</TD> </TR>
+<TR> <TD>0</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CMC">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CMC
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Переключает флаг переноса, т.е. инвертирует значение CF. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+если CF = 1 то CF = 0<BR>
+если CF = 0 то CF = 1<BR>
+</FONT>
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> </TR>
+<TR> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CMP">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CMP
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Сравнение.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand1 - operand2
+<BR><BR>
+результат никуда не записывается, флаги устанавливаются (OF, SF, ZF, AF, PF, CF)
+в соответствии с результатом.
+</FONT>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 5
+MOV BL, 5
+CMP AL, BL  ; AL = 5, ZF = 1 (значит равно!)
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CMPSB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CMPSB
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Сравнивает байты: <NOBR>ES:[DI] из DS:[SI].</NOBR> <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>DS:[SI] - ES:[DI]<BR></LI>
+<LI>установить флаги в соответствии с результатом:<BR> OF, SF, ZF, AF, PF, CF<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>SI = SI + 1</LI>
+	<LI>DI = DI + 1</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>SI = SI - 1</LI>
+	<LI>DI = DI - 1</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<BR>
+см. <B><A HREF="../Samples/cmpsb.asm">cmpsb.asm</A></B> в каталоге Samples.
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CMPSW">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CMPSW
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Сравнивает слова: <NOBR>ES:[DI] из DS:[SI].</NOBR> <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>DS:[SI] - ES:[DI]<BR></LI>
+<LI>установить флаги в соответствии с результатом:<BR> OF, SF, ZF, AF, PF, CF<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>SI = SI + 2</LI>
+	<LI>DI = DI + 2</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>SI = SI - 2</LI>
+	<LI>DI = DI - 2</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<BR>
+см. <B><A HREF="../Samples/cmpsw.asm">cmpsw.asm</A></B> в каталоге Samples.
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="CWD">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+CWD
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Преобразует слово в двойное слово. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+если старший бит AX = 1, то:
+<UL>
+<LI>DX = 65535 (0FFFFh)</LI>
+</UL>
+<BR>
+иначе
+<UL>
+<LI>DX = 0</LI>
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV DX, 0   ; DX = 0
+MOV AX, 0   ; AX = 0
+MOV AX, -5  ; DX AX = 00000h:0FFFBh
+CWD         ; DX AX = 0FFFFh:0FFFBh
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="DAA">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+DAA
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Десятичная коррекция после сложения.<BR>
+Корректирует результат сложения двух упакованных BCD-значений. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+если младшие четыре бита AL > 9 или AF = 1, то:<BR>
+<UL>
+<LI>AL = AL + 6</LI>
+<LI>AF = 1</LI>
+</UL>
+если AL > 9Fh или CF = 1, то:
+<UL>
+<LI>AL = AL + 60h</LI>
+<LI>CF = 1</LI>
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 0Fh  ; AL = 0Fh (15)
+DAA          ; AL = 15h
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="DAS">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+DAS
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Десятичная коррекция после вычитания.<BR>
+Корректирует результат вычитания двух упакованных BCD-значений. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+если младшие четыре бита AL > 9 или AF = 1, то:<BR>
+<UL>
+<LI>AL = AL - 6</LI>
+<LI>AF = 1</LI>
+</UL>
+если AL > 9Fh или CF = 1, то:
+<UL>
+<LI>AL = AL - 60h</LI>
+<LI>CF = 1</LI>
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 0FFh  ; AL = 0FFh (-1)
+DAS           ; AL = 99h, CF = 1
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="DEC">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+DEC
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Декремент.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand = operand - 1
+<BR><BR>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 255  ; AL = 0FFh (255 или -1)
+DEC AL       ; AL = 0FEh (254 или -2)
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+CF - не изменяется!
+</FONT>
+
+			<A NAME="DIV">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+DIV
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Беззнаковое деление.
+<BR><BR>Алгоритм:<BR><BR>
+ <BLOCKQUOTE>
+	 если операнд - это <B>байт</B>:<BR>
+	 <FONT FACE="Fixedsys">AL = AX / операнд<BR>
+	 AH = остаток (модуль)
+	 </FONT>
+ </BLOCKQUOTE>
+
+ <BLOCKQUOTE>
+	если операнд - это <B>слово</B>:<BR>
+	<FONT FACE="Fixedsys">AX = (DX AX) / операнд<BR>
+	DX = остаток (модуль)
+	</FONT>
+ </BLOCKQUOTE>
+ Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 203   ; AX = 00CBh
+MOV BL, 4
+DIV BL        ; AL = 50 (32h), AH = 3
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="HLT">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+HLT
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Останов системы.<BR><BR>
+
+ Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 5
+HLT</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>unchanged</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="IDIV">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+IDIV
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Знаковое деление.
+<BR><BR>Алгоритм:<BR><BR>
+ <BLOCKQUOTE>
+	 если операнд - это <B>байт</B>:<BR>
+	 <FONT FACE="Fixedsys">AL = AX / операнд<BR>
+	 AH = остаток (модуль)
+	 </FONT>
+ </BLOCKQUOTE>
+
+ <BLOCKQUOTE>
+	если операнд - это <B>слово</B>:<BR>
+	<FONT FACE="Fixedsys">AX = (DX AX) / операнд<BR>
+	DX = остаток (модуль)
+	</FONT>
+ </BLOCKQUOTE>
+ Пример:<PRE><FONT FACE="Fixedsys">MOV AX, -203 ; AX = 0FF35h
+MOV BL, 4
+IDIV BL      ; AL = -50 (0CEh), AH = -3 (0FDh)
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> <TD>?</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="IMUL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+IMUL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Знаковое умножение.
+<BR><BR>Алгоритм:<BR><BR>
+ <BLOCKQUOTE>
+	 если операнд - это <B>байт</B>:<BR>
+	 <FONT FACE="Fixedsys">AX = AL * операнд</FONT>.
+ </BLOCKQUOTE>
+
+ <BLOCKQUOTE>
+	если операнд - это <B>слово</B>:<BR>
+	<FONT FACE="Fixedsys">(DX AX) = AX * операнд</FONT>.
+ </BLOCKQUOTE>
+  Пример:<PRE><FONT FACE="Fixedsys">MOV AL, -2
+MOV BL, -4
+IMUL BL      ; AX = 8
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>?</TD> <TD>?</TD> <TD>r</TD> <TD>?</TD> <TD>?</TD> </TR>
+</TABLE>
+CF=OF=0 если результат вписывается в операнд IMUL.
+</FONT>
+
+ 			<A NAME="IN">&nbsp;</A>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+IN
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	AL, im.byte<BR>
+	AL, DX<BR>
+	AX, im.byte<BR>
+	AX, DX
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Помещает данные из порта в <B>AL</B> или <B>AX</B>.<BR>
+Второй операнд - это номер порта. Если требуется доступ к порту с номером
+более 255, то нужно использовать регистр <B>DX</B>.
+<BR>Пример:<PRE><FONT FACE="Fixedsys">IN AX, 4  ; получить состояние светофора.
+IN AL, 7  ; получить состояние шагового дигателя.
+</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="INC">&nbsp;</A>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+INC
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Инкремент.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand = operand + 1
+<BR>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 4
+INC AL       ; AL = 5
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+CF - не изменяется!
+</FONT>
+
+			<A NAME="INT">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+INT
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>immediate byte</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Выполняет прерывание программы и передает управление функции, указанной
+в immediate byte (0..255).
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	Поместить в стек:
+	<UL>
+	<LI>флаговый регистр</LI>
+	<LI>CS</LI>
+	<LI>IP</LI>
+	</UL>
+
+	<LI>IF = 0</LI>
+
+	<LI>Передать управление процедуре прерывания</LI>
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AH, 0Eh  ; телетайп.
+MOV AL, 'A'
+INT 10h      ; Прерывание BIOS.
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> <TD>I</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> <TD>0</TD></TR>
+</TABLE>
+</FONT>
+
+			<A NAME="INTO">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+INTO
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Приводит к прерыванию при возникновении переполнения (флаг OF = 1) и
+выполняет команду IRET 4.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+если OF = 1 то INT 4
+<BR>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">; -5 - 127 = -132 (за пределами диапазона -128..127)
+; результат вычитания (SUB) неправильный (124),
+; поэтому OF = 1:
+MOV AL, -5
+SUB AL, 127   ; AL = 7Ch (124)
+INTO          ; ошибка процесса.
+RET</FONT></PRE>
+			<A NAME="IRET">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+IRET
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Возврат из обработки прерывания.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	Выгрузить из стека:
+	<UL>
+	<LI>IP</LI>
+	<LI>CS</LI>
+	<LI>регистр флагов</LI>
+	</UL>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6><CENTER>выгруженные</CENTER></TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JA">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JA
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход по "выше" или "не ниже или равно".
+Используется после проверки беззнаковых данных для передачи управления
+по другому адресу.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если (CF = 0) и (ZF = 0) то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 250
+   CMP AL, 5
+   JA label1
+   PRINT 'AL не больше 5'
+   JMP exit
+label1:
+   PRINT 'AL больше 5'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JAE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JAE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд "больше или равен" второму операнду.
+(в результате выполнения команды CMP). Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JAE label1
+   PRINT 'AL не больше 5'
+   JMP exit
+label1:
+   PRINT 'AL больше или равен 5'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JB
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд "меньше" второго операнда
+(в результате выполнения команды CMP). Беззнаковый.
+<BR><BR>Algorithm:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 1 то выполниь переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 1
+   CMP AL, 5
+   JB  label1
+   PRINT 'AL не меньше 5'
+   JMP exit
+label1:
+   PRINT 'AL меньше 5'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JBE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JBE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд "меньше" или "равен" второму операнду
+(в результате выполнения команды CMP). Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 1 или ZF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JBE  label1
+   PRINT 'AL не меньше 5'
+   JMP exit
+label1:
+   PRINT 'AL меньше или равен 5'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JC">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JC
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход если флаг переноса установлен в 1.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 255
+   ADD AL, 1
+   JC  label1
+   PRINT 'нет переноса.'
+   JMP exit
+label1:
+   PRINT 'имеем перенос.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JCXZ">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JCXZ
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если регистр СХ равен 0.
+<BR><BR>Algorithm:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если CX = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV CX, 0
+   JCXZ label1
+   PRINT 'CX не равен нулю.'
+   JMP exit
+label1:
+   PRINT 'CX равен нулю.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд равен второму операнду
+(в результате выполнения команды CMP). Знаковый/Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если ZF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JE  label1
+   PRINT 'AL не равен 5.'
+   JMP exit
+label1:
+   PRINT 'AL равен 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JG">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JG
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд больше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если (ZF = 0) и (SF = OF) то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, -5
+   JG  label1
+   PRINT 'AL не больше -5.'
+   JMP exit
+label1:
+   PRINT 'AL больше -5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JGE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JGE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд больше или равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если SF = OF то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -5
+   JGE  label1
+   PRINT 'AL &lt; -5'
+   JMP exit
+label1:
+   PRINT 'AL >= -5'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд меньше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если SF &lt;> OF то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, -2
+   CMP AL, 5
+   JL  label1
+   PRINT 'AL >= 5.'
+   JMP exit
+label1:
+   PRINT 'AL &lt; 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JLE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JLE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд меньше или равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если SF &lt;> OF или ZF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, -2
+   CMP AL, 5
+   JLE label1
+   PRINT 'AL > 5.'
+   JMP exit
+label1:
+   PRINT 'AL &lt;= 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JMP">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JMP
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	метка<BR>
+	4-х байтовый адрес<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Безусловный переход.
+Передает управление другому участку программы.
+<I>4-х байтовый адрес</I> может быть введен в такой форме:
+<FONT FACE="Fixedsys">1234h:5678h</FONT>, первое значение - сегмент,
+второе значение - смещение.<BR>
+
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	выполнить переход в любом случае
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   JMP label1    ; "перешагнуть" через две строки!
+   PRINT 'Нет перехода!'
+   MOV AL, 0
+label1:
+   PRINT 'Добрались сюда!'
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNA">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNA
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не больше второго операнда
+(в результате выполнения команды CMP). Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 1 или ZF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 5
+   JNA label1
+   PRINT 'AL больше 5.'
+   JMP exit
+label1:
+   PRINT 'AL не больше 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNAE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNAE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не больше и не равен второму операнду
+(в результате выполнения команды CMP). Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 5
+   JNAE label1
+   PRINT 'AL >= 5.'
+   JMP exit
+label1:
+   PRINT 'AL &lt; 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNB
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не меньше второго операнда
+(в результате выполнения команды CMP). Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 7
+   CMP AL, 5
+   JNB label1
+   PRINT 'AL &lt; 5.'
+   JMP exit
+label1:
+   PRINT 'AL >= 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNBE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNBE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не меньше и не равен второму операнду
+(в результате выполнения команды CMP). Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если (CF = 0) и (ZF = 0) то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 7
+   CMP AL, 5
+   JNBE label1
+   PRINT 'AL &lt;= 5.'
+   JMP exit
+label1:
+   PRINT 'AL > 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNC">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNC
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если флаг переноса установлен в ноль.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если CF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   ADD AL, 3
+   JNC  label1
+   PRINT 'имеем перенос.'
+   JMP exit
+label1:
+   PRINT 'нет переноса.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не равен второму операнду
+(в результате выполнения команды CMP). Знаковый/Беззнаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если ZF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNE  label1
+   PRINT 'AL = 3.'
+   JMP exit
+label1:
+   PRINT 'Al &lt;> 3.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNG">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNG
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не больше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если (ZF = 1) и (SF &lt;> OF) то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNG  label1
+   PRINT 'AL > 3.'
+   JMP exit
+label1:
+   PRINT 'Al &lt;= 3.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNGE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNGE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не больше и не равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если SF &lt;> OF то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNGE  label1
+   PRINT 'AL >= 3.'
+   JMP exit
+label1:
+   PRINT 'Al &lt; 3.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не меньше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если SF = OF то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -3
+   JNL label1
+   PRINT 'AL &lt; -3.'
+   JMP exit
+label1:
+   PRINT 'Al >= -3.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNLE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNLE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если первый операнд не меньше и не равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если (SF = OF) и (ZF = 0) то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -3
+   JNLE label1
+   PRINT 'AL &lt;= -3.'
+   JMP exit
+label1:
+   PRINT 'Al > -3.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNO">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNO
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если нет переполнения.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если OF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">; -5 - 2 = -7 (в пределах -128..127)
+; результат команды SUB (вычитание) правильный,
+; поэтому OF = 0:
+
+include 'emu8086.inc'
+#make_COM#
+ORG 100h
+  MOV AL, -5
+  SUB AL, 2   ; AL = 0F9h (-7)
+JNO  label1
+  PRINT 'переполнение!'
+JMP exit
+label1:
+  PRINT 'нет переполнения.'
+exit:
+  RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяется</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNP">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNP
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если нет паритета, или паритет нечетный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если PF = 0 то выполнить переход
+</UL>
+</FONT>
+Example:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов.
+   JNP label1
+   PRINT 'паритет четный.'
+   JMP exit
+label1:
+   PRINT 'паритет нечетный.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNS">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNS
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если нет знака (если положительный).
+Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если SF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов.
+   JNS label1
+   PRINT 'есть знак.'
+   JMP exit
+label1:
+   PRINT 'нет знака.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JNZ">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JNZ
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если "не ноль".
+Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если ZF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов
+   JNZ label1
+   PRINT 'ноль.'
+   JMP exit
+label1:
+   PRINT 'не ноль.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JO">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JO
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход по переполнению.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если OF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">; -5 - 127 = -132 (вне диапазона -128..127)
+; результат вычитания неправильный (124),
+; поэтому OF = 1:
+
+include 'emu8086.inc'
+#make_COM#
+org 100h
+  MOV AL, -5
+  SUB AL, 127   ; AL = 7Ch (124)
+JO  label1
+  PRINT 'нет переполнения.'
+JMP exit
+label1:
+  PRINT 'переполнение!'
+exit:
+  RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JP">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JP
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если есть паритет или паритет четный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если PF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000101b   ; AL = 5
+   OR  AL, 0           ; только установка флагов.
+   JP label1
+   PRINT 'паритет нечетный.'
+   JMP exit
+label1:
+   PRINT 'паритет четный.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JPE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JPE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если есть паритет или паритет четный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если PF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000101b   ; AL = 5
+   OR  AL, 0           ; только установка флагов.
+   JPE label1
+   PRINT 'паритет нечетный.'
+   JMP exit
+label1:
+   PRINT 'паритет четный.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JPO">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JPO
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход, если нет паритета, или паритет нечетный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если PF = 0 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов.
+   JPO label1
+   PRINT 'паритет четный.'
+   JMP exit
+label1:
+   PRINT 'паритет нечетный.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JS">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JS
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Переход по знаку (если отрицательный). Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если SF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 10000000b   ; AL = -128
+   OR  AL, 0           ; только установка флагов.
+   JS label1
+   PRINT 'нет знака.'
+   JMP exit
+label1:
+   PRINT 'есть знак.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="JZ">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+JZ
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Короткий переход по "нулю".
+Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	если ZF = 1 то выполнить переход
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JZ  label1
+   PRINT 'AL не равно 5.'
+   JMP exit
+label1:
+   PRINT 'AL равно 5.'
+exit:
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LAHF">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LAHF
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Загрузка младших 8 байтов регистра флагов в регистр АН.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	AH = флаговому регистру<BR>
+</UL>
+<PRE><FONT FACE="Fixedsys">
+Биты AH:  7    6   5    4   3    2   1    0
+        [SF] [ZF] [0] [AF] [0] [PF] [1] [CF]</FONT>
+</PRE>
+биты 1, 3, 5 зарезервированы.
+</FONT>
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LDS">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LDS
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Загружает в необходимые регистры четыре байта памяти (двойное слово), содержащей
+относительный адрес и сегментный адрес. Сегментный адрес помещается
+в регистр DS, а относительный адрес (смещение) - в любой из общих
+или индексных регистров или в регистровый указатель.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+    <LI>REG = первое слово</LI>
+	<LI>DS = второе слово</LI>
+</UL>
+</FONT>
+<BR>
+Пример:
+<PRE>
+<FONT FACE="Fixedsys">
+#make_COM#
+ORG 100h
+
+LDS AX, m
+
+RET
+
+m  DW  1234h
+   DW  5678h
+
+END
+</FONT>
+</PRE>
+В AX записано значение 1234h, в DS записано значение 5678h.
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LEA">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LEA
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Загрузка исполнительного адреса.<BR>
+Команда LEA загружает в регистр, указанный в команде в качестве
+первого операнда, относительный адрес второго операнда (не значение
+операнда!). В качестве первого операнда следует указывать регистр
+общего назначения (не сегментный), в качестве второго - ячейку памяти.
+Команда<BR><BR>
+LEA reg, mem<BR><BR>
+эквивалентна команде<BR><BR>
+MOV reg,offset mem<BR><BR>
+но у первой команды больше возможностей описания адреса интересующей
+нас ячейки. Команда не воздействует на флаги процессора.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+    <LI>REG = адрес памяти (смещение)</LI>
+</UL>
+</FONT>
+<BR>
+Обычно эту команду заменяют командой MOV, если это возможно.<BR><BR>
+Пример:
+<PRE>
+<FONT FACE="Fixedsys">
+#make_COM#
+ORG 100h
+
+LEA AX, m
+
+RET
+
+m  DW  1234h
+
+END
+</FONT>
+</PRE>
+В AX записано значение: 0104h.<BR>
+Команда LEA занимает 3 байта, команда RET занимает 1 байт,
+мы начинаем с адреса 100h, поэтому адрес 'm' - это 104h.
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LES">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LES
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Загрузка указателя с использованием регистра ES.<BR>
+Считывает из памяти по указанному адресу двойное слово (32 бит),
+содержащее указатель (полный адрес некоторой ячейки), и загружает
+младшую половину указателя (т.е. относительный адрес) в указанный в
+команде регистр, а старшую половину указателя (т.е. сегментный адрес)
+в регистр ES. Таким образом, команда<BR><BR>
+LES reg, mem<BR><BR>
+эквивалентна следующей группе команд:<BR><BR>
+MOV reg, word ptr mem<BR>
+MOV ES,  word ptr mem+2<BR><BR>
+В качестве первого операнда команды LES указывается регистр общего
+назначения; в качестве второго - ячейка памяти с двухсловным
+содержимым. Указатель, содержащийся в этой ячейке, может быть адресом
+как процедуры, так и поля данных.<BR><BR>
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+    <LI>REG = первое слово</LI>
+	<LI>ES = второе слово</LI>
+</UL>
+</FONT>
+<BR>
+Пример:
+<PRE>
+<FONT FACE="Fixedsys">
+#make_COM#
+ORG 100h
+
+LES AX, m
+
+RET
+
+m  DW  1234h
+   DW  5678h
+
+END
+</FONT>
+</PRE>
+В AX записано значение 1234h, В ES записано значение 5678h.
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+
+			<A NAME="LODSB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LODSB
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Загружает байт из DS:[SI] в регистр AL. Изменяет SI.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>AL = DS:[SI]<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>SI = SI + 1</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>SI = SI - 1</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:
+<PRE>
+<FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+MOV CX, 5
+MOV AH, 0Eh
+
+m: LODSB
+INT 10h
+LOOP m
+
+RET
+
+a1 DB 'H', 'e', 'l', 'l', 'o'</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LODSW">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LODSW
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Загрузить слово из DS:[SI] в регистр AX. Изменяет SI.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>AX = DS:[SI]<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>SI = SI + 2</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>SI = SI - 2</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:
+<PRE>
+<FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+MOV CX, 5
+
+REP LODSW   ; в итоге в АХ будет значение 555h.
+
+RET
+
+a1 dw 111h, 222h, 333h, 444h, 555h</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LOOP">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LOOP
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Уменьшает СХ, переходит на метку, если СХ не равен нулю.
+<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>CX = CX - 1<BR></LI>
+<LI>если CX &lt;> 0 то
+	<UL>
+	<LI>выполнить переход</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>не выполнять переход, продолжить цикл</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV CX, 5
+label1:
+   PRINTN 'цикл!'
+   LOOP label1
+   RET</FONT></PRE>
+
+   <FONT FACE="Fixedsys">
+   <TABLE BORDER=1 NOSHADE>
+   <TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+   <TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+   </TABLE>
+   </FONT>
+
+			<A NAME="LOOPE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LOOPE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Уменьшить СХ, выполнить переход, если СХ "не ноль" или "равно". (ZF = 1).
+<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>CX = CX - 1<BR></LI>
+<LI>если (CX &lt;> 0) и (ZF = 1) то
+	<UL>
+	<LI>выполнить переход</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>не выполнять переход, продолжить цикл</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">; Цикл выполняется 5 раз или до тех пор, пока
+; результат в регистре AL лежит в пределах байта.
+; Результат превысит значение 255 на третьем "заходе" (100+100+100),
+; поэтому цикл будет завершен.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AX, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   ADD AX, 100
+   CMP AH, 0
+   LOOPE label1
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LOOPNE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LOOPNE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Уменьшает СХ, выполняет переход к метке если СХ не равен нулю и
+выполняется условие "не равно" (ZF = 0). <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>CX = CX - 1<BR></LI>
+<LI>если (CX &lt;> 0) и (ZF = 0) то
+	<UL>
+	<LI>выполнить переход</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>не выполнять переход, продолжить цикл</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">; Цикл выполняется 5 раз, или до тех пор,
+; пока не будет найдено число '7'.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV SI, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   MOV AL, v1[SI]
+   INC SI         ; следующий байт (SI=SI+1).
+   CMP AL, 7
+   LOOPNE label1
+   RET
+   v1 db 9, 8, 7, 6, 5</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LOOPNZ">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LOOPNZ
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+</TD>
+<TD>
+Уменьшает СХ, выполняет переход к метке, если СХ не равен нулю и
+ZF = 0. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>CX = CX - 1<BR></LI>
+<LI>если (CX &lt;> 0) и (ZF = 0) то
+	<UL>
+	<LI>выполнить переход</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>не выполнять переход, продолжить цикл</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">; Цикл выполняется 5 раз, или до тех пор,
+; пока не будет найдено число '7'.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV SI, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   MOV AL, v1[SI]
+   INC SI         ; следующий байт (SI=SI+1).
+   CMP AL, 7
+   LOOPNZ label1
+   RET
+   v1 db 9, 8, 7, 6, 5</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="LOOPZ">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+LOOPZ
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>метка</NOBR>
+</FONT>
+
+</TD>
+<TD>
+Уменьшает СХ, выполняет переход к метке, если СХ не равен нулю и ZF = 1.
+<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>CX = CX - 1<BR></LI>
+<LI>если (CX &lt;> 0) и (ZF = 1) то
+	<UL>
+	<LI>выполнить переход</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>не выполнять переход, продолжить цикл</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">; Цикл выполняется 5 раз или до тех пор,
+; пока значение в регистре AL не выходит за пределы байта.
+; Результат превысит значение 255 на третьем цикле (100+100+100),
+; поэтому цикл будет завершен после третьего прохода.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AX, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   ADD AX, 100
+   CMP AH, 0
+   LOOPZ label1
+   RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="MOV">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+MOV
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate<BR><BR>
+
+	SREG, memory<BR>
+	memory, SREG<BR>
+	REG, SREG<BR>
+	SREG, REG
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Копирует operand2 в operand1.<BR><BR>
+Команда MOV <U>не может</U>:
+<UL>
+<LI>записывать данные в регистры CS и IP.</LI>
+<LI>копировать данные из одного сегментного регистра в другой сегментный регистр (сначала нужно скопировать данные в регистр общего назначения).</LI>
+<LI>копировать непосредственное значение в сегментный регистр (сначала нужно скопировать данные в регистр общего назначения).</LI>
+</UL>
+<BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<BLOCKQUOTE>
+operand1 = operand2
+</BLOCKQUOTE>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+MOV AX, 0B800h    ; установить AX = B800h (память VGA).
+MOV DS, AX        ; копировать значение из AX в DS.
+MOV CL, 'A'       ; CL = 41h (ASCII-код).
+MOV CH, 01011111b ; CL = атрибуты цвета.
+MOV BX, 15Eh      ; BX = позиция на экране.
+MOV [BX], CX      ; w.[0B800h:015Eh] = CX.
+RET               ; вернуться в операционную систему.
+</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="MOVSB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+MOVSB
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Копирует байт из DS:[SI] в ES:[DI].
+Изменяет регистры SI и DI.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>ES:[DI] = DS:[SI]<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>SI = SI + 1</LI>
+	<LI>DI = DI + 1</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>SI = SI - 1</LI>
+	<LI>DI = DI - 1</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+LEA DI, a2
+MOV CX, 5
+REP MOVSB
+
+RET
+
+a1 DB 1,2,3,4,5
+a2 DB 5 DUP(0)</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="MOVSW">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+MOVSW
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Копирует <b>слово</b> из DS:[SI] в ES:[DI].
+Изменяет регистры SI и DI.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>ES:[DI] = DS:[SI]<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>SI = SI + 2</LI>
+	<LI>DI = DI + 2</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>SI = SI - 2</LI>
+	<LI>DI = DI - 2</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+LEA DI, a2
+MOV CX, 5
+REP MOVSW
+
+RET
+
+a1 DW 1,2,3,4,5
+a2 DW 5 DUP(0)</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="MUL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+MUL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Беззнаковое умножение.
+<BR><BR>Алгоритм:<BR><BR>
+ <BLOCKQUOTE>
+	 если операнд - <B>byte</B>:<BR>
+	 <FONT FACE="Fixedsys">AX = AL * операнд</FONT>.
+ </BLOCKQUOTE>
+
+ <BLOCKQUOTE>
+	если операнд - <B>word</B>:<BR>
+	<FONT FACE="Fixedsys">(DX AX) = AX * операнд</FONT>.
+ </BLOCKQUOTE>
+   Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 200   ; AL = 0C8h
+MOV BL, 4
+MUL BL        ; AX = 0320h (800)
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>?</TD> <TD>?</TD> <TD>r</TD> <TD>?</TD> <TD>?</TD> </TR>
+</TABLE>
+CF=OF=0 если старшая секция результата - ноль.
+</FONT>
+
+ 			<A NAME="NEG">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+NEG
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Отрицание. Делает операнд отрицательным (дополнение до двух).
+<BR><BR>Алгоритм:<BR><BR>
+ <FONT FACE="Fixedsys">
+ <UL>
+ <LI>Инвертировать все биты операнда</LI>
+ <LI>Прибавить единицу к инвертированному операнду</LI>
+ </UL>
+ </FONT>
+    Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 5   ; AL = 05h
+NEG AL      ; AL = 0FBh (-5)
+NEG AL      ; AL = 05h (5)
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="NOP">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+NOP
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Нет операции. Обычно используется для небольшой задержки программы.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>Ничего не делать<BR></LI>
+</UL>
+</FONT>
+    Пример:<PRE><FONT FACE="Fixedsys">; ничего не делать три раза:
+NOP
+NOP
+NOP
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="NOT">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+NOT
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	memory<BR>
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Инвертирует каждый бит операнда.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>если бит равен 1, переключить его в 0.<BR></LI>
+<LI>если бит равен 0, переключить его в 1.<BR></LI>
+</UL>
+</FONT>
+    Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 00011011b
+NOT AL   ; AL = 11100100b
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="OR">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+OR
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Логическое ИЛИ между всеми битами двух операндов. Результат записывается
+в первый операнд.<BR><BR>
+Выполняются следующие правила:<BR><BR>
+<FONT FACE="Fixedsys">
+1 OR 1 = 1<BR>
+1 OR 0 = 1<BR>
+0 OR 1 = 1<BR>
+0 OR 0 = 0<BR>
+</FONT>
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 'A'       ; AL = 01000001b
+OR AL, 00100000b  ; AL = 01100001b  ('a')
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>0</TD> <TD>r</TD> <TD>r</TD> <TD>0</TD> <TD>r</TD> <TD>?</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="OUT">&nbsp;</A>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+OUT
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	im.byte, AL<BR>
+	im.byte, AX<BR>
+	DX, AL<BR>
+	DX, AX
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Выводит данные из регистра <B>AL</B> или <B>AX</B> в порт.<BR>
+Первый операнд - номер порта. Если требуется доступ к порту, номер которого
+превышает 255, то должен быть использован регистр <B>DX</B>.
+
+<BR><BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 0FFFh ; Включить все
+OUT 4, AX     ; светофоры.
+
+MOV AL, 100b  ; Включть третий магнит
+OUT 7, AL     ; шагового двигателя.</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="POP">&nbsp;</A>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+POP
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	SREG<BR>
+	memory
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Получает 16-битовое значение из стека.
+<BR><BR>Алгоритм:<BR><BR>
+ <FONT FACE="Fixedsys">
+ <UL>
+ <LI>операнд = SS:[SP] (вершина стека)</LI>
+ <LI>SP = SP + 2</LI>
+ </UL>
+ </FONT>
+ <BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 1234h
+PUSH AX
+POP  DX     ; DX = 1234h
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="POPA">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+POPA
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Выгружает все регистры общего назначения DI, SI, BP, SP, BX, DX, CX, AX из стека.<BR>
+(Значение SP игнорируется, оно выгружается, но не записывается в регистр SP).<BR><BR>
+Примечание: эта команда работает только на процессорах <B>80186</B> и выше!
+<BR><BR>Алгоритм:<BR><BR>
+ <FONT FACE="Fixedsys">
+ <UL>
+ <LI>POP DI</LI>
+ <LI>POP SI</LI>
+ <LI>POP BP</LI>
+ <LI>POP xx (значение SP игнорируется)</LI>
+ <LI>POP BX</LI>
+ <LI>POP DX</LI>
+ <LI>POP CX</LI>
+ <LI>POP AX</LI>
+ </UL>
+ </FONT>
+
+ <FONT FACE="Fixedsys">
+ <TABLE BORDER=1 NOSHADE>
+ <TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+ <TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+ </TABLE>
+ </FONT>
+
+			<A NAME="POPF">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+POPF
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Получает регистр флагов из стека.
+<BR><BR>Алгоритм:<BR><BR>
+ <FONT FACE="Fixedsys">
+ <UL>
+ <LI>флаги = SS:[SP] (вершина стека)</LI>
+ <LI>SP = SP + 2</LI>
+ </UL>
+ </FONT>
+
+ <FONT FACE="Fixedsys">
+ <TABLE BORDER=1 NOSHADE>
+ <TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+ <TR> <TD COLSPAN=6><CENTER>выгружаются из стека</CENTER></TD> </TR>
+ </TABLE>
+ </FONT>
+
+ 			<A NAME="PUSH">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+PUSH
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG<BR>
+	SREG<BR>
+	memory<BR>
+	immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Записывает 16-битовое значение в стек.<BR><BR>
+
+Примечание: <B>PUSH immediate</B> работает только на процессорах 80186 и выше!
+<BR><BR>Алгоритм:<BR><BR>
+ <FONT FACE="Fixedsys">
+ <UL>
+ <LI>SP = SP - 2</LI>
+ <LI>SS:[SP] (вершина стека) = операнд</LI>
+ </UL>
+ </FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">MOV AX, 1234h
+PUSH AX
+POP  DX     ; DX = 1234h
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+ 			<A NAME="PUSHA">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+PUSHA
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Помещает в стек все регистры общего назначения: AX, CX, DX, BX, SP, BP, SI, DI.<BR>
+Использует оригинальное значение регистра SP (перед выполнением PUSHA).<BR><BR>
+Примечание: эта команда работает только на процессорах 80186 и выше!
+<BR><BR>Алгоритм:<BR><BR>
+ <FONT FACE="Fixedsys">
+ <UL>
+	<LI>PUSH AX</LI>
+	<LI>PUSH CX</LI>
+	<LI>PUSH DX</LI>
+	<LI>PUSH BX</LI>
+	<LI>PUSH SP</LI>
+	<LI>PUSH BP</LI>
+	<LI>PUSH SI</LI>
+	<LI>PUSH DI</LI>
+ </UL>
+ </FONT>
+
+ <FONT FACE="Fixedsys">
+ <TABLE BORDER=1 NOSHADE>
+ <TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+ <TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+ </TABLE>
+ </FONT>
+
+			<A NAME="PUSHF">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+PUSHF
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Записывает регистр флагов в стек.
+<BR><BR>Алгоритм:<BR><BR>
+ <FONT FACE="Fixedsys">
+ <UL>
+ <LI>SP = SP - 2</LI>
+ <LI>SS:[SP] (вершина стека) = флаги</LI>
+ </UL>
+ </FONT>
+
+ <FONT FACE="Fixedsys">
+ <TABLE BORDER=1 NOSHADE>
+ <TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+ <TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+ </TABLE>
+ </FONT>
+
+ 			<A NAME="RCL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+RCL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+Циклический сдвиг (ротация) влево через перенос. Количество ротаций
+устанавливается во втором операнде.
+<BR>
+Если <B>immediate</B> больше единицы, ассемблер генерирует несколько
+команд <B>RCL xx, 1</B>, потому что 8086 имеет машинный код только
+для этой команды (тот же принцип работы используют все команды
+сдвига/ротации).
+
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	самый левый бит записать во флаг CF,
+	сдвинуть все биты влево,
+	значение флага CF записать в самый правый бит (бит 0).
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">STC               ; установить перенос (CF=1).
+MOV AL, 1Ch       ; AL = 00011100b
+RCL AL, 1         ; AL = 00111001b,  CF=0.
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="RCR">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+RCR
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+Циклический сдвиг (ротация) вправо через перенос. Количество ротаций
+устанавливается во втором операнде.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	самый правый бит (бит 0) записать во флаг CF,
+	сдвинуть все биты вправо,
+	значение флага CF записать в самый левый бит.
+
+</UL>
+</FONT>
+<BR>Пример:<PRE><FONT FACE="Fixedsys">STC               ; установить перенос (CF=1).
+MOV AL, 1Ch       ; AL = 00011100b
+RCR AL, 1         ; AL = 10001110b,  CF=0.
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="REP">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+REP
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>нужная команда</NOBR><BR>
+</FONT>
+</TD>
+<TD>
+Повторяет следующие команды MOVSB, MOVSW, LODSB, LODSW, STOSB, STOSW.
+Количество повторов указано в СХ.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+check_cx:<BR><BR>
+если CX &lt;> 0 то
+<UL>
+	<LI>выполнить <U>нужную команду</U></LI>
+	<LI>CX = CX - 1</LI>
+	<LI>вернуться к метке check_cx</LI>
+</UL>
+иначе
+<UL>
+	<LI>выйти из REP-цикла</LI>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>Z</TD> </TR>
+<TR> <TD>r</TD>  </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="REPE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+REPE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>нужная команда</NOBR><BR>
+</FONT>
+</TD>
+<TD>
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 1, но не более CX раз.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+check_cx:<BR><BR>
+если CX &lt;> 0 то
+<UL>
+	<LI>выполнить <U>нужную команду</U></LI>
+	<LI>CX = CX - 1</LI>
+	<LI>если ZF = 1 то:
+		<UL>
+		<LI>вернуться к метке check_cx</LI>
+		</UL>
+	иначе
+		<UL>
+		<LI>выйти из REPE-цикла</LI>
+		</UL>
+	</LI>
+</UL>
+иначе
+<UL>
+	<LI>выйти из REPE-цикла</LI>
+</UL>
+</FONT>
+Пример:<BR>
+см. <B><A HREF="../Samples/cmpsb.asm">cmpsb.asm</A></B> в каталоге Samples.
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>Z</TD> </TR>
+<TR> <TD>r</TD>  </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="REPNE">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+REPNE
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>нужная команда</NOBR><BR>
+</FONT>
+</TD>
+<TD>
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 0, но не более CX раз.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+check_cx:<BR><BR>
+если CX &lt;> 0 то
+<UL>
+	<LI>выполнить <U>нужную команду</U></LI>
+	<LI>CX = CX - 1</LI>
+	<LI>если ZF = 0 то:
+		<UL>
+		<LI>вернуться к метке check_cx</LI>
+		</UL>
+	иначе
+		<UL>
+		<LI>выйти из REPNE-цикла</LI>
+		</UL>
+	</LI>
+</UL>
+иначе
+<UL>
+	<LI>выйти из REPNE-цикла</LI>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>Z</TD> </TR>
+<TR> <TD>r</TD>  </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="REPNZ">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+REPNZ
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>нужная команда</NOBR><BR>
+</FONT>
+</TD>
+<TD>
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 0, но не более CX раз.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+check_cx:<BR><BR>
+если CX &lt;> 0 то
+<UL>
+	<LI>выполнить <U>нужную команду</U></LI>
+	<LI>CX = CX - 1</LI>
+	<LI>если ZF = 0 то:
+		<UL>
+		<LI>вернуться к метке check_cx</LI>
+		</UL>
+	иначе
+		<UL>
+		<LI>выйти из REPNZ-цикла</LI>
+		</UL>
+	</LI>
+</UL>
+иначе
+<UL>
+	<LI>выйти из REPNZ-цикла</LI>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>Z</TD> </TR>
+<TR> <TD>r</TD>  </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="REPZ">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+REPZ
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>нужная команда</NOBR><BR>
+</FONT>
+</TD>
+<TD>
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 1, но не более CX раз.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+check_cx:<BR><BR>
+если CX &lt;> 0 то
+<UL>
+	<LI>выполнить <U>нужную команду</U></LI>
+	<LI>CX = CX - 1</LI>
+	<LI>если ZF = 1 то:
+		<UL>
+		<LI>вернуться к метке check_cx</LI>
+		</UL>
+	иначе
+		<UL>
+		<LI>выйти из REPZ-цикла</LI>
+		</UL>
+	</LI>
+</UL>
+иначе
+<UL>
+	<LI>выйти из REPZ-цикла</LI>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>Z</TD> </TR>
+<TR> <TD>r</TD>  </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="RET">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+RET
+</FONT>
+</TD>
+<TD>Нет операндов<BR>
+или четное immediate</TD>
+<TD>
+Возврат из ближней процедуры.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	<LI>
+		Получить из стека:
+		<UL>
+		<LI>IP</LI>
+		</UL>
+	</LI>
+	<LI>
+	если имеется операнд <U>immediate</U>:
+	<NOBR>SP = SP + операнд</NOBR>
+	</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">#make_COM#
+ORG 100h  ; для COM-файла.
+
+CALL p1
+
+ADD AX, 1
+
+RET         ; вернуться в операционную систему.
+
+p1 PROC     ; объявление процедуры.
+    MOV AX, 1234h
+    RET     ; вернуться в программу.
+p1 ENDP</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="RETF">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+RETF
+</FONT>
+</TD>
+<TD>Нет операндов<BR>
+или четное immediate</TD>
+<TD>
+Возврат из дальней процедуры.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	<LI>
+		Получить из стека:
+		<UL>
+		<LI>IP</LI>
+		<LI>CS</LI>
+		</UL>
+	</LI>
+	<LI>
+	если имеется операнд <U>immediate</U>:
+	<NOBR>SP = SP + операнд</NOBR>
+	</LI>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="ROL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+ROL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+Циклический сдвиг (ротация) влево. Количество ротаций устанавливается
+во втором операнде.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	самый левый бит записать во флаг CF, сдвинуть все биты влево,
+	в самый правый бит записать флаг CF.
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 1Ch       ; AL = 00011100b
+ROL AL, 1         ; AL = 00111000b,  CF=0.
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="ROR">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+ROR
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+Циклический сдвиг (ротация) вправо. Количество ротаций устанавливается
+во втором операнде.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	самый правый бит записать во флаг CF, сдвинуть все биты вправо,
+	в самый левый бит записать флаг CF.
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 1Ch       ; AL = 00011100b
+ROR AL, 1         ; AL = 00001110b,  CF=0.
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="SAHF">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SAHF
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Записать данные из регистра АН в младшие 8 битов регистра флагов.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	регистр флагов = AH<BR>
+</UL>
+<PRE><FONT FACE="Fixedsys">
+Биты АН:   7    6   5    4   3    2   1    0
+         [SF] [ZF] [0] [AF] [0] [PF] [1] [CF]</FONT>
+</PRE>
+биты 1, 3, 5 зарезервированы.
+</FONT>
+
+<BR><BR>
+
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+
+			<A NAME="SAL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SAL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+Арифметический сдвиг влево. Количество сдвигов записывается во второй операнд.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	<LI>самый левый бит записать в CF, сдвинуть все биты влево,</LI>
+	<LI>в самый правый бит записать ноль.</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 0E0h      ; AL = 11100000b
+SAL AL, 1         ; AL = 11000000b,  CF=1.
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="SAR">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SAR
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Арифметический сдвиг вправо. Количество сдвигов записывается во второй операнд.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	<LI>самый правый бит записать в CF, сдвинуть все биты вправо,</LI>
+	<LI>в самый правый бит записать ноль.</LI>
+	<LI>Бит знака, который вставляется в самую левую позицию, имеет то же значение,
+	что и перед сдвигом.</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 0E0h      ; AL = 11100000b
+SAR AL, 1         ; AL = 11110000b,  CF=0.
+
+MOV BL, 4Ch       ; BL = 01001100b
+SAR BL, 1         ; BL = 00100110b,  CF=0.
+
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="SBB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SBB
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Вычитание с заемом.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand1 = operand1 - operand2 - CF
+</FONT>
+<BR><BR>
+Пример:<PRE><FONT FACE="Fixedsys">STC
+MOV AL, 5
+SBB AL, 3    ; AL = 5 - 3 - 1 = 1
+
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="SCASB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SCASB
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Сравнивает байты (ищет байт в строке): <NOBR>AL из ES:[DI].</NOBR> <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>ES:[DI] - AL<BR></LI>
+<LI>установить флаги в зависимости от результата:<BR> OF, SF, ZF, AF, PF, CF<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>DI = DI + 1</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>DI = DI - 1</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="SCASW">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SCASW
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Сравнивает слова: <NOBR>AX из ES:[DI].</NOBR> <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>ES:[DI] - AX<BR></LI>
+<LI>установить флаги в зависимости от результата:<BR> OF, SF, ZF, AF, PF, CF<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>DI = DI + 2</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>DI = DI - 2</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="SHL">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SHL
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+Сдвиг влево. Количество сдвигов указывается во втором операнде.
+Знаковый бит рассматривается как обычный бит данных.
+
+<BR><BR>Algorithm:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	<LI>Записать самый левый бит в CF, сдвинуть все биты влево.</LI>
+	<LI>В самый правый бит записать ноль.</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 11100000b
+SHL AL, 1         ; AL = 11000000b,  CF=1.
+
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="SHR">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SHR
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>memory, immediate</NOBR><BR>
+	<NOBR>REG, immediate</NOBR><BR><BR>
+	<NOBR>memory, CL</NOBR><BR>
+	<NOBR>REG, CL</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Сдвиг вправо. Количество сдвигов указывается во втором операнде.
+Знаковый бит рассматривается как обычный бит данных.
+
+<BR><BR>Algorithm:<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+	<LI>Записать самый правый бит в CF, сдвинуть все биты вправо.</LI>
+	<LI>В самый левый бит записать ноль.</LI>
+</UL>
+</FONT>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 00000111b
+SHR AL, 1         ; AL = 00000011b,  CF=1.
+
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>O</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</FONT>
+
+			<A NAME="STC">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+STC
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Устанавливает флаг переноса (CF). <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+CF = 1
+</FONT>
+
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> </TR>
+<TR> <TD>1</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="STD">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+STD
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Устанавливает флаг направления (DF). Значения регистров SI и DI
+уменьшаются командами: CMPSB, CMPSW, LODSB, LODSW, MOVSB, MOVSW, STOSB, STOSW. <BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+DF = 1
+</FONT>
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>D</TD> </TR>
+<TR> <TD>1</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="STI">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+STI
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Устанавливает флаг прерываний. Это включает аппаратные прерывания.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+IF = 1
+</FONT>
+<BR><BR>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>I</TD> </TR>
+<TR> <TD>1</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="STOSB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+STOSB
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+Записывает байт из AL в ES:[DI]. Изменяет SI.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>ES:[DI] = AL<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>DI = DI + 1</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>DI = DI - 1</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:
+<PRE>
+<FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+
+LEA DI, a1
+MOV AL, 12h
+MOV CX, 5
+
+REP STOSB
+
+RET
+
+a1 DB 5 dup(0)</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="STOSW">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+STOSW
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Записывает слово из AX в ES:[DI]. Изменяет SI.<BR><BR>Алгоритм:
+<BR><BR>
+<FONT FACE="Fixedsys">
+<UL>
+<LI>ES:[DI] = AX<BR></LI>
+<LI>если DF = 0 то
+	<UL>
+	<LI>DI = DI + 2</LI>
+	</UL>
+	иначе
+	<UL>
+	<LI>DI = DI - 2</LI>
+	</UL>
+</LI>
+</UL>
+</FONT>
+Пример:
+<PRE><FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+
+LEA DI, a1
+MOV AX, 1234h
+MOV CX, 5
+
+REP STOSW
+
+RET
+
+a1 DW 5 dup(0)</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="SUB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+SUB
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+
+Вычитание.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand1 = operand1 - operand2
+</FONT>
+<BR><BR>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 5
+SUB AL, 1         ; AL = 4
+
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="TEST">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+TEST
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Логическое И между всеми битами двух операндов. Не изменяет результирующий
+операнд, а влияет только на флаги. Задействованы следующие флаги: <B>ZF, SF, PF.</B>
+<BR><BR>
+Выполняются следующие правила:<BR><BR>
+<FONT FACE="Fixedsys">
+1 AND 1 = 1<BR>
+1 AND 0 = 0<BR>
+0 AND 1 = 0<BR>
+0 AND 0 = 0<BR>
+</FONT>
+<BR><BR>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 00000101b
+TEST AL, 1         ; ZF = 0.
+TEST AL, 10b       ; ZF = 1.
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> </TR>
+<TR> <TD>0</TD> <TD>r</TD> <TD>r</TD> <TD>0</TD> <TD>r</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="XCHG">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+XCHG
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Перестановка двух операндов.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+operand1 &lt; - > operand2
+</FONT>
+<BR><BR>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 5
+MOV AH, 2
+XCHG AL, AH   ; AL = 2, AH = 5
+XCHG AL, AH   ; AL = 5, AH = 2
+RET</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="XLATB">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+XLATB
+</FONT>
+</TD>
+<TD>Нет операндов</TD>
+<TD>
+
+Транслирует байт из таблицы.<BR>
+Копирует байт из памяти по адресу <NOBR>DS:[BX + беззнаковый AL]</NOBR> в
+регистр AL.
+<BR><BR>Алгоритм:<BR><BR>
+<FONT FACE="Fixedsys">
+AL = DS:[BX + беззнаковый AL]
+</FONT>
+<BR><BR>
+Пример:<PRE><FONT FACE="Fixedsys">#make_COM#
+ORG 100h
+LEA BX, dat
+MOV AL, 2
+XLATB     ; AL = 33h
+
+RET
+
+dat DB 11h, 22h, 33h, 44h, 55h</FONT></PRE>
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD COLSPAN=6>не изменяются</TD> </TR>
+</TABLE>
+</FONT>
+
+			<A NAME="XOR">&nbsp;</A>
+</TD>
+</TR>
+
+
+
+
+
+
+
+<TR>
+<TD>
+<FONT FACE="Fixedsys">
+XOR
+</FONT>
+</TD>
+<TD>
+<FONT FACE="Fixedsys">
+	<NOBR>
+	REG, memory<BR>
+	memory, REG<BR>
+	REG, REG<BR>
+	memory, immediate<BR>
+	REG, immediate
+	</NOBR>
+</FONT>
+</TD>
+<TD>
+Логическое XOR (Исключающее ИЛИ)между всеми битами двух операндов.
+Результат записывается в первый операнд.<BR><BR>
+Выполняются следующие правила:<BR><BR>
+<FONT FACE="Fixedsys">
+1 XOR 1 = 0<BR>
+1 XOR 0 = 1<BR>
+0 XOR 1 = 1<BR>
+0 XOR 0 = 0<BR>
+</FONT>
+<BR><BR>
+Пример:<PRE><FONT FACE="Fixedsys">MOV AL, 00000111b
+XOR AL, 00000010b    ; AL = 00000101b
+RET</FONT></PRE>
+
+
+<FONT FACE="Fixedsys">
+<TABLE BORDER=1 NOSHADE>
+<TR> <TD>C</TD> <TD>Z</TD> <TD>S</TD> <TD>O</TD> <TD>P</TD> <TD>A</TD> </TR>
+<TR> <TD>0</TD> <TD>r</TD> <TD>r</TD> <TD>0</TD> <TD>r</TD> <TD>?</TD> </TR>
+</TABLE>
+</FONT>
+
+
+</TD>
+</TR>
+
+
+
+
+
+</TABLE>
+
+<BR><BR>
+
+<HR>
+
+<BR><BR><BR>
+<CENTER>
+<FONT SIZE=2>
+Copyright &copy; 2003 Emu8086, Inc.<BR>
+Все права защищены.<BR>
+<A HREF="http://www.emu8086.com"><B>http://www.emu8086.com</B></A>
+</FONT>
+</CENTER>
+
+</FONT>
+
+
+<BR>
+
+
+
+</BODY>
+
+</HTML>
+

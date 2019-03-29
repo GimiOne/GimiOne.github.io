@@ -1,0 +1,191 @@
+<!doctype HTML public "-//W3O//DTD W3 HTML 3.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Перевод: Поляков А.В. http://www.avprog.narod.ru</TITLE>
+<META name="description" content="Interrupts - 8086 Assembler">
+<META name="keywords" content="interrupts, 8086, tutorial, programming, assembler tutorial, tutorial for begginers">
+<META name="robots" content="nofollow">
+</HEAD><BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#007099" alink="#FF0000">
+<TABLE WIDTH=80%>
+<TR><TD>
+<FONT FACE="Verdana" SIZE=3>
+<FONT SIZE=+1>
+<B>Уроки Ассемблера 8086 для начинающих (Часть 11)</B>
+</FONT><BR><BR>
+<FONT SIZE=+2><B>Создание вашей собственной операционной системы</B></FONT>
+<BR><BR>
+<FONT SIZE=1>
+Перевод: Поляков А.В. <A HREF="http://www.avprog.narod.ru">http://www.avprog.narod.ru</A>
+</FONT><BR><BR><BR>
+
+      Обычно, когда компьютер стартует, он пытается загрузиться с первого
+      512-байтового сектора (это Цилиндр <b>0</b>, Головка <b>0</b>, Сектор <b>1</b>)
+      дискеты в дисководе <b>A:</b> в память по адресу 0000h:7C00h и передать ей управление.
+      Если это не удается, то BIOS пытается использовать MBR первого
+      жесткого диска.<BR>
+      <BR>
+      Этот урок посвящен загрузке с дискеты. Те же принципы используются при
+      загрузке с жесткого диска. Но использование дискеты имеет несколько преимуществ:
+      <UL>
+        <LI>Вы можете сохранить существующую операционную систему неповрежденной (Windows, DOS...).<BR>
+          <BR>
+        </LI>
+        <LI>Загрузочную запись дискеты легко модифицировать.</LI>
+      </UL>
+      <BR>
+      Пример простой загрузочной программы для дискеты:<BR>
+      <BR>
+      <TABLE BORDER=1 CELLPADDING=10 WIDTH=70%>
+        <TR>
+          <TD>
+            <PRE>
+<FONT FACE="Fixedsys">
+; директива для создания BOOT-файла:
+#MAKE_BOOT#
+
+; Загрузочная запись помещается в 0000:7C00.
+; Эту информацию нужно сообщить компилятору:
+ORG 7C00h
+
+; загружаем адрес сообщения в регистр SI:
+LEA SI, msg
+
+; функция телетайпа:
+MOV AH, 0Eh
+
+print:   MOV AL, [SI]
+         CMP AL, 0
+         JZ done
+         INT 10h   ; печать в режиме телетайпа.
+         INC SI
+         JMP print
+
+; ожидание нажатия любой клавиши:
+done:      MOV AH, 0
+           INT 16h
+
+
+; записать волшебное значение в 0040h:0072h:
+;   0000h - холодная загрузка.
+;   1234h - горячая загрузка.
+MOV     AX, 0040h
+MOV     DS, AX
+MOV     w.[0072h], 0000h ; холодная загрузка.
+
+JMP	0FFFFh:0000h	 ; перезагрузка!
+
+
+new_line EQU 13, 10
+
+msg DB  'Hello This is My First Boot Program!'
+    DB  new_line, 'Press any key to reboot', 0
+</FONT></PRE>
+          </TD>
+        </TR>
+      </TABLE>
+      <BR>
+      <BR>
+      Скопируйте описанный выше пример в редактор исходного кода
+      <B>Emu8086</B> и нажмите кнопку <NOBR>[<B>Compile and Emulate</B>]</NOBR>.
+      Эмулятор автоматически загрузит ".boot" файл по адресу 0000h:7C00h. <BR>
+      <BR>
+      Вы можете управлять им как обычной программой или использовать
+      меню <B>Virtual Drive</B> -> <B>Write 512 bytes at 7C00h to </B> -> <B>Boot Sector</B>
+      виртуального дисковода (файл FLOPPY_0 в каталоге, где установлен эмулятор).
+      После записи вашей программы в Виртуальный Дисковод, вы можете
+      выбрать <B>Boot from Floppy</B> из меню <B>Virtual Drive</B>. <BR>
+      <BR>
+      <HR>
+      <BR>
+      Из любопытства вы можете записать виртуальную дискету (<B>FLOPPY_0</B>) или
+      "<B>.boot</B>"-файл на реальную дискету и загрузить с нее ваш компьютер.
+      Я рекомендую использовать "RawWrite for Windows" из: <A HREF="http://uranus.it.swin.edu.au/~jn/linux/rawwrite.htm">
+      <B>http://uranus.it.swin.edu.au/~jn/linux/rawwrite.htm</B></A><BR>
+       (с недавнего времени работает под всеми версиями Windows!)
+      <br><br>
+      <b>Примечание:</b> Этот <b>.boot</b>-файл <b><i>не</i></b>
+      совместим с загрузочным сектором MS-DOS (будет невозможно
+      прочитать или записать данные на вашу дискету, пока вы ее снова
+      не отформатируете). Фактичеки, если вы используете какие-либо
+      "сырые" программы, такие как описанная выше, они так или иначе
+      будут стирать все данные. Так что убедитесь, что ваша дискета не
+      содержит важных данных.<BR>
+      <BR>
+      <HR>
+      <BR><BR>
+      "<B>.boot</B>"-файлы имеют ограничение 512 байтов (размер сектора).
+      Если ваша операционная система имеет размер, превышающий это ограничение,
+      то вам придется использовать программу для загрузки из других секторов.
+      Хороший пример маленькой операционной системы можно найти в каталоге "Samples":<BR>
+      <A HREF="../Samples/micro-os_loader.asm"><B>micro-os_loader.asm</B></A><BR>
+      <A HREF="../Samples/micro-os_kernel.asm"><B>micro-os_kernel.asm</B></A><BR>
+      <BR>
+      <BR>
+      Для создания расширенной операционной системы (более 512 байтов), вы можете
+      использовать файлы "<B>.bin</B>" (выберите "<B>BIN Template</B>" из меню "<B>File</B>"
+      -> "<B>New</B>"). <BR>
+      <BR>
+      Чтобы записать файл "<B>.bin</B>" на виртуальный дисковод, выберите
+      <B>"Write .bin file to floppy..."</B> из меню эмулятора <B>"Virtual Drive"</B>:<BR>
+      <BR>
+      <IMG SRC="write_bin.gif" WIDTH=366 HEIGHT=239> <BR>
+      <BR>
+      Вы можете также использовать для записи "<B>.boot</B>"-файлов. <BR>
+      <BR>
+      <TABLE BORDER=1 CELLPADDING=8 width="194">
+        <TR>
+          <TD> Сектор:<BR>
+            <BLOCKQUOTE> <FONT FACE="Fixedsys"> Цилиндр: 0<br>
+              Головка:0<br>
+              Сектор: 1<BR>
+              </FONT> </BLOCKQUOTE>
+            это загрузочный сектор! </TD>
+        </TR>
+      </TABLE>
+      </FONT>
+      <p><FONT FACE="Verdana" SIZE=3><BR>
+        <BR>
+        Упрощенный дисковод и структура дискеты: <BR>
+        <BR>
+        <IMG SRC="floppy.gif" WIDTH=367 HEIGHT=374> <BR>
+        </FONT></p>
+      <p><FONT FACE="Verdana" SIZE=3>Для дискеты на <b>1440 КБ</b>:<BR>
+        </FONT></p>
+      <FONT FACE="Verdana" SIZE=3><UL>
+        <LI>Дисковод имеет 2 стороны и 2 головки - по одной на каждую сторону (<B>0..1</B>).
+        Головки дисковода перемещаются над поверхностью диска на каждой стороне.<BR>
+          <BR>
+        </LI>
+        <LI>Каждая сторона имеет 80 цилиндров (нумерация <B>0..79</B>).<BR>
+          <BR>
+        </LI>
+        <LI>Каждый цилиндр имеет 18 секторов (<B>1..18</B>).<BR>
+          <BR>
+        </LI>
+        <LI>В каждом секторе <B>512</B> байтов.<BR>
+          <BR>
+        </LI>
+        <LI>Общий размер дискеты: 2 x 80 x 18 x 512 = 1474560 байтов.<BR>
+          <BR>
+        </LI>
+      </UL>
+      Чтобы прочитать секторы с дискеты, используйте <A HREF="supported_interrupts.html#int13h_02h"><B>INT
+      13h / AH = 02h</B></A>. <BR>
+      <BR>
+      <BR>
+      <HR>
+      <CENTER>
+        <A HREF="asm_tutorial_10.html"><B> &lt;&lt;&lt; Предыдущая часть &lt;&lt;&lt;
+        </B></A> &nbsp;&nbsp;&nbsp;&nbsp; <A HREF="asm_tutorial_12.html"><B> >>>
+        Следующая часть >>> </B></A>
+      </CENTER>
+      <HR>
+      <BR>
+      </FONT> </TD>
+  </TR>
+</TABLE>
+
+
+</BODY>
+
+</HTML>
