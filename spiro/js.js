@@ -18,10 +18,17 @@ var range1 = document.getElementById('range1'),
 	inp4 = document.getElementById('inp4'),
 	inpColor = document.getElementById('inp-color'),
 	clear = document.getElementById('clear'),
+	preloader = document.getElementById('preloader'),
 	blkCircle = document.getElementById('blk-circle');
 
 
-
+window.onload = function(){
+    preloader.style.opacity = '0';
+    function hide(){
+        preloader.style.display = 'none';
+    }
+    setInterval(hide,1000);
+}
 
 
 
@@ -161,4 +168,9 @@ document.getElementById('arrowForBlockContent').onclick = function(){
 	}
 	
 }
+
+
+
+
+
 

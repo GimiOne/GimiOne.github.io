@@ -219,7 +219,7 @@ header{
 }
 
 .alert{
-	z-index: 999;
+	z-index: 98;
 }
 
 .help{
@@ -288,6 +288,7 @@ section {
 	width: 300px;
 	height: 300px;
 	/*border:1px solid black;*/
+	border-radius:4px;
 	margin-right: 15px;
 	margin-left: 10px;
 	box-shadow: 3px 3px 7px rgba(0,0,0,.5);
@@ -416,13 +417,10 @@ h1{
 	
 }
 
-.first h1{
-
-}
 
 .first img{
 	margin-top: 40px;
-	padding-left: 40px;
+	border-radius: 4px;
 	float:right;
 }
 
@@ -553,7 +551,7 @@ h1{
 	height: 50px;
 	background-image: url(vectorpaint.svg);
 	background-size: 100%;
-	
+	cursor:pointer;
 	transition: .2s;
 }
 
@@ -569,3 +567,50 @@ h1{
 	display: flex;
 	justify-content: center;
 }
+
+
+
+#preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background:black;
+    z-index: 999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+#pretriangleup{
+    width: 0; 
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid white;
+    filter: blur(4px);
+    animation: rotatee 1.2s infinite alternate ease-in-out;
+}
+
+#pretriangledown{
+    /* position: absolute; */
+    width: 0; 
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 60px solid white;
+    filter: blur(4px);
+    animation: rotatee1 1.2s infinite alternate ease-in-out;
+}
+
+
+@keyframes rotatee {
+	from{transform:translateY(0px);}
+	to{transform:translateY(-60px);}
+}
+
+@keyframes rotatee1 {
+	from{transform:translateY(0px);}
+	to{transform:translateY(60px);}
+}
+

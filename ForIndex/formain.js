@@ -1,8 +1,10 @@
 var i = 1;
 document.getElementById('audio').volume = "0";
+document.getElementById('audio').autoplay;
 
 function volume(){
 	if(i===1){
+	    document.getElementById('audio').play();
 		document.getElementById('audio').volume = "1";
 		document.getElementById('butsound').value = "Sound";
 		document.getElementById('butsound').style.border = "2px solid lightgrey";

@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<!-- <script src="https://use.fontawesome.com/dcded54373.js"></script> -->
-	<script src="script.js" defer></script>
-	<title>Document</title>
+	<link rel="stylesheet" href="style1.css?5804">
+	<script src="script.js?5804" defer></script>
+	<title>Расписание</title>
 </head>
-<body>
+<body id="body">
+	<div id="preloader"><div id="circle"></div></div>
+    <div class="muchMain">
 	<div class="main">
 		<div class="block">
 			<h1 id="greenOrRed"></h1>
@@ -33,42 +34,43 @@
 		    <tr>
 		        <td id="nextWeekButton"></td>
 		        <td id="setColor">
-		        	<select id="select" name="groups" id="g1">
-					  <option class="option" value="ivt1" >ИВТ-171(1)</option>
-					  <option class="option" value="ivt2">ИВТ-171(2)</option>
-					  <option class="option" value="ivt3">ИВТ-172(1)</option>
-					  <option class="option" value="ivt4">ИВТ-172(2)</option>
+		        	<select id="select" name="groups" >
+					  <option class="option" value="ivt1" >ИВТ-171[1]</option>
+					  <option class="option" value="ivt2">ИВТ-171[2]</option>
+					  <option class="option" value="ivt3">ИВТ-172[1]</option>
+					  <option class="option" value="ivt4">ИВТ-172[2]</option>
 					</select>
 				</td>
 		    </tr>
 		    <tr>
-		        <td style="width: 40px">1</td>
-		        <td></td>
+		        <td style="width: 40px" class="numbers">1</td>
+		        <td class="hideText"  abbr="0"></td>
 		    </tr>
 		    <tr>
-		        <td>2</td>
-		        <td></td>
+		        <td class="numbers">2</td>
+		        <td class="hideText"  abbr="1"></td>
 		    </tr>
 		    <tr>
-		        <td>3</td>
-		        <td></td>
+		        <td class="numbers">3</td>
+		        <td class="hideText"  abbr="2"></td>
 		    </tr>
 		    <tr>
-		        <td>4</td>
-		        <td></td>
+		        <td class="numbers">4</td>
+		        <td class="hideText"  abbr="3"></td>
 		    </tr>
 		    <tr>
-		        <td>5</td>
-		        <td></td>
+		        <td class="numbers">5</td>
+		        <td class="hideText" abbr="4" ></td>
 		    </tr>
 		    <tr>
-		        <td>6</td>
-		        <td id="sixLine"></td>
+		        <td class="numbers">6</td>
+		        <td id="sixLine" class="hideText" abbr="5"></td>
 		    </tr>
-
+	<div id="Full"><a id="FullA" href="http://www.x978767e.beget.tech/GreenOrRed/RASPISANIE18-19vesna-1.html">Full</a></div>
 		</table>
  <div id="arrow-down"></div>
+ </div>
 	</div>
-	
+
 </body>
 </html>

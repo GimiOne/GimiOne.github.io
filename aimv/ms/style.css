@@ -1,0 +1,42 @@
+body, html{
+	font-family: Arial,sans-serif;
+	font-size: 18px;
+}
+
+input{
+	border:2px solid lightgrey;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 18px;
+	width: 50px;
+}
+
+
+#example{
+	width: 400px;
+	font-size: 18px;
+}
+
+#output{
+	font-size: 18px;
+}
+
+p,input{
+	display: inline-block;
+}
+
+#e input{
+	width: 120px;
+}
+
+#compute{
+	width: auto;
+	cursor: pointer;
+}
+
+#compute,#example{
+	font-size: 18px;
+	border:2px solid lightgrey;
+	border-radius: 5px;
+	padding: 5px;
+}

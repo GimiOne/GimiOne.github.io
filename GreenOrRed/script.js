@@ -1,18 +1,29 @@
 var arrowDown = document.getElementById('arrow-down');
 var textCalls = document.getElementById('textCalls');
+var greenOrRed = document.getElementById('greenOrRed');
+var table = document.getElementById('table');
+var preloader = document.getElementById('preloader');
+var circle = document.getElementById('circle');
 calls.style.transform = 'scaleY(0)';
 
 window.onload = function(){
+
+preloader.style.backgroundColor = 'transparent';
+circle.style.borderColor = 'transparent';
+setTimeout(function(){
+	preloader.style.display = 'none';
+},1400);
+
 var calls = document.getElementById('calls');
 /////////////////////////////////////ДАННЫЕ.РАСПИСАНИЕ/////////////////////////////////////////////////////////////////////////	
 
 
 ///////////////////////////////ТАБЛИЦА КРАСНЫХ И ЗЕЛЕНЫХ ЧИСЕЛ////////////////////////
 																					//
-var GreenWeek = [																	//
-	[],																				//
-	[],																				//
-	[],																				//
+var GreenWeek = [                                                                   //
+    [],	                                                                            //
+	[1,2,3,11,12,13,14,15,16,17,25,26,27,28],				    					//
+	[1,2,3,11,12,13,14,15,16,17,25,26,27,28,29,30,31],								//
 	[],																				//
 	[],																				//
 	[],																				//
@@ -27,113 +38,113 @@ var GreenWeek = [																	//
 																					//										
 var RedWeek = [																		//	
 	[],																				//
+	[4,5,6,7,8,9,10,18,19,20,21,22,23,24],											//
+	[4,5,6,7,8,9,10,18,19,20,21,22,23,24],											//
 	[],																				//
 	[],																				//
 	[],																				//
 	[],																				//
 	[],																				//
-	[],																				//
-	[],																				//
-	[10,11,12,13,14,15,16,24,25,26,27,28,29,30],									//
-	[8,9,10,11,12,13,14,22,23,24,25,26,27,28],										//
-	[5,6,7,8,9,10,11,19,20,21,22,23,24,25],											//
-	[3,4,5,6,7,8,9,17,18,19,20,21,22,23,31]											//
+	[],								                                            	//
+	[],                                     										//
+	[],	                                       										//
+	[]                                  											//
 ];																					//
 																					//
 //////////////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////ТАБЛИЦА-РАСПИСАНИЕ/////////////////////////////////////
-																					//
-			//////////////////КРАСНОЕ РАСПИСАНИЕ//////////////////					//				
-																					//
-																					//
-																					//
-var RedRaspis1Group = [																//
-['ПТЦА(304)', 'ПТЦА(304)'],															//
-['ООП(308)','Компьютерные сети(224)'],												//
-[,'Социальная психология(302)','ООП(211)'],											//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','Культурология(315)','Культурология(304)',,'Физ-ра'],		//
-[],																					//
-[]																					//
-];																					//
-																					//
-var RedRaspis2Group = [																//
-['ПТЦА(304)', 'ПТЦА(304)', 'Копьютерные сети(224)'],								//
-[,,'Компьютерные сети(224)','ООП(308)'],											//
-[,'Социальная психология(302)','ООП(211)'],											//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','Культурология(315)','Культурология(304)',,'Физ-ра'],		//
-[],																					//
-[]																					//
-];																					//
-																					//
-var RedRaspis3Group = [																//
-['ПТЦА(304)', 'ПТЦА(304)'],															//
-['ООП(308)','Компьютерные сети(224)','БЖД(301)'],									//
-[,'Социальная психология(302)','ООП(211)'],											//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','Культурология(315)','Культурология(304)',,'Физ-ра'],		//
-[],																					//
-[]																					//
-];																					//
-																					//
-var RedRaspis4Group = [																//
-['ПТЦА(304)', 'ПТЦА(304)'],															//
-['Компьютерные сети(224)','ООП(308)','БЖД(301)'],									//
-[,'Социальная психология(302)','ООП(211)'],											//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','Культурология(315)','Копьютерные сети(224)','Физ-ра'],	//
-[],																					//
-[]																					//
-];																					//
-																					//
-																					//
-		//////////////////////ЗЕЛЕНОЕ РАСПИСАНИЕ//////////////////////				//	
-																					//
-																					//
-var GreenRaspis1Group = [															//
-[,,'Социальная психология(302)','Компьютерные сети(224)'],							//
-['ООП(308)','Компьютерные сети(224)','БЖД(301)'],									//
-[,'БЖД(301)','ООП(211)'],															//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','ПТЦА(309)','ПТЦА(309)',,'Физ-ра'],						//
-[],																					//
-[]																					//
-];																					//
-																					//
-var GreenRaspis2Group = [															//
-[,,'Социальная психология(302)'],													//
-['Компьютерные сети(224)','ООП(308)','БЖД(301)'],									//
-[,'БЖД(301)','ООП(211)'],															//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','ПТЦА(309)','ПТЦА(309)',,'Физ-ра'],						//
-[],																					//
-[]																					//
-];																					//
-																					//
-var GreenRaspis3Group = [															//
-[,,'Социальная психология(302)'],													//
-[,,'ООП(308)','Компьютерные сети(224)'],											//
-[,'БЖД(301)','ООП(211)'],															//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','ПТЦА(309)','ПТЦА(309)','Компьютерные сети(224)','Физ-ра'],//
-[],																					//
-[]																					//
-];																					//
-																					//
-var GreenRaspis4Group = [															//
-[,,'Социальная психология(302)'],													//
-[,,'Компьютерные сети(224)','ООП(308)'],											//
-[,'БЖД(301)','ООП(211)'],															//
-['Электроника(411Б)','Электроника(411Б)'],											//
-['Копьютерные сети(211)','ПТЦА(309)','ПТЦА(309)',,'Физ-ра'],						//
-[],																					//
-[]																					//
-];																					//
-																					//
-																					//
-//////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////ТАБЛИЦА-РАСПИСАНИЕ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+																					                                                                                       //
+			//////////////////КРАСНОЕ РАСПИСАНИЕ//////////////////									
+																					
+																					
+																					
+var RedRaspis1Group = [																
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич', 'Схемотехника(411Б)/Григорьев Евгений Владимирович'],								
+['Системное программ-е(211)/Дмитриенко','Алгоритмы и методы(116)/Горская Ирина Юрьевна'],											
+['Компьютерные сети(211)/Зуев Сергей Александрович','Философия(302)/Величко С.А.'],											
+['Компьютерные сети(224)/Зуев Сергей Александрович','Теория вероятности(211)/Цветков Д.О.'],											
+[,'Философия(315)/Мезенцев Ю.Л.','Базы данных(123)/Высочин','Системное программ-е(121)/Дмитриенко П.С.','Физ-ра'],		
+[],																					
+[]																					
+];																					
+																					
+var RedRaspis2Group = [																
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич', 'Схемотехника(411Б)/Григорьев Евгений Владимирович'],								
+['Системное программ-е(211)/Дмитриенко','Алгоритмы и методы(116)/Горская Ирина Юрьевна'],											
+['Компьютерные сети(211)/Зуев Сергей Александрович','Философия(302)/Величко С.А.'],											
+['Компьютерные сети(224)/Зуев Сергей Александрович','Теория вероятности(211)/Цветков Д.О.'],											
+[,'Философия(315)/Мезенцев Ю.Л.','Базы данных(123)/Высочин ','Системное программ-е(121)/Дмитриенко П.С.','Физ-ра'],		
+[],																					
+[]																					
+];																					
+																					
+var RedRaspis3Group = [																
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич', 'Схемотехника(411Б)/Григорьев Евгений Владимирович','Алгоритмы и методы(116)/Горская Ирина Юрьевна'],													//
+['Системное программ-е(211)/Дмитриенко П.С.','Компьютерные сети(224)/Зуев Сергей Александрович'],									
+['Компьютерные сети(211)/Зуев Сергей Александрович','Философия(302)/Величко С.А.'],											
+['Базы данных(123)/Высочин С.В.','Теория вероятности(211)/Цветков Д.О.'],											
+['Компьютерная графика(8)/Михерский Р.М.','Философия(315)/Мезенцев Ю.Л.','Системное программ-е(121)/Дмитренко П.С.','Базы данных(123)/Высочин С.В.','Физ-ра'],		
+[],																					
+[]																					
+];																					
+																					
+var RedRaspis4Group = [																
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич', 'Схемотехника(411Б)/Григорьев Евгений Владимирович','Алгоритмы и методы(116)/Горская Ирина Юрьевна'],													//
+['Системное программ-е(211)/Дмитриенко П.С.','Компьютерные сети(224)/Зуев Сергей Александрович'],									
+['Компьютерные сети(211)/Зуев Сергей Александрович','Философия(302)/Величко С.А.'],											
+['Базы данных(123)/Высочин С.В.','Теория вероятности(211)/Цветков Д.О.'],											
+['Компьютерная графика(8)/Михерский Р.М.','Философия(315)/Мезенцев Ю.Л.','Системное программ-е(121)/Дмитренко П.С.','Базы данных(123)/Высочин С.В.','Физ-ра'],		
+[],																					
+[]																					
+];																					
+																					
+																					
+		//////////////////////ЗЕЛЕНОЕ РАСПИСАНИЕ//////////////////////					
+																					
+																					
+var GreenRaspis1Group = [															
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич','Схемотехника(411Б)/Григорьев Евгений Владимирович','Компьютерные сети(224)/Зуев Сергей Александрович'],							//
+['Системное программ-е(211)/Дмитриенко П.С.','Теория вероятности(211)/Цветков Д.О.','Алгоритмы и методы(116)/Горская И.Ю.'],									//
+['Компьютерная графика(211)/Михерский Р.М.','Экономика(302)/Романюк Е.В.','Экономика(211)/Нистиренко Е.С.','Кураторский час(8)/Корниенко Андрей Юрьевич'],															//
+['Компьютерная графика(8)/Михерский Р.М.','Базы данных(211)/Высочин С.В.','Базы данных(123)/Высочин С.В.'],											//
+['Базы данных(123)/Высочин С.В.','Системное программ-е(121)/Дмитриенко П.С.',,,'Физ-ра'],						//
+[],																					
+[]																					
+];																					
+																					
+var GreenRaspis2Group = [															
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич','Схемотехника(411Б)/Григорьев Евгений Владимирович','Компьютерные сети(224)/Зуев Сергей Александрович'],			//
+['Системное программ-е(211)/Дмитриенко П.С.','Теория вероятности(211)/Цветков Д.О.','Алгоритмы и методы(116)/Горская И.Ю.'],									//
+['Компьютерная графика(211)/Михерский Р.М.','Экономика(302)/Романюк Е.В.','Экономика(211)/Нистиренко Е.С.','Кураторский час(8)/Корниенко Андрей Юрьевич'],															//
+['Компьютерная графика(8)/Михерский Р.М.','Базы данных(211)/Высочин С.В.','Базы данных(123)/Высочин С.В.'],											//
+['Базы данных(123)/Высочин С.В.','Системное программ-е(121)/Дмитриенко П.С.',,,'Физ-ра'],						
+[],																					
+[]																					
+];																					
+																					
+var GreenRaspis3Group = [															
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич','Схемотехника(411Б)/Григорьев Евгений Владимирович','Алгоритмы и методы(116)/Горская И.Ю.'],													
+['Системное программ-е(211)/Дмитриенко П.С.','Теория вероятности(211)/Цветков Д.О.'],											
+['Компьютерная графика(211)/Михерский Р.М.','Экономика(302)/Романюк Е.В.','Экономика(211)/Нистиренко Е.С.','Кураторский час(8)/Корниенко Андрей Юрьевич'],															
+['Компьютерные сети(224)/Зуев Сергей Александрович','Базы данных(211)/Высочин С.В.'],											
+['Системное программ-е(121)/Дмитриенко П.С.','Базы данных(123)/Высочин С.В.',,,'Физ-ра'],
+[],																					
+[]																					
+];																					
+																					
+var GreenRaspis4Group = [															
+['Алгоритмы и методы(211)/Милюков Виктор Васильевич','Схемотехника(411Б)/Григорьев Евгений Владимирович','Алгоритмы и методы(116)/Горская И.Ю.'],													
+['Системное программ-е(211)/Дмитриенко П.С.','Теория вероятности(211)/Цветков Д.О.'],											
+['Компьютерная графика(211)/Михерский Р.М.','Экономика(302)/Романюк Е.В.','Экономика(211)/Нистиренко Е.С.','Кураторский час(8)/Корниенко Андрей Юрьевич'],															
+['Компьютерные сети(224)/Зуев Сергей Александрович','Базы данных(211)/Высочин С.В.'],											
+['Системное программ-е(121)/Дмитриенко П.С.','Базы данных(123)/Высочин С.В.',,,'Физ-ра'],
+[],																					
+[]																					
+];																				
+																					
+																					                                             //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var monthes = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'];
 
@@ -175,6 +186,229 @@ WhatIsDay.innerText = WeekDay;
 fullYear.innerText = number+' '+ monthes[month]+' '+date.getFullYear();
 GreenOrRed(month,number);//Вычисляет какого цвета неделя
 tableOfTimetable();//Записывает расписание недели в таблицу
+
+
+
+
+var hideText = document.getElementsByClassName('hideText');
+var colour = '';
+var forThis = 0;
+greenOrRed.onclick = function(){
+   
+    if(forThis === 0){
+            console.log(1);
+        var timePar = document.getElementsByClassName('timePar');
+        document.getElementById('body').style.background = 'black';  
+        document.getElementById('fullYear').style.color = 'white';
+        document.getElementById('WhatIsDay').style.color = 'white';
+        document.getElementById('select').style.fontWeight = '400';
+         table.style.background = 'black';
+         
+         var tds = document.getElementsByTagName('td');
+        for(var i = 0;i<tds.length;i++){
+    		    tds[i].style.borderColor = 'rgba(255,255,255,0.3)';
+    		    tds[i].style.boxShadow = '0 0 7px 1px rgba(95,95,95,0.1);';
+    		     tds[i].style.background = 'black';
+    		}
+    	var trs = document.getElementsByTagName('tr');
+        for(var i = 0;i<trs.length;i++){
+    		    trs[i].style.borderColor = 'rgba(255,255,255,0.3)';
+    		    trs[i].style.boxShadow = '0 0 7px 1px rgba(95,95,95,0.1);';
+    		    trs[i].style.background = 'black';
+    		}
+    		
+    		
+        hideText = document.getElementsByClassName('hideText');
+    		for(var i = 0;i<hideText.length;i++){
+    		    hideText[i].style.fontFamily = '"Open Sans",sans-serif';
+    		    hideText[i].style.fontWeight = '400';
+    		    hideText[i].style.color = 'white';
+    		    colour = 'white';
+    		}
+    	var timePar = document.getElementsByClassName('timePar');	
+    		for(var i = 0;i<timePar.length;i++){
+    		    timePar[i].style.fontFamily = '"Open Sans",sans-serif';
+    		    timePar[i].style.fontWeight = '400';
+    		    timePar[i].style.color = 'white';
+    		}
+    		for(var m = 0;m<6;m++){
+    		    
+    		    document.getElementsByClassName('numbers')[m].style.fontWeight = '400';
+    		    document.getElementsByClassName('numbers')[m].style.color = 'white';
+    		}
+    		document.getElementById('FullA').style.color = 'white';
+    		var nexxt = document.getElementById('nextWeekButton');
+    		nexxt.style.backgroundImage = "url('right-arrowWhite.svg')";
+    		nexxt.style.backgroundRepeat = "no-repeat";
+    		nexxt.style.backgroundPosition = 'center';
+    		nexxt.style.backgroundSize = '10px';
+    		forThis = 1;
+    }
+    
+    
+    else if(forThis === 1){
+        
+        var timePar = document.getElementsByClassName('timePar');
+        document.getElementById('body').style.background = 'white';  
+        document.getElementById('fullYear').style.color = 'black';
+        document.getElementById('WhatIsDay').style.color = 'black';
+        document.getElementById('table').style.boxShadow = 'none';
+        document.getElementById('table').style.borderColor = '#dadada';
+        document.getElementById('textCalls').style.background = 'white';
+        table.style.background = 'transparent';
+        var tds = document.getElementsByTagName('td');
+        
+        for(var i = 0;i<tds.length;i++){
+    		    tds[i].style.borderColor = '#dadada';
+    		    tds[i].style.boxShadow = 'none';
+    		    tds[i].style.background = 'transparent';
+    		}
+    	var trs = document.getElementsByTagName('tr');
+        for(var i = 0;i<trs.length;i++){
+    		    trs[i].style.borderColor = '#dadada';
+    		    trs[i].style.boxShadow = 'none';
+    		    trs[i].style.background = 'transparent';
+    		}
+    		
+    		
+         hideText = document.getElementsByClassName('hideText');
+    		for(var i = 0;i<hideText.length;i++){
+    		    hideText[i].style.fontFamily = '"Open Sans",sans-serif';
+    		    hideText[i].style.fontWeight = '400';
+    		    hideText[i].style.color = 'black';
+    		    colour = 'black';
+    		}
+    	var timePar = document.getElementsByClassName('timePar');	
+    		for(var i = 0;i<timePar.length;i++){
+    		    timePar[i].style.fontFamily = '"Open Sans",sans-serif';
+    		     timePar[i].style.fontWeight = '400';
+    		    timePar[i].style.color = 'black';
+    		}
+    		for(var m = 0;m<6;m++){
+    		    document.getElementsByClassName('numbers')[m].style.fontFamily = '"Open Sans",sans-serif';
+    		    document.getElementsByClassName('numbers')[m].style.fontWeight = '400';
+    		    document.getElementsByClassName('numbers')[m].style.color = 'black';
+    		}
+    		document.getElementById('select').style.fontFamily = '"Open Sans",sans-serif';
+    			document.getElementById('select').style.fontWeight = '400';
+    		if(greenOrRed.style.color === 'rgb(243, 0, 0)')
+    		setColor.style.backgroundColor = 'rgb(243,0,0)';
+    		else if(greenOrRed.style.color === 'green')
+    		setColor.style.backgroundColor = 'green';
+    		document.getElementById('FullA').style.borderColor = 'rgb(218,218,218)';
+    		document.getElementById('FullA').style.color = 'black';
+    		var nexxt = document.getElementById('nextWeekButton');
+    		nexxt.style.backgroundImage = "url('right-arrow.svg')";
+    		nexxt.style.backgroundRepeat = "no-repeat";
+    		nexxt.style.backgroundPosition = 'center';
+    		nexxt.style.backgroundSize = '10px';
+    		
+        forThis = 2;
+    }
+
+    else if(forThis === 2){
+        var timePar = document.getElementsByClassName('timePar');
+        if(window.innerWidth < 767) {
+        document.getElementById('body').style.background = 'url(4.jpg)';
+        document.getElementById('body').style.backgroundSize = '100% 100vh';
+        } else {
+        document.getElementById('body').style.background = 'url(2.jpg)';
+        document.getElementById('body').style.backgroundSize = '100% 100vh';
+        }
+        document.getElementById('fullYear').style.color = 'black';
+        document.getElementById('WhatIsDay').style.color = 'black';
+        document.getElementById('table').style.boxShadow = '0 0 7px 1px rgba(0,0,0,0.2)';
+        document.getElementById('table').style.borderColor = 'rgba(255,255,255,0.3)';
+        document.getElementById('FullA').style.borderColor = 'rgba(255,255,255,0.3)';
+        document.getElementById('select').style.color = 'white';
+        document.getElementById('select').style.fontWeight = '300';
+        setColor.style.backgroundColor = 'white';  
+         table.style.background = 'transparent';
+        document.getElementById('textCalls').style.background = 'transparent';
+        
+        var tds = document.getElementsByTagName('td');
+        for(var i = 0;i<tds.length;i++){
+    		    tds[i].style.borderColor = 'rgba(255,255,255,0.3)';
+    		    tds[i].style.boxShadow = '0 0 7px 1px rgba(0,0,0,0.2)';
+    		    tds[i].style.fontFamily = '"Open Sans",sans-serif';
+    		    tds[i].style.fontWeight = '300';
+    		    tds[i].style.background = 'transparent';
+    		}
+    	var trs = document.getElementsByTagName('tr');
+        for(var i = 0;i<trs.length;i++){
+    		    trs[i].style.borderColor = '2px solid rgba(255,255,255,0.3)';
+    		    trs[i].style.fontFamily = '"Open Sans",sans-serif';
+    		    trs[i].style.fontWeight = '300';
+    		    trs[i].style.boxShadow = '0 0 7px 1px rgba(0,0,0,0.2)';
+    		    trs[i].style.background = 'transparent';
+    		}
+        
+        
+        
+        
+         hideText = document.getElementsByClassName('hideText');
+    		for(var i = 0;i<hideText.length;i++){
+    		    hideText[i].style.fontFamily = '"Open Sans",sans-serif';
+    		    hideText[i].style.fontWeight = '300';
+    		    hideText[i].style.color = 'white';
+    		    colour = 'white';
+    		   
+    		}
+    	var timePar = document.getElementsByClassName('timePar');	
+    		for(var i = 0;i<timePar.length;i++){
+    		    timePar[i].style.fontFamily = '"Open Sans",sans-serif';
+    		    timePar[i].style.fontWeight = '300';
+    		    timePar[i].style.color = 'white';
+    		}
+    		for(var m = 0;m<6;m++){
+    		    document.getElementsByClassName('numbers')[m].style.fontFamily = '"Open Sans",sans-serif';
+    		    document.getElementsByClassName('numbers')[m].style.color = 'white';
+    		}
+    		document.getElementById('select').style.fontFamily = '"Open Sans",sans-serif';
+    		var nexxt = document.getElementById('nextWeekButton');
+    		nexxt.style.backgroundImage = "url('right-arrow.svg')";
+    		nexxt.style.backgroundRepeat = "no-repeat";
+    		nexxt.style.backgroundPosition = 'center';
+    		nexxt.style.backgroundSize = '10px';
+        forThis = 0;
+    }
+    
+}
+
+
+
+let table = document.getElementById('table');
+let hide = document.getElementsByClassName('hideText');
+
+
+table.onmouseover  = function(e){
+    console.log(dayOfIndex(WeekDay));
+    if(e.target.className === 'hideText' && e.target.innerText !== ''){
+         e.target.style.color = 'white';
+         e.target.style.backgroundColor = '#3c9bba';
+         if(textWeek.innerText === 'Зеленая'){
+             e.target.innerHTML = GreenRaspisGroups[dayOfIndex(WeekDay)][e.target.abbr].replace(/[A-Za-zА-Яа-я0-9().\ -]+\//gi,'');
+         }else if(textWeek.innerText === 'Красная' ){
+             e.target.innerHTML = RedRaspisGroups[dayOfIndex(WeekDay)][e.target.abbr].replace(/[A-Za-zА-Яа-я0-9().\ -]+\//gi,'');
+         }
+    }
+}
+
+
+table.onmouseout = function(e){
+    if(e.target.className === 'hideText' && e.target.innerText !== '' && e.target.attr === undefined){
+        e.target.style.color = 'white';
+        e.target.style.backgroundColor = 'transparent';
+        if(textWeek.innerText === 'Зеленая'){
+            e.target.innerHTML = GreenRaspisGroups[dayOfIndex(WeekDay)][e.target.abbr].replace(/\/[A-Za-zА-Яа-я0-9().\ ]+/gim,'');
+        }else if(textWeek.innerText === 'Красная' ){
+             e.target.innerHTML = RedRaspisGroups[dayOfIndex(WeekDay)][e.target.abbr].replace(/\/[A-Za-zА-Яа-я0-9().\ ]+/gim,'');
+        }      
+        e.target.style.color = colour;
+    }
+}
+
+
 
 
 
@@ -263,9 +497,8 @@ ReminedReloadData();
 
 //Нажать кнопку для того, чтобы посмотреть расписание недели на следующий день
 document.getElementById('nextWeekButton').onclick = function(){
-
 	if(!nextWeek){
-		nextWeekButton.style.backgroundImage = 'url(left-arrow.svg)';
+		nextWeekButton.style.transform = 'rotate(180deg)';
 		nextWeekButton.style.backgroundSize = '10px';
 		nextWeekButton.style.backgroundRepeat = 'no-repeat';
 		nextWeek = true;
@@ -274,6 +507,7 @@ document.getElementById('nextWeekButton').onclick = function(){
 			WhatIsDay.innerText = WeekDay;
 			fullYear.innerText = OverLastDay(number+2) +' '+ monthes[OverLastDayMonth(number)]+' '+date.getFullYear();
 			GreenOrRed(OverLastDayMonth(number),OverLastDay(number+2));
+			
 		}else if(myday === 5){
 			WeekDay = getWeekDay(1);
 			WhatIsDay.innerText = WeekDay;
@@ -284,10 +518,10 @@ document.getElementById('nextWeekButton').onclick = function(){
 			WhatIsDay.innerText = WeekDay;
 			fullYear.innerText = OverLastDay(number+1) +' '+ monthes[OverLastDayMonth(number)]+' '+date.getFullYear();
 			GreenOrRed(OverLastDayMonth(number),OverLastDay(number+1));
-			console.log(OverLastDayMonth(number)+','+OverLastDay(number+1));
 		}
+		
 	}else{
-		nextWeekButton.style.backgroundImage = 'url(right-arrow.svg)';
+		nextWeekButton.style.transform = 'rotate(0deg)';
 		nextWeek = false;
 		WeekDay = getWeekDay(myday);
 		GreenOrRed(month,number);
@@ -295,6 +529,13 @@ document.getElementById('nextWeekButton').onclick = function(){
 		WhatIsDay.innerText = WeekDay;
 	}	
 	tableOfTimetable();
+	if(forThis === 2){
+	    if(greenOrRed.style.color === 'rgb(243, 0, 0)')
+    		setColor.style.backgroundColor = 'rgb(243,0,0)';
+    		else if(greenOrRed.style.color === 'green')
+    		setColor.style.backgroundColor = 'green';
+	}
+	
 }
 
 
@@ -303,12 +544,11 @@ function GreenOrRed(month,number){//Принимает число месяца �
 	if(GreenWeek[month].indexOf(number) !== -1){
 		textWeek.style.color = 'green';
 		textWeek.innerText = 'Зеленая';
-		setColor.style.backgroundColor = 'green';
 	}
 	else if(RedWeek[month].indexOf(number) !== -1){
-		textWeek.style.color = 'red';
+		textWeek.style.color = 'rgb(243,0,0)';
 		textWeek.innerText = 'Красная';
-		setColor.style.backgroundColor = 'red';
+
 	}else{
 		textWeek.style.fontSize = '14pt';
 		textWeek.style.color = 'black';
@@ -335,7 +575,7 @@ var table = document.getElementsByTagName('table');
 		var a = dayOfIndex(WeekDay);
 		for(var i = 1;i<7;i++){
 		    if(RedRaspisGroups[a][i-1] !== undefined){
-				table[0].rows[i].children[1].innerText = RedRaspisGroups[a][i-1];
+				table[0].rows[i].children[1].innerText = RedRaspisGroups[a][i-1].replace(/\/[A-Za-zА-Яа-я0-9().\ ]+/gim,'');
 			}else{
 				table[0].rows[i].children[1].innerText = '';
 			}
@@ -344,7 +584,7 @@ var table = document.getElementsByTagName('table');
 		var a = dayOfIndex(WeekDay);
 		for(var i = 1;i<7;i++){
 		    if(GreenRaspisGroups[a][i-1] !== undefined){
-				table[0].rows[i].children[1].innerText = GreenRaspisGroups[a][i-1];
+				table[0].rows[i].children[1].innerText = GreenRaspisGroups[a][i-1].replace(/\/[A-Za-zА-Яа-я0-9().\ ]+/gim,'');
 			}else{
 				table[0].rows[i].children[1].innerText = '';
 			}
@@ -370,13 +610,18 @@ function dayOfIndex(WeekDay){
 
 
 var isDownArrow = true;
-arrowDown.onclick = function(){//кнопка сворачивания и разворачивания time-плашек расписания звонков
+arrowDown.onmousedown = function(){//кнопка сворачивания и разворачивания time-плашек расписания звонков
 	if(isDownArrow){
 		calls.style.transform = 'scaleY(1)';
 		isDownArrow = false;
 		var timePar = document.getElementsByClassName('timePar');
 		var sixLine = document.getElementById('sixLine');
 		var table = document.getElementById('table');
+		var hideText = document.getElementsByClassName('hideText');
+		for(var i = 0;i<hideText.length;i++){
+		    hideText[i].style.color = 'transparent';
+		    hideText[i].style.textShadow = 'none';
+		}
 		textCalls.style.width = sixLine.offsetWidth+'px';
 		for(var i =0;i<timePar.length;i++){
 			timePar[i].style.width = sixLine.offsetWidth+'px';
@@ -390,6 +635,17 @@ arrowDown.onclick = function(){//кнопка сворачивания и раз
 		var timePar = document.getElementsByClassName('timePar');
 		var sixLine = document.getElementById('sixLine');
 		var table = document.getElementById('table');
+		var hideText = document.getElementsByClassName('hideText');
+		for(var i = 0;i<hideText.length;i++){
+		    if(forThis !== 2){
+		        hideText[i].style.color = 'white';
+		        
+		    }else if(forThis === 2){
+		        hideText[i].style.color = 'black';
+		        
+		    }
+		    
+		}
 		textCalls.style.width = sixLine.offsetWidth+'px';
 		for(var i =0;i<timePar.length;i++){
 			timePar[i].style.width = sixLine.offsetWidth+'px';
@@ -415,33 +671,58 @@ function changeTime(hours,minutes){
 	}else if((hours === 15 && minutes >= 0 && minutes <= 59) || (hours === 16 && minutes >= 0  && minutes <= 30)){
 		commonStyles(0,1,2,3,4);
 	}else{
-		for(var i = 0;i<timePar.length;i++){
+		for(var i = 0;i<5;i++){
 			var timePar = document.getElementsByClassName('timePar');
-			timePar[i].style.backgroundColor = 'transparent';
-			timePar[i].style.color = 'black';
-			timePar[i].style.backgroundColor = '#3c9bba';
-			timePar[i].style.color = 'white';
+			if(forThis !== 2){
+			    timePar[i].style.backgroundColor = 'transparent';
+			    timePar[i].style.color = 'white';
+			}else if(forThis === 2){
+			    timePar[i].style.backgroundColor = 'transparent';
+			    timePar[i].style.color = 'black';
+			}
+			
+			
 		}
 	}
 
 
 	function commonStyles(a,b,c,d,e){//Общие стили плашек с временем
 		var timePar = document.getElementsByClassName('timePar');
-		timePar[a].style.backgroundColor = 'transparent';
-		timePar[a].style.color = 'black';
-		timePar[b].style.backgroundColor = 'transparent';
-		timePar[b].style.color = 'black';
-		timePar[c].style.backgroundColor = 'transparent';
-		timePar[c].style.color = 'black';
-		timePar[d].style.backgroundColor = 'transparent';
-		timePar[d].style.color = 'black';
-		timePar[e].style.backgroundColor = '#3c9bba';
-		timePar[e].style.color = 'white';
+		if(forThis !== 2){
+		    timePar[a].style.backgroundColor = 'transparent';
+    		timePar[a].style.color = 'white';
+    		timePar[b].style.backgroundColor = 'transparent';
+    		timePar[b].style.color = 'white';
+    		timePar[c].style.backgroundColor = 'transparent';
+    		timePar[c].style.color = 'white';
+    		timePar[d].style.backgroundColor = 'transparent';
+    		timePar[d].style.color = 'white';
+    		timePar[e].style.backgroundColor = '#3c9bba';
+    		timePar[e].style.color = 'white';
+		}else if(forThis === 2){
+		    timePar[a].style.backgroundColor = 'transparent';
+    		timePar[a].style.color = 'black';
+    		timePar[b].style.backgroundColor = 'transparent';
+    		timePar[b].style.color = 'black';
+    		timePar[c].style.backgroundColor = 'transparent';
+    		timePar[c].style.color = 'black';
+    		timePar[d].style.backgroundColor = 'transparent';
+    		timePar[d].style.color = 'black';
+    		timePar[e].style.backgroundColor = '#3c9bba';
+    		timePar[e].style.color = 'white';
+		}
+		
 	}
 }
 
 
 }//скобка закрывает событие window.onload
+
+
+
+
+
+
 
 
 // var num = 3;

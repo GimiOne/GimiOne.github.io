@@ -2,9 +2,7 @@ var game = document.getElementById('game');
 var block = document.getElementsByClassName('block');
 for(var i = 0;i < 9;i++){
 	var lol = document.getElementById('game').innerHTML += '<div class="block"></div>';
-	
 }
-
 
 
 block[0].style.borderTop = "none";
@@ -19,6 +17,9 @@ block[6].style.borderBottom = "none";
 block[7].style.borderBottom = "none";
 block[8].style.borderBottom = "none";
 block[8].style.borderRight = "none";
+
+
+
 
 
 
@@ -43,6 +44,8 @@ game.onmouseup = function(e){
 		
 	}
 };
+
+
 
 
 
@@ -90,14 +93,6 @@ function checkWinner(){
 	document.getElementsByClassName('o')[0].innerHTML = 'Нолики: '+ nol +'';
 	nol++;
 	document.getElementsByClassName('header')[0].innerHTML = 'Крестики o Нолики';
-		
-
-
-
-
-
-
-
 	}else if ((allblocks[0].innerHTML == '<div class="podblock2"><div class="x1"><div class="x2"></div></div></div>' &&
 	 	allblocks[1].innerHTML == '<div class="podblock2"><div class="x1"><div class="x2"></div></div></div>' && 
 	 	allblocks[2].innerHTML == '<div class="podblock2"><div class="x1"><div class="x2"></div></div></div>')
@@ -129,14 +124,12 @@ function checkWinner(){
 	 	(allblocks[2].innerHTML == '<div class="podblock2"><div class="x1"><div class="x2"></div></div></div>' &&
 	 	allblocks[4].innerHTML == '<div class="podblock2"><div class="x1"><div class="x2"></div></div></div>' && 
 	 	allblocks[6].innerHTML == '<div class="podblock2"><div class="x1"><div class="x2"></div></div></div>')){
-		
 		lala();
 		hod = 0;
 		document.getElementsByClassName('x')[0].innerHTML = 'Крестики: '+ xxx +'';
 		document.getElementsByClassName('header')[0].innerHTML = 'Крестики o Нолики';
 		xxx++;
 		
-
 		////////////////НИЧЬЯ////////////////
 	}else if(allblocks[0].innerHTML != '' && 
 			 allblocks[1].innerHTML != '' &&
@@ -174,8 +167,7 @@ function nich(){
 
 function closes(){
 	document.getElementsByClassName('window')[0].style.transform = 'scale(0)';
-
 	for(var i = 0;i < 9;i++){
-			allblocks[i].innerHTML = '';
-		}
+		allblocks[i].innerHTML = '';
+	}
 }

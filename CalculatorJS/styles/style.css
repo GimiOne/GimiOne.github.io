@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('../fonts/BebasNeue.eot');
+  src: url('../fonts/BebasNeue.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/BebasNeue.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BebasNeueLight';
+  src: url('../fonts/BebasNeueLight.svg#BebasNeueLight') format('svg'),
+       url('../fonts/BebasNeueLight.ttf') format('truetype'),
+       url('../fonts/BebasNeueLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+	font-family: BebasNeue,sans-serif;
+	font-weight: lighter;
+}
+
+
+#calculator{
+	width: 550px;
+	height: 900px;
+	color:white;
+	background: #33485c;
+	margin: auto;
+}
+
+#divInput{
+	
+	padding-right: 20px;
+	border-bottom:3px solid white;
+	overflow-x: auto;
+}
+
+#mainInput{
+	width: 100%;
+	height: 138px;
+	line-height: 138px;
+	border:none;
+	font-size: 80px;
+	background: #33485c;
+	color:white;
+	text-align: right;
+
+}
+
+.title{
+	height: 80px;
+	margin-top: 10px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	font-size: 25px;
+}
+
+.title > h2,p{
+	padding: 0;
+	margin: 0;
+}
+
+.buttons{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	font-size: 80px;
+	margin: auto;
+}
+
+.button{
+	width: 77px;
+	height: 106px;
+	line-height: 106px;
+	margin: 12px 30px;
+	text-align: center;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	outline:none;
+	-webkit-tap-highlight-color: transparent;
+	-moz-tap-highlight-color: transparent;
+	-o-tap-highlight-color: transparent;
+	tap-highlight-color: transparent;
+	cursor: pointer;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+/* .button:hover{
+    background: #212e3b;
+} */
+

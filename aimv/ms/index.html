@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Title</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js" defer></script>
+</head>
+<body>
+	<h1 style="text-align: center">Численное интегрирование методом Симпсона</h1>
+	<div class="main">
+		<div class="form">
+			<p id="up">Верхний предел интегрирования: </p>
+			<input id="upLimit" type="text" name="formula" value="3">
+		</div>
+
+		<p>Формула: </p>
+		<input id="example" type="text" name="formula" value="Math.sin(x)*Math.sin(x)/(13-12*Math.cos(x))">
+		<input id="compute" type="button" value="Вычислить"></input>
+
+		<div class="form">
+			<p id="down">Нижний предел интегрирования: </p>
+			<input id="downLimit" type="text" name="formula" value="0">
+		</div>
+		<div class="form" id="e">
+			<p id="e">Эпсилон: ε = </p>
+			<input id="ePogr" type="text" name="formula" value="0.001">
+		</div>
+		<p id="output">Результат: </p>
+	</div>
+</body>
+</html>

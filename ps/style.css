@@ -1,0 +1,10 @@
+#canvas{
+	width: 1000px;
+	height: 550px;
+	border:1px solid black;
+}
+
+#ranges{
+	border:2px dashed lightgrey;
+	margin-bottom: 10px;
+}

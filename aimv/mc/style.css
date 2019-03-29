@@ -1,0 +1,21 @@
+body, html{
+	margin: 0;
+	padding: 0;
+	font-family: Arial,sans-serif;
+}
+
+#canvas{
+	width: 1000px;
+	height:500px;
+}
+
+#rectColor{
+	width:50px;
+	height: 50px;
+	border:1px solid black;
+}
+
+
+.inputs{
+	display: block;
+}
