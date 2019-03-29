@@ -606,11 +606,11 @@ h1{
 
 @keyframes rotatee {
 	from{transform:translateY(0px);}
-	to{transform:translateY(-60px);}
+	to{transform:translateY(-60px);filter: blur(0px);}
 }
 
 @keyframes rotatee1 {
 	from{transform:translateY(0px);}
-	to{transform:translateY(60px);}
+	to{transform:translateY(60px);filter: blur(0px);}
 }
 
