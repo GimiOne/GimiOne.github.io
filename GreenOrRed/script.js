@@ -7,9 +7,8 @@ var circle = document.getElementById('circle');
 calls.style.transform = 'scaleY(0)';
 
 window.onload = function(){
-
-preloader.style.backgroundColor = 'transparent';
-circle.style.borderColor = 'transparent';
+    preloader.style.backgroundColor = 'transparent';
+    circle.style.borderColor = 'transparent';
 setTimeout(function(){
 	preloader.style.display = 'none';
 },1400);
