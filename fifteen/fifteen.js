@@ -2,25 +2,42 @@
 	"use strict";
 	var STATE = 1;//It starts out in order.STATE=1 means in order.STATE =0 means out of order.
 	var isPC = true;
+	var isInterval = true;
+	var idTimer;	
+	var counter = 0;
 	// Creates solved puzzle
     // solve();
     
     window.onload=function(){
-    
-	
+    	
+
+		
         var puzzlearea = document.getElementById('puzzlearea');
 		 solve();
         document.getElementById('puzzlearea').onmousedown = function(e){
+document.getElementById('timess').style.innerHTML = '5';
+        	
+        	console.log(1);
             if(STATE == 1){
+            	counter++;
+            	
+            	if(isInterval){
+            		idTimer = setInterval(timeUpdate,1000);
+            		isInterval = false;
+            	}
+
                 // Enables sliding animation
                 puzzlearea.className = 'animate';
                 shiftelement(e.target);
-                console.log('!touch');
             }
         }
 
         document.getElementById('puzzlearea').ontouchstart = function(e){
             if(STATE == 1){
+            	if(isInterval){
+            		idTimer = setInterval(timeUpdate,1000);
+            		isInterval = false;
+            	}
                 // Enables sliding animation
                 puzzlearea.className = 'animate';
                 shiftelement(e.target);
@@ -34,10 +51,24 @@
 	    	document.getElementById('puzzlearea').ontouchstart = null;
 	  	}
 	    document.getElementById('shufflebutton').addEventListener('mousedown', scramble);
+		
 		setTimeout(scramble,500);
     	
 	};
+	
 
+var sec = 1;
+var min = 0;
+	function timeUpdate(){
+		if(sec === 59){
+			sec = 0;
+			min++;		
+		}
+    	document.getElementById('timer').innerText = leadZero(min) +':'+ leadZero(sec);
+    	sec++;
+    }
+
+function leadZero(n) { return (n < 10 ? '0' : '') + n; }
 	/**
 	 * Creates solved puzzlearea
 	 *
@@ -197,7 +228,13 @@
 			 var winlose = document.getElementById('winlose');
 			
 			winlose.style.transform = 'scale(1)';
+			clearInterval(idTimer);
+
 			winlose.onclick = function(){
+				isInterval = true;
+				sec = 1;
+				min = 0;
+				timer.style.innerText = '00:00';
 				winlose.style.transform = 'scale(0)';
 				scramble();
 			
@@ -236,7 +273,7 @@
 				shiftelement(previouselement);
 				i++;
 			} else {
-				clearInterval(interval);
+				
 				STATE = 1;
 			}
 		}, 5);
@@ -247,11 +284,7 @@
 	 * Generates random number
 	 *
 	 */
-	function rand(from, to){
-
-		return Math.floor(Math.random() * (to - from + 1)) + from;
-
-	}
+	function rand(from, to){return Math.floor(Math.random() * (to - from + 1)) + from;}
 
 }());
 
