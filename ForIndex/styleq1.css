@@ -89,19 +89,17 @@ h1{
 }
 
 #main > p > a{
-	
-	
 	text-decoration: none;
-	
 	font-size: 20px;
 	padding: 20px;
 	color:black;
-
-	
+	transition: .5s;
 }
 
 #main > p > a:hover{
 color:white;
+border-bottom: 2px solid #f60000;
+border-radius: 10px;
 }
 
 p{
