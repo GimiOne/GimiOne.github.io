@@ -5,6 +5,7 @@
 	var isInterval = true;
 	var idTimer;	
 	var counter = 0;
+	var CanShift = false;
 	// Creates solved puzzle
     // solve();
     
@@ -15,12 +16,10 @@
         var puzzlearea = document.getElementById('puzzlearea');
 		 solve();
         document.getElementById('puzzlearea').onmousedown = function(e){
-document.getElementById('timess').style.innerHTML = '5';
-        	
-        	console.log(1);
             if(STATE == 1){
-            	counter++;
-            	
+            	if(e.target.className.search(/number/) !== -1 && getEmptyAdjacentelement(e.target) !== false){
+            		document.getElementById('colvo').innerText = ++counter;
+            	}
             	if(isInterval){
             		idTimer = setInterval(timeUpdate,1000);
             		isInterval = false;
@@ -29,11 +28,15 @@ document.getElementById('timess').style.innerHTML = '5';
                 // Enables sliding animation
                 puzzlearea.className = 'animate';
                 shiftelement(e.target);
+
             }
         }
 
         document.getElementById('puzzlearea').ontouchstart = function(e){
             if(STATE == 1){
+            	if(e.target.className.search(/number/) !== -1 && getEmptyAdjacentelement(e.target) !== false){
+            		document.getElementById('colvo').innerText = ++counter;
+            	}
             	if(isInterval){
             		idTimer = setInterval(timeUpdate,1000);
             		isInterval = false;
@@ -64,7 +67,7 @@ var min = 0;
 			sec = 0;
 			min++;		
 		}
-    	document.getElementById('timer').innerText = leadZero(min) +':'+ leadZero(sec);
+    	document.getElementById('timer').innerText = 'Время: '+leadZero(min) +':'+ leadZero(sec);
     	sec++;
     }
 
@@ -125,11 +128,13 @@ function leadZero(n) { return (n < 10 ? '0' : '') + n; }
 	 * 
 	 */
 	function shiftelement(element){
+		CanShift = false;
 		// Checks if selected element has number
 		if(element.clasName != 'empty'){
 			// Tries to get empty adjacent element
 			var emptyelement = getEmptyAdjacentelement(element);
 			if(emptyelement){
+				CanShift = true;
 				// Temporary data
 				var tmp = {style: element.style.cssText, id: element.id};
 				// Exchanges id and style values
@@ -234,7 +239,9 @@ function leadZero(n) { return (n < 10 ? '0' : '') + n; }
 				isInterval = true;
 				sec = 1;
 				min = 0;
-				timer.style.innerText = '00:00';
+				counter = 0;
+				timer.innerText = 'Время: 00:00';
+				colvo.innerText = 0;
 				winlose.style.transform = 'scale(0)';
 				scramble();
 			

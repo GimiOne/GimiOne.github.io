@@ -29,7 +29,7 @@ h1{
 	width: 345px;
 	height: 345px;
 	margin: 0 auto;
-	margin-top: 35px;
+	margin-top: 10px;
 }
 
 #puzzlearea div{
@@ -152,4 +152,13 @@ h1{
 }
 
 
+
+#times-colvo{
+	margin: 0 auto;
+	width: 345px;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 
