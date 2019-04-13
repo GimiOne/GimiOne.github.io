@@ -6,6 +6,11 @@
     // solve();
     
     window.onload=function(){
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    	alert('Smart');
+  	} else {
+    	alert('PC');
+	}
         var puzzlearea = document.getElementById('puzzlearea');
 		 solve();
         document.getElementById('puzzlearea').addEventListener('mousedown', function(e){
