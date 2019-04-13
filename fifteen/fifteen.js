@@ -1,25 +1,38 @@
 (function(){
 	"use strict";
 	var STATE = 1;//It starts out in order.STATE=1 means in order.STATE =0 means out of order.
-	
+	var isPC = true;
 	// Creates solved puzzle
     // solve();
     
     window.onload=function(){
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    	alert('Smart');
-  	} else {
-    	alert('PC');
-	}
+    
+	
         var puzzlearea = document.getElementById('puzzlearea');
 		 solve();
-        document.getElementById('puzzlearea').addEventListener('mousedown', function(e){
+        document.getElementById('puzzlearea').onmousedown = function(e){
             if(STATE == 1){
                 // Enables sliding animation
                 puzzlearea.className = 'animate';
                 shiftelement(e.target);
+                console.log('!touch');
             }
-        });
+        }
+
+        document.getElementById('puzzlearea').ontouchstart = function(e){
+            if(STATE == 1){
+                // Enables sliding animation
+                puzzlearea.className = 'animate';
+                shiftelement(e.target);
+                console.log('touch');
+            }
+        }
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    		document.getElementById('puzzlearea').onmousedown = null;
+	  	} else {
+	    	document.getElementById('puzzlearea').ontouchstart = null;
+	  	}
 	    document.getElementById('shufflebutton').addEventListener('mousedown', scramble);
 		setTimeout(scramble,500);
     	
