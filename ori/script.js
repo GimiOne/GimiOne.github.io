@@ -3,15 +3,18 @@ let alf = document.querySelector('alf');
 let bet = document.querySelector('bet');
 let gamm = document.querySelector('gamm');
 
-window.addEventListener("deviceorientation", handleOrientation, true);
+var x = 0, y = 0,
+    vx = 0, vy = 0,
+	ax = 0, ay = 0;
+	
 
-
-
-function handleOrientation(event) {
-  absol.innerText = event.absolute;
-  alf.innerText = event.alpha;
-  bet.innerText = event.beta;
-  gamm.innerText = event.gamma;
-
-  // Do stuff with the new orientation data
+ 
+if (window.DeviceMotionEvent != undefined) {
+	window.ondevicemotion = function(e) {
+		alf.innerText = event.accelerationIncludingGravity.x;
+		bet.innerText = event.accelerationIncludingGravity.y;
+		gamm.innerText = event.accelerationIncludingGravity.z;
+	}
+ 
+	
 }
