@@ -37,8 +37,7 @@ var handleOrientationEvent = function(ab, x, y,z) {
     alf.innerText = 'X: '+ x;
 	bet.innerText = 'Y: '+ y;
 	gamm.innerText = 'Z: '+ z;
-	circle.style.transform = 'translateX('+y*2+'px)';
-	circle.style.transform = 'translateY('+x*2+'px)';
+	circle.style.transform = 'translate('+y*2+'px,'+x*2+'px)';
 	if(x === 0 && y === 0){
 		circle.style.backgroundColor = 'lightgreen';
 	}else{
@@ -59,3 +58,8 @@ function toByte(a){
 	return Math.round(num);
 }
 console.log(toByte(10000));
+
+
+window.onmousemove = function(e){
+	circle.style.transform = 'translate('+e.pageX+'px,'+e.pageY+'px)';
+}
