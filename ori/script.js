@@ -37,7 +37,13 @@ var handleOrientationEvent = function(ab, x, y,z) {
     alf.innerText = 'X: '+ x;
 	bet.innerText = 'Y: '+ y;
 	gamm.innerText = 'Z: '+ z;
-	circle.style.transform = 'translateX('+x+'px)'
+	circle.style.transform = 'translateX('+y*2+'px)';
+	circle.style.transform = 'translateY('+x*2+'px)';
+	if(x === 0 && y === 0){
+		circle.style.backgroundColor = 'lightgreen';
+	}else{
+		circle.style.backgroundColor = 'lightblue';
+	}
 	//bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
 };
 
