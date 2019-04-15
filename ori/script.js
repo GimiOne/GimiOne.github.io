@@ -3,6 +3,7 @@ let alf = document.querySelector('#alf');
 let bet = document.querySelector('#bet');
 let gamm = document.querySelector('#gamm');
 let bodys = document.querySelector('#bodys');
+let circle = document.querySelector('#circle');
 
 var x = 0, y = 0,
     vx = 0, vy = 0,
@@ -36,6 +37,7 @@ var handleOrientationEvent = function(ab, x, y,z) {
     alf.innerText = 'X: '+ x;
 	bet.innerText = 'Y: '+ y;
 	gamm.innerText = 'Z: '+ z;
+	circle.style.transform = 'translateX('+x+')'
 	bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
 };
 

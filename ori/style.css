@@ -1,3 +1,8 @@
-#bodys{
-	
+#circle{
+	margin: 200px auto;
+	width: 80px;
+	height: 80px;
+	background-color: lightblue;
+	border-radius: 50%;
+	transform: translateX(0px);
 }
