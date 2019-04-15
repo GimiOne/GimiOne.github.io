@@ -2,6 +2,7 @@ let absol = document.querySelector('#absol');
 let alf = document.querySelector('#alf');
 let bet = document.querySelector('#bet');
 let gamm = document.querySelector('#gamm');
+let bodys = document.querySelector('#bodys');
 
 var x = 0, y = 0,
     vx = 0, vy = 0,
@@ -32,12 +33,24 @@ if (window.DeviceOrientationEvent) {
 
 var handleOrientationEvent = function(ab,x, y, z) {
     absol.innerText = ab;
-    alf.innerText = 'X: '+Math.round(x);
-	bet.innerText = 'Y: '+Math.round(y);
-	gamm.innerText = 'Z: '+Math.round(z);
+    alf.innerText = 'X: '+toByte(x);
+	bet.innerText = 'Y: '+toByte(y);
+	gamm.innerText = 'Z: '+toByte(z);
+	bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
 };
+
 
 
 function toDegree(radians) {
   return radians * 180 / Math.PI;
 };
+
+
+function toByte(a){
+	let num = Math.abs(a);
+	while(num > 255){
+		num = num - (num/2);
+	}
+	return Math.round(num);
+}
+console.log(toByte(10000));
