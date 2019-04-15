@@ -20,7 +20,7 @@ var x = 0, y = 0,
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
         var absolut1 = toDegree(event.absolut);
-        var beta1 event.beta;
+        var beta1 = event.beta;
         var gamma1 = toDegree(event.gamma);
         var alpha1 = toDegree(event.alpha);
         
