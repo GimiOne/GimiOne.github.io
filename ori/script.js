@@ -1,4 +1,3 @@
-let absol = document.querySelector('#absol');
 let alf = document.querySelector('#alf');
 let bet = document.querySelector('#bet');
 let gamm = document.querySelector('#gamm');
@@ -20,21 +19,19 @@ var x = 0, y = 0,
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
-        var absolut1 = toDegree(event.absolut);
         var beta1 = event.beta;
         var gamma1 = event.gamma;
         var alpha1 = event.alpha;
         
 
-        handleOrientationEvent(absolut1,beta1, gamma1, alpha1);
+        handleOrientationEvent(beta1, gamma1, alpha1);
     }, true);
 }else{
 	alert('Accelerator not supported');
 }
 
 var handleOrientationEvent = function(ab, x, y,z) {
-    absol.innerText = ab;
-    alf.innerText = 'X: '+ Math.round(x);
+    	alf.innerText = 'X: '+ Math.round(x);
 	bet.innerText = 'Y: '+ Math.round(y);
 	gamm.innerText = 'Z: '+ Math.round(z);
 	circle.style.transform = 'translate('+y*2+'px,'+x*2+'px)';
