@@ -8,9 +8,30 @@ var x = 0, y = 0,
 	ax = 0, ay = 0;
 
 
-window.ondevicemotion = function(e) {
-	console.log(1);
-	alf.innerText = event.accelerationIncludingGravity.x;
-	bet.innerText = event.accelerationIncludingGravity.y;
-	gamm.innerText = event.accelerationIncludingGravity.z;
+// window.ondevicemotion = function(e) {
+// 	console.log(1);
+// 	alf.innerText = event.accelerationIncludingGravity.x;
+// 	bet.innerText = event.accelerationIncludingGravity.y;
+// 	gamm.innerText = event.accelerationIncludingGravity.z;
+// }
+
+
+if (window.DeviceOrientationEvent) {
+    window.addEventListener("deviceorientation", function(event) {
+        
+        var beta1 = event.beta;
+        var gamma1 = event.gamma;
+        var alpha1 = event.alpha;
+        
+
+        handleOrientationEvent(beta1, gamma1, alpha1);
+    }, true);
+}else{
+	alert('Accelerator not supported');
 }
+
+var handleOrientationEvent = function(x, y, z) {
+    alf.innerText = x;
+	bet.innerText = y;
+	gamm.innerText = z;
+};
