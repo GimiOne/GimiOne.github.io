@@ -38,7 +38,7 @@ var handleOrientationEvent = function(ab, x, y,z) {
 	bet.innerText = 'Y: '+ Math.round(y);
 	gamm.innerText = 'Z: '+ Math.round(z);
 	circle.style.transform = 'translate('+y*2+'px,'+x*2+'px)';
-	if(x === 0 && y === 0){
+	if(Math.round(x) === 0 && Math.round(y) === 0){
 		circle.style.backgroundColor = 'lightgreen';
 	}else{
 		circle.style.backgroundColor = 'lightblue';
