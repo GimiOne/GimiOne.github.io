@@ -20,9 +20,9 @@ var x = 0, y = 0,
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
         var absolut1 = toDegree(event.absolut);
-        var beta1 = event.beta;
-        var gamma1 = toDegree(event.gamma);
-        var alpha1 = toDegree(event.alpha);
+        var beta1 = Math.round(event.beta);
+        var gamma1 = Math.round(event.gamma);
+        var alpha1 = Math.round(event.alpha);
         
 
         handleOrientationEvent(absolut1,beta1, gamma1, alpha1);
@@ -31,11 +31,11 @@ if (window.DeviceOrientationEvent) {
 	alert('Accelerator not supported');
 }
 
-var handleOrientationEvent = function(ab,x, y, z) {
+var handleOrientationEvent = function(ab,z, x, y) {
     absol.innerText = ab;
     alf.innerText = 'X: '+ x;
-	bet.innerText = 'Y: '+toByte(y);
-	gamm.innerText = 'Z: '+toByte(z);
+	bet.innerText = 'Y: '+ y;
+	gamm.innerText = 'Z: '+ z;
 	bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
 };
 
@@ -48,9 +48,6 @@ function toDegree(radians) {
 
 function toByte(a){
 	let num = Math.abs(a);
-	while(num > 255){
-		num = num - (num/2);
-	}
 	return Math.round(num);
 }
 console.log(toByte(10000));
