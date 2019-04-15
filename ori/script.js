@@ -18,20 +18,26 @@ var x = 0, y = 0,
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
-        
-        var beta1 = event.beta;
-        var gamma1 = event.gamma;
-        var alpha1 = event.alpha;
+        var absolut1 = toDegree(event.absolut);
+        var beta1 = toDegree(event.beta);
+        var gamma1 = toDegree(event.gamma);
+        var alpha1 = toDegree(event.alpha);
         
 
-        handleOrientationEvent(beta1, gamma1, alpha1);
+        handleOrientationEvent(absolut1,beta1, gamma1, alpha1);
     }, true);
 }else{
 	alert('Accelerator not supported');
 }
 
-var handleOrientationEvent = function(x, y, z) {
-    alf.innerText = x;
-	bet.innerText = y;
-	gamm.innerText = z;
+var handleOrientationEvent = function(ab,x, y, z) {
+    absol.innerText = ab;
+    alf.innerText = 'X: '+Math.round(x);
+	bet.innerText = 'Y: '+Math.round(y);
+	gamm.innerText = 'Z: '+Math.round(z);
+};
+
+
+function toDegree(radians) {
+  return radians * 180 / Math.PI;
 };
