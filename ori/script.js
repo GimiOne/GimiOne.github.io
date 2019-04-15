@@ -20,7 +20,7 @@ var x = 0, y = 0,
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
         var absolut1 = toDegree(event.absolut);
-        var beta1 = toDegree(event.beta);
+        var beta1 event.beta;
         var gamma1 = toDegree(event.gamma);
         var alpha1 = toDegree(event.alpha);
         
@@ -33,7 +33,7 @@ if (window.DeviceOrientationEvent) {
 
 var handleOrientationEvent = function(ab,x, y, z) {
     absol.innerText = ab;
-    alf.innerText = 'X: '+toByte(x);
+    alf.innerText = 'X: '+ x;
 	bet.innerText = 'Y: '+toByte(y);
 	gamm.innerText = 'Z: '+toByte(z);
 	bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
