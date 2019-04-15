@@ -38,10 +38,10 @@ var handleOrientationEvent = function(x,y,z) {
 	circle.style.transform = 'translate('+y*2+'px,'+x*2+'px)';
 	if(Math.round(x) === 0 && Math.round(y) === 0){
 		circle.style.backgroundColor = 'lightgreen';
-		mainCircle.style.backgroundColor = 'lightgreen';
+		mainCircle.style.border = '2px solid lightgreen';
 	}else{
 		circle.style.backgroundColor = 'lightblue';
-		mainCircle.style.backgroundColor = 'lightblue';
+		mainCircle.style.border = '2px solid lightgreen';
 	}
 	//bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
 };
