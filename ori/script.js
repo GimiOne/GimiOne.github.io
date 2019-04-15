@@ -21,9 +21,9 @@ var x = 0, y = 0,
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
         var absolut1 = toDegree(event.absolut);
-        var beta1 = Math.round(event.beta);
-        var gamma1 = Math.round(event.gamma);
-        var alpha1 = Math.round(event.alpha);
+        var beta1 = event.beta;
+        var gamma1 = event.gamma;
+        var alpha1 = event.alpha;
         
 
         handleOrientationEvent(absolut1,beta1, gamma1, alpha1);
@@ -34,11 +34,11 @@ if (window.DeviceOrientationEvent) {
 
 var handleOrientationEvent = function(ab, x, y,z) {
     absol.innerText = ab;
-    alf.innerText = 'X: '+ x;
-	bet.innerText = 'Y: '+ y;
-	gamm.innerText = 'Z: '+ z;
+    alf.innerText = 'X: '+ Math.round(x);
+	bet.innerText = 'Y: '+ Math.round(y);
+	gamm.innerText = 'Z: '+ Math.round(z);
 	circle.style.transform = 'translate('+y*2+'px,'+x*2+'px)';
-	if(x === 0 && y === 0){
+	if(Math.round(x) === 0 && Math.round(y) === 0){
 		circle.style.backgroundColor = 'lightgreen';
 	}else{
 		circle.style.backgroundColor = 'lightblue';
@@ -58,8 +58,3 @@ function toByte(a){
 	return Math.round(num);
 }
 console.log(toByte(10000));
-
-
-window.onmousemove = function(e){
-	circle.style.transform = 'translate('+e.pageX+'px,'+e.pageY+'px)';
-}

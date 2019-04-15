@@ -1,7 +1,29 @@
+body{
+	font-family: Arial,sans-serif;
+}
+
+.axis{
+	width: 200px;
+	padding: 10px;
+	border:2px solid lightgray;
+	border-radius: 5px;
+}
+
 #circle{
-	margin: 200px auto;
+	position: absolute;
 	width: 80px;
 	height: 80px;
 	background-color: lightblue;
 	border-radius: 50%;
+}
+
+#mainCircle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 2px solid lightblue;
 }
