@@ -3,7 +3,7 @@ let bet = document.querySelector('#bet');
 let gamm = document.querySelector('#gamm');
 let bodys = document.querySelector('#bodys');
 let circle = document.querySelector('#circle');
-let mainCircle = document.querySelector('.mainCircle')[0];
+let mainCircle = document.querySelector('#mainCircle');
 
 var x = 0, y = 0,
     vx = 0, vy = 0,
