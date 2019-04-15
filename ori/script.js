@@ -30,7 +30,7 @@ if (window.DeviceOrientationEvent) {
 	alert('Accelerator not supported');
 }
 
-var handleOrientationEvent = function(ab, x, y,z) {
+var handleOrientationEvent = function(x,y,z) {
     	alf.innerText = 'X: '+ Math.round(x);
 	bet.innerText = 'Y: '+ Math.round(y);
 	gamm.innerText = 'Z: '+ Math.round(z);
