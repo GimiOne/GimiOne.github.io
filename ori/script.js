@@ -43,7 +43,7 @@ var handleOrientationEvent = function(x,y,z) {
 		circle.style.backgroundColor = 'lightblue';
 		mainCircle.style.border = '2px solid lightblue';
 	}
-	//bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
+	bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
 };
 
 
