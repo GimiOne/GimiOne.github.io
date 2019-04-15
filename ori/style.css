@@ -27,3 +27,10 @@ body{
 	border-radius: 50%;
 	border: 2px solid lightblue;
 }
+
+
+@media screen and (max-width: 480px) {
+    #mainCircle{
+        margin: 0 auto;
+    }
+}
