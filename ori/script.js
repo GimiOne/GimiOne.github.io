@@ -3,6 +3,7 @@ let bet = document.querySelector('#bet');
 let gamm = document.querySelector('#gamm');
 let bodys = document.querySelector('#bodys');
 let circle = document.querySelector('#circle');
+let mainCircle = document.querySelector('#mainCircle');
 
 var x = 0, y = 0,
     vx = 0, vy = 0,
@@ -37,10 +38,12 @@ var handleOrientationEvent = function(x,y,z) {
 	circle.style.transform = 'translate('+y*2+'px,'+x*2+'px)';
 	if(Math.round(x) === 0 && Math.round(y) === 0){
 		circle.style.backgroundColor = 'lightgreen';
+		mainCircle.style.border = '2px solid lightgreen';
 	}else{
 		circle.style.backgroundColor = 'lightblue';
+		mainCircle.style.border = '2px solid lightblue';
 	}
-	//bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
+	bodys.style.backgroundColor = 'rgb('+toByte(x)+','+toByte(y)+','+toByte(z)+')';
 };
 
 
