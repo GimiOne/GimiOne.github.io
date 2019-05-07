@@ -70,7 +70,7 @@ html,body{
 
 #search{
 	font-size: 18px;
-	background-color: #06d9e1;
+	background: linear-gradient(45deg, rgba(241,35,255,1) 0%, rgba(182,33,255,1) 100%);
 	color: white;
 	border:none;
 	border-radius: 20px;
@@ -81,7 +81,7 @@ html,body{
 
 #randomButt{
 	font-size: 18px;
-	background-color: #06d9e1;
+	background: linear-gradient(45deg, rgba(12,204,215,1) 0%, rgba(0,105,238,1) 100%);
 	color: white;
 	border:none;
 	border-radius: 20px;
