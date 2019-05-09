@@ -134,7 +134,7 @@ body{
 	text-align: center;
 	margin: 0;
 	padding: 0;
-	color: white;
+	color: #0963d8;
 }
 
 
@@ -160,7 +160,7 @@ td,tr{
     font-weight:300;
 	border-color: transparent;
 	background: transparent;
-	color: white;
+	color: #0963d8;
 	font-size: 16px;
 	width: 100%;
 	text-align: center;
