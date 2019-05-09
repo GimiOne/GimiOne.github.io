@@ -225,14 +225,14 @@ greenOrRed.onclick = function(){
     		    hideText[i].style.fontFamily = '"Open Sans",sans-serif';
     		    hideText[i].style.fontWeight = '300';
     		    hideText[i].style.color = 'white';
-    		    colour = 'white';
+    		    colour = 'black';
     		   
     		}
     	var timePar = document.getElementsByClassName('timePar');	
     		for(var i = 0;i<timePar.length;i++){
     		    timePar[i].style.fontFamily = '"Open Sans",sans-serif';
     		    timePar[i].style.fontWeight = '300';
-    		    timePar[i].style.color = 'white';
+    		    timePar[i].style.color = 'black';
     		}
     		for(var m = 0;m<6;m++){
     		    document.getElementsByClassName('numbers')[m].style.fontFamily = '"Open Sans",sans-serif';
@@ -510,8 +510,11 @@ arrowDown.onmousedown = function(){//кнопка сворачивания и р
 		var table = document.getElementById('table');
 		var hideText = document.getElementsByClassName('hideText');
 		for(var i = 0;i<hideText.length;i++){
-		    if(forThis !== 2){
-		        hideText[i].style.color = 'white';
+            if(forThis === 1){
+                hideText[i].style.color = 'white';
+            }
+		    if(forThis === 0){
+		        hideText[i].style.color = 'black';
 		        
 		    }else if(forThis === 2){
 		        hideText[i].style.color = 'black';
@@ -548,7 +551,7 @@ function changeTime(hours,minutes){
 			var timePar = document.getElementsByClassName('timePar');
 			if(forThis !== 2){
 			    timePar[i].style.backgroundColor = 'transparent';
-			    timePar[i].style.color = 'white';
+			    timePar[i].style.color = 'black';
 			}else if(forThis === 2){
 			    timePar[i].style.backgroundColor = 'transparent';
 			    timePar[i].style.color = 'black';
@@ -561,7 +564,7 @@ function changeTime(hours,minutes){
 
 	function commonStyles(a,b,c,d,e){//Общие стили плашек с временем
 		var timePar = document.getElementsByClassName('timePar');
-		if(forThis !== 2){
+		if(forThis === 0){
 		    timePar[a].style.backgroundColor = 'transparent';
     		timePar[a].style.color = 'white';
     		timePar[b].style.backgroundColor = 'transparent';
@@ -574,16 +577,28 @@ function changeTime(hours,minutes){
     		timePar[e].style.color = 'white';
 		}else if(forThis === 2){
 		    timePar[a].style.backgroundColor = 'transparent';
-    		timePar[a].style.color = 'black';
+    		timePar[a].style.color = 'white';
     		timePar[b].style.backgroundColor = 'transparent';
-    		timePar[b].style.color = 'black';
+    		timePar[b].style.color = 'white';
     		timePar[c].style.backgroundColor = 'transparent';
-    		timePar[c].style.color = 'black';
+    		timePar[c].style.color = 'white';
     		timePar[d].style.backgroundColor = 'transparent';
-    		timePar[d].style.color = 'black';
+    		timePar[d].style.color = 'white';
     		timePar[e].style.backgroundColor = '#3c9bba';
     		timePar[e].style.color = 'white';
 		}
+        else if(forThis !== 2){
+            timePar[a].style.backgroundColor = 'transparent';
+            timePar[a].style.color = 'white';
+            timePar[b].style.backgroundColor = 'transparent';
+            timePar[b].style.color = 'white';
+            timePar[c].style.backgroundColor = 'transparent';
+            timePar[c].style.color = 'white';
+            timePar[d].style.backgroundColor = 'transparent';
+            timePar[d].style.color = 'white';
+            timePar[e].style.backgroundColor = '#3c9bba';
+            timePar[e].style.color = 'white';
+        }
 		
 	}
 }

@@ -292,6 +292,14 @@ td,tr{
     body{
         background-image: url(../img/6.png);
     }
+
+    #blockWeeks > table,td,tr{
+    	color: black;
+    }
+
+	#blockWeeks select{
+		color: black;
+	}
 }
 
 
