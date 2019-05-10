@@ -120,7 +120,49 @@ searchButton.onclick = function() {
 
 
 let isTrue = true;
-randomButt.onclick = function(){
+
+let isClick = true;
+randomButt.onclick = function(e){
+	if(!isClick){
+		return;
+	}
+	isClick = e.type;
+	if(isTrue){
+		isTrue = false;
+		let widthHalf = main.offsetWidth/2;
+		rightvert.style.height = '50px';
+		leftvert.style.height = '50px';
+		left.style.left = widthHalf +'px';
+		right.style.right = widthHalf +'px';
+		setTimeout(scale,1005);
+
+
+		function scale(){
+			randomIndex = parseInt(Math.random()*films.length);
+			randomFilm.innerText = films[randomIndex];
+			console.log('Случайный индекс: '+ randomIndex+'\n'+'Всего фильмов: '+films.length);
+			let widthHalf = blockRandFilm.offsetWidth/4;
+			left.style.left = -widthHalf +'px';
+			right.style.right = -widthHalf +'px';
+			setTimeout(function(){
+				isTrue = true;
+				rightvert.style.transform = 'translateY(0px)';
+				leftvert.style.transform = 'translateY(0px)';
+			},1000);
+			setTimeout(function(){
+				rightvert.style.transform = 'translateY(25px)';
+				leftvert.style.transform = 'translateY(25px)';
+				rightvert.style.height = '0px';
+				leftvert.style.height = '0px';
+			},800);
+		}
+	}
+}
+
+randomButt.ontouchstart = function(){
+	isClick = false;
+	randomButt.onclick = null;
+	console.log('lol');
 	if(isTrue){
 		isTrue = false;
 		let widthHalf = main.offsetWidth/2;
