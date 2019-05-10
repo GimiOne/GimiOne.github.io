@@ -25,6 +25,7 @@ html,body{
 
 #blockRandFilm{
 	position: relative;
+
 	/*background-color: red;*/
 }
 
@@ -149,7 +150,7 @@ html,body{
 	#noMore{
 		text-align: center;
 		width: 320px;
-		height: 40px;
+		height: 43px;
 		/*border:1px solid black;*/
 		overflow-x: auto;
 	}
