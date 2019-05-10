@@ -179,7 +179,7 @@ html,body{
 
 	#left{
 		position: absolute;
-		margin-top:-63px;
+		margin-top:-62px;
 		transform: translateX(-500px);
 		transition: 1s;
 		left: 0;
@@ -187,7 +187,7 @@ html,body{
 
 	#right{
 		position: absolute;
-		margin-top:-63px;
+		margin-top:-62px;
 		transform: translateX(500px);
 		transition: 1s;
 		right: 0;
