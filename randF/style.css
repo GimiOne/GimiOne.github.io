@@ -153,4 +153,23 @@ html,body{
 		/*border:1px solid black;*/
 		overflow-x: auto;
 	}
+
+	#noMore::-webkit-scrollbar-track{
+    border: 2px solid white;
+    background-color: #ccc;
 }
+#noMore::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#noMore::-webkit-scrollbar:horizontal {
+    height: 13px;
+}
+
+#noMore::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    border: 2px solid white; 
+    background-color: rgba(0, 0, 0, .5);
+}
+}
+
