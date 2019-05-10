@@ -171,3 +171,16 @@ html,body{
 	}
 }
 
+
+button.active.focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button:active:focus,
+button:focus{
+	outline: 0!important;
+	outline-color: transparent!important;
+	outline-width: 0!important;
+	outline-style: none!important;
+}
+
