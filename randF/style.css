@@ -182,5 +182,8 @@ button:focus{
 	outline-color: transparent!important;
 	outline-width: 0!important;
 	outline-style: none!important;
+	-webkit-tap-highlight-color: transparent;
+	-moz-tap-highlight-color: transparent;
+	tap-highlight-color: transparent;
 }
 
