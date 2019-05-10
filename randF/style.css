@@ -167,7 +167,7 @@ html,body{
 
 	#noMore::-webkit-scrollbar-thumb {
 	    border-radius: 6px;
-	    background-color: rgba(0, 0, 0, .3);
+	    background-color: rgba(0, 0, 0, .2);
 	}
 }
 
