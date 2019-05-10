@@ -175,6 +175,23 @@ html,body{
 	    border-radius: 8px;
 	    background-color: rgba(0, 0, 0, .2);
 	}
+
+
+	#left{
+		position: absolute;
+		margin-top:-63px;
+		transform: translateX(-500px);
+		transition: 1s;
+		left: 0;
+	}
+
+	#right{
+		position: absolute;
+		margin-top:-63px;
+		transform: translateX(500px);
+		transition: 1s;
+		right: 0;
+	}
 }
 
 
