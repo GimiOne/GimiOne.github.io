@@ -71,7 +71,7 @@ html,body{
 
 #search{
 	font-size: 18px;
-	background: linear-gradient(45deg, rgb(240, 83, 251) 0%, rgb(182, 33, 255) 100%);
+	background: linear-gradient(45deg, rgba(12,204,215,1) 0%, rgba(0,105,238,1) 100%);
 	color: white;
 	border:none;
 	border-radius: 20px;
