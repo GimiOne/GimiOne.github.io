@@ -14,7 +14,7 @@ let chooseRandomFilm = (url)=>{
 	window.open('https://yandex.ru/search/?lr=146&text=' + url+ ' смотреть онлайн');
 }
 
-
+//window.addEventListener("scroll", preventMotion, false); window.addEventListener("touchmove", preventMotion, false); function preventMotion(event) { window.scrollTo(0, 0); event.preventDefault(); event.stopPropagation(); } 
 
 
 
