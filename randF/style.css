@@ -155,21 +155,19 @@ html,body{
 	}
 
 	#noMore::-webkit-scrollbar-track{
-    border: 2px solid white;
-    background-color: #ccc;
-}
-#noMore::-webkit-scrollbar {
-    -webkit-appearance: none;
-}
+	    background-color: transparent;
+	}
+	#noMore::-webkit-scrollbar {
+	    -webkit-appearance: none;
+	}
 
-#noMore::-webkit-scrollbar:horizontal {
-    height: 13px;
-}
+	#noMore::-webkit-scrollbar:horizontal {
+	    height: 10px;
+	}
 
-#noMore::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    border: 2px solid white; 
-    background-color: rgba(0, 0, 0, .5);
-}
+	#noMore::-webkit-scrollbar-thumb {
+	    border-radius: 6px;
+	    background-color: rgba(0, 0, 0, .3);
+	}
 }
 
