@@ -162,11 +162,11 @@ html,body{
 	}
 
 	#noMore::-webkit-scrollbar:horizontal {
-	    height: 10px;
+	    height: 3px;
 	}
 
 	#noMore::-webkit-scrollbar-thumb {
-	    border-radius: 6px;
+	    border-radius: 3px;
 	    background-color: rgba(0, 0, 0, .3);
 	}
 }
