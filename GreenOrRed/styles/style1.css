@@ -275,6 +275,7 @@ td,tr{
 	height: 100px;
 	border-left:3px solid rgba(12,204,215,1); 
 	border-radius: 50%;
+	box-shadow: 1px 1px 3px rgba(12,204,215,1);
 	animation:rotatee 1s linear infinite;
 	transition: 1.5s;
 }
