@@ -11,6 +11,7 @@ FastClick.attach(document.body);
 window.onload = function(){
     preloader.style.backgroundColor = 'transparent';
     circle.style.borderColor = 'transparent';
+    circle.style.boxShadow = '1px 1px 1px transparent';
     setTimeout(function(){
 	preloader.style.display = 'none';
     },1400);
