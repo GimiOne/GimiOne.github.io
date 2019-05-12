@@ -567,24 +567,24 @@ function changeTime(hours,minutes){
 		var timePar = document.getElementsByClassName('timePar');
 		if(forThis === 0){
 		    timePar[a].style.backgroundColor = 'transparent';
-    		timePar[a].style.color = 'white';
+    		timePar[a].style.color = 'black';
     		timePar[b].style.backgroundColor = 'transparent';
-    		timePar[b].style.color = 'white';
+    		timePar[b].style.color = 'black';
     		timePar[c].style.backgroundColor = 'transparent';
-    		timePar[c].style.color = 'white';
+    		timePar[c].style.color = 'black';
     		timePar[d].style.backgroundColor = 'transparent';
-    		timePar[d].style.color = 'white';
-    		timePar[e].style.backgroundColor = '#3c9bba';
+    		timePar[d].style.color = 'black';
+    		timePar[e].style.background = 'rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(38, 225, 236) 0%, rgb(19, 123, 255) 100%) repeat scroll 0% 0%';
     		timePar[e].style.color = 'white';
 		}else if(forThis === 2){
 		    timePar[a].style.backgroundColor = 'transparent';
-    		timePar[a].style.color = 'white';
+    		timePar[a].style.color = 'black';
     		timePar[b].style.backgroundColor = 'transparent';
-    		timePar[b].style.color = 'white';
+    		timePar[b].style.color = 'black';
     		timePar[c].style.backgroundColor = 'transparent';
-    		timePar[c].style.color = 'white';
+    		timePar[c].style.color = 'black';
     		timePar[d].style.backgroundColor = 'transparent';
-    		timePar[d].style.color = 'white';
+    		timePar[d].style.color = 'black';
     		timePar[e].style.backgroundColor = '#3c9bba';
     		timePar[e].style.color = 'white';
 		}
