@@ -5,8 +5,9 @@ html,body{
 
 img{
 	padding: 0;
-	margin: 0;
-	height: 100%;
+	margin: 5px;
+	height: 98%;
+        border-radius: 6px;
 }
 
 #block{
