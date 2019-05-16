@@ -5,12 +5,18 @@ html,body{
 
 img{
 	padding: 0;
+<<<<<<< HEAD
 	margin-right: 5px; 
 	margin: 5px 5px 5px 5px;
 	height: 98%;
 	width: auto;
 	border-radius: 6px;
 	box-sizing: border-box;
+=======
+	margin: 5px 0px 5px 5px;
+	height: 98%;
+        border-radius: 6px;
+>>>>>>> e8acace20225adcc818c96bd925a81ffdfff09b2
 }
 
 #block{
