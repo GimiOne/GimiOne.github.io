@@ -1,4 +1,5 @@
-let randomFilm = document.querySelector('#randomFilm'),
+let randFilm = document.querySelector('.randFilm')[0],
+	randomFilm = document.querySelector('#randomFilm'),
 	searchButton = document.querySelector('#search'),
 	randomButt = document.querySelector('#randomButt'),
 	blockRandFilm = document.querySelector('#blockRandFilm'),
@@ -12,14 +13,15 @@ let randomFilm = document.querySelector('#randomFilm'),
 	imdb = document.querySelector('#imdb'),
 	year = document.querySelector('#year'),
 	director = document.querySelector('#director'),
-	img = document.querySelector('#img');
+	img = document.querySelector('#img'),
+	content = document.querySelector('.content')[0];
 
 
 //Загрузка базы данных(JSON файла) в переменную bdIMDB.
 let bdIMDB = $.ajax({
     type: 'GET',
     dataType: 'json',
-    url: 'IMDBFilms(1st at 10000).json',
+    url: 'IMDBFilms(1st at 50000).json',
     statusCode: {
         401: function () {
             console.log('Error: Daily request limit reached!')
@@ -31,6 +33,7 @@ let bdIMDB = $.ajax({
     	return response;
     }
 });
+
 
 
 //Загрузка id IMDB фильма(JSON файла) в переменную idIMDB.
@@ -56,6 +59,12 @@ $(document).ready(()=>{
 
 	//---------------------------------Кнопка Искать-------------------------------------
 	
+	// $('#img').on("load", function() {
+	//     // weave your magic here.
+	// });
+
+
+
 	searchButton.onclick = function() {
 		if(randomFilm.innerText !== 'Выбери случайный фильм'){
 			chooseRandomFilm(randomFilm.innerText);
@@ -67,16 +76,44 @@ $(document).ready(()=>{
 
 
 	//----------------------------------Кнопка Рандом-------------------------------------
-
+	let isLoadPoster = false;
 	randomButt.onclick = function(){
 		let randIndex = parseInt(Math.random()*bdIMDB.responseJSON.length);
 		let objMovie = bdIMDB.responseJSON[randIndex];
-		randomFilm.innerText = objMovie.Title;
-		img.src = objMovie.Poster;
-		imdb.innerText = 'Рейтинг IMDB: '+objMovie.imdbRating;
-		director.innerText = 'Режиссёр: '+objMovie.Director;
-		year.innerText = 'Год: '+objMovie.Year;
-		console.log(objMovie);
+		$('#img,.content').css({'opacity': '0'});
+		$('.randFilm').css({'border-radius':'8%'});
+		// $('#randomButt').attr('disabled',true);
+
+
+		setTimeout(function(){
+			randomFilm.innerText = objMovie.Title;
+			imdb.innerText = 'Рейтинг IMDB: '+objMovie.imdbRating;
+			director.innerText = 'Режиссёр: '+objMovie.Director;
+			year.innerText = 'Год: '+objMovie.Year;
+			
+			if(objMovie.Poster !== 'N/A'){
+				img.src = objMovie.Poster;
+			}else{
+				img.src = 'no-poster.jpg';
+				console.log('N/A, '+ isLoadPoster);
+			}
+
+			
+		},500);
+
+
+		setTimeout(function(){
+			img.onerror = function(e){
+				console.log('error');
+				img.src = 'no-poster.jpg';
+			}
+				img.onload = function(e){
+					console.log(e);
+					$('#img,.content').css({'opacity': '1'});
+					$('.randFilm').css({'border-radius':'8px'});
+					// $('#randomButt').attr('disabled',false);
+			}
+		},800);
 
 	}
 
