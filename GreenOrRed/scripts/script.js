@@ -6,8 +6,9 @@ var preloader = document.getElementById('preloader');
 var circle = document.getElementById('circle');
 calls.style.transform = 'scaleY(0)';
 var dataJSON;
-var isOnLoad = false;
-FastClick.attach(document.body);
+var isOnLoad = false; 
+
+
 window.onload = function(){
     preloader.style.backgroundColor = 'transparent';
     circle.style.borderColor = 'transparent';
