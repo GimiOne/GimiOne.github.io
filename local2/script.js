@@ -21,7 +21,7 @@ let randFilm = document.querySelector('.randFilm')[0],
 let bdIMDB = $.ajax({
     type: 'GET',
     dataType: 'json',
-    url: 'IMDBFilms(1st at 50000).json',
+    url: 'IMDBFilms(1st at 10000).json',
     statusCode: {
         401: function () {
             console.log('Error: Daily request limit reached!')
