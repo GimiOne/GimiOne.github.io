@@ -3,11 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="styles/style1.css?5809">
-	<script src="fastclick/fastclick.js?5809"></script>
+	<link rel="stylesheet" href="styles/style1.css">
+	<script src="fastclick/fastclick.js"></script>
 	<script src="data.json" defer></script>
-	<script src="scripts/script.js?5809" defer></script>
 	<title>Расписание</title>
+	<script type="application/javascript">
+		window.addEventListener('load', function () {
+			FastClick.attach(document.body);
+		}, false);
+	</script> 
 </head>
 <body id="body">
 	<div id="preloader"><div id="circle"></div></div>
@@ -73,6 +77,6 @@
  <div id="arrow-down"></div>
  </div>
 	</div>
-
+<script src="scripts/script.js"></script>
 </body>
 </html>
