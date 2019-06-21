@@ -7,11 +7,13 @@ searchInput.oninput = apiSearch;
 
 function apiSearch(event){
 	event.preventDefault();
-	let serverUrl = 'https://api.themoviedb.org/3/search/multi?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&query='+ searchInput.value;
+	$(window).scrollTop(0);
+	let serverUrl = 'https://api.themoviedb.org/3/search/movie?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&query='+ searchInput.value;
 	let objMovies = apiRequest(serverUrl,'GET');
 }
 
 document.onclick = function(e) {
+	console.log(e);
 	if(e.target.className === 'img'){
 		let cleanYear = e.path[1].children[3].innerText.replace('Год: ','') === 'неизвестно' ? '' : e.path[1].children[3].innerText.replace('Год: ','');
 		window.open('https://yandex.ru/search/?text='+e.path[1].children[1].innerText+' '+cleanYear + ' смотреть онлайн');
@@ -54,10 +56,39 @@ function addCardMovie(objMovies,amount){
 		movies.innerHTML += `<div  id="card">
 						        <img class="img" width="300" src="`+beginPath + '' + objMovies[i].poster_path +`" alt="">
 						        <h2 class="title">`+ (objMovies[i].title === undefined ? objMovies[i].name : objMovies[i].title) +`</h2>
-						        <p class="rating">Рэйтинг: `+objMovies[i].vote_average+`</p>
+						        <p class="rating">Рейтинг: `+objMovies[i].vote_average+`</p>
 						        <p class="year">Год: `+ ((objMovies[i].release_date !== undefined) ? objMovies[i].release_date.match(/^[0-9]+/gi) : 'неизвестно') +`</p>
 						    </div>`
 	});
 	
 }
 
+
+$(document).ready(function() {
+	
+	var header = $(".header"); // Меню
+	var scrollPrev = 0 // Предыдущее значение скролла
+	var heightHeader = 50;
+	$(window).scroll(function() {
+		var scrolled = $(window).scrollTop(); // Высота скролла в px
+		if ( scrolled > 0 ) {
+			if(scrolled > scrollPrev && heightHeader >= 0){
+				console.log(scrollPrev +','+ scrolled);
+				heightHeader -= 4;
+				if(heightHeader < 25){
+					heightHeader = 0;
+					header.height(heightHeader);
+				}
+			}else if(scrolled < scrollPrev && heightHeader <= 50){
+				console.log(2);
+				heightHeader += 4;
+				if(heightHeader >= 25){
+					heightHeader = 50;
+					header.height(heightHeader);
+				}
+				
+			}
+			scrollPrev = scrolled;
+		}	
+	});			
+});

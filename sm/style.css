@@ -20,6 +20,9 @@ html,body{
 
 }
 
+#search-input{
+	margin-top: 6px;
+}
 
 
 .movies1{
@@ -45,3 +48,35 @@ html,body{
 	width: 300px;
 	border-radius: 5px;
 }
+
+/*.jumbotron{
+	width: 100%;
+}*/
+
+.container{
+	width: 100%;
+}
+
+body{
+	/*transition: 1s;*/
+}
+
+
+.main-head{
+
+	width: 100%;
+	height: 400px;
+
+}
+
+.header{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
+	transition: .5s;
+
+}
+
