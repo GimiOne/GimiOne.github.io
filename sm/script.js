@@ -71,23 +71,24 @@ $(document).ready(function() {
 	var heightHeader = 50;
 	$(window).scroll(function() {
 		var scrolled = $(window).scrollTop(); // Высота скролла в px
+		console.log();
 		if ( scrolled > 0 ) {
-			if(scrolled > scrollPrev && heightHeader >= 0){
-				console.log(scrollPrev +','+ scrolled);
-				heightHeader -= 4;
-				if(heightHeader < 25){
-					heightHeader = 0;
-					header.height(heightHeader);
+			console.log($(document).height() === ($(window).scrollTop() + $(window).height()));
+			if($(document).height() === ($(window).scrollTop() + $(window).height())){
+				header.height(50);
+			}else{
+				if(scrolled > scrollPrev ){
+				//console.log(scrollPrev +','+ scrolled);
+				//heightHeader -= 4;
+	
+					header.height(0);
+
+				}else if(scrolled < scrollPrev ){
+						header.height(50);
+					
 				}
-			}else if(scrolled < scrollPrev && heightHeader <= 50){
-				console.log(2);
-				heightHeader += 4;
-				if(heightHeader >= 25){
-					heightHeader = 50;
-					header.height(heightHeader);
-				}
-				
 			}
+			
 			scrollPrev = scrolled;
 		}	
 	});			
