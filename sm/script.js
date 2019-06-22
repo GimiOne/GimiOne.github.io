@@ -94,11 +94,6 @@ function getTrailer(type,id){
 			return;
 		}
 		let idTrailer = JSON.parse(request.responseText).results[0].key === undefined ? 'notfound' : JSON.parse(request.responseText).results[0].key;
-		alert('Трейлер не найден');
-		if(!idTrailer){
-			alert('Трейлер не найден');
-			return;
-		}
 		let iframe = `<iframe width="560" height="315" id="iiframe"  src="https://www.youtube.com/embed/${idTrailer}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 		$("#youtube").addClass('youtube');
 		$("#youtube").html(iframe);
