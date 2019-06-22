@@ -103,10 +103,12 @@ function getTrailer(type,id){
 			console.log(`https://www.youtube.com/embed/${i.key}`);
 		});
 		let you = document.querySelector('#youtube'),
-		    frame = document.querySelector('#iiframe');
-		    frame.style.height = you.offsetWidth+'px';
-		    frame.style.width = you.offsetHeight+'px';
-		    console.log(you.offsetWidth);
+		    frame = document.querySelector('#iiframe'),
+		    htm = document.querySelector('body');
+		    window.orientation = 90;
+		    //htm.style.transform = 'rotate(90deg)';
+		    //frame.requestFullscreen();
+		  
 
 	});
 	
