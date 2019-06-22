@@ -96,7 +96,7 @@ function getTrailer(type,id){
 		}
 		let idTrailer = JSON.parse(request.responseText).results[0].key;
 		
-		let iframe = `<iframe id="iiframe"  src="https://www.youtube.com/embed/${idTrailer}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+		let iframe = `<iframe width="560" height="315" id="iiframe"  src="https://www.youtube.com/embed/${idTrailer}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 		$("#youtube").addClass('youtube');
 		$("#youtube").html(iframe);
 		JSON.parse(request.responseText).results.forEach(function(i,item){
