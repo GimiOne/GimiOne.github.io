@@ -7,7 +7,7 @@ searchInput.oninput = apiSearch;
 
 function apiSearch(event){
 	event.preventDefault();
-	$(window).scrollTop(0);
+	
 	let serverUrl = 'https://api.themoviedb.org/3/search/multi?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&query='+ searchInput.value;
 	let objMovies = apiRequest(serverUrl,'GET');
 }
@@ -74,7 +74,10 @@ let isShowOverview = false;
 		}else if(e.target.id === 'search-btn'){
 			let cleanYear = e.path[1].children[2].innerText.replace('Год: ','') === 'неизвестен' ? '' : e.path[1].children[2].innerText.replace('Год: ','');
 			window.open('https://yandex.ru/search/?text='+e.path[1].children[0].innerText.toLowerCase()+' '+cleanYear + ' смотреть онлайн');
+		}else if(e.target.id === 'search-input'){
+			$(window).scrollTop(0);
 		}
+		
 }
 	
 }
