@@ -134,14 +134,14 @@ $(document).ready(function() {
 				header.height(50);
 			}else{
 				if(scrolled > scrollPrev && heightValue>=0){
-					heightValue -= 4;
+					heightValue -= 1;
 					header.height(heightValue);
 					
 
 				}else if(scrolled < scrollPrev && heightValue<=50){
 					
 						header.height(heightValue);
-					heightValue += 4;
+					heightValue += 1;
 					
 				}
 			}

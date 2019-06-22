@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Mali|Open+Sans|Roboto&display=swap&subset=cyrillic,cyrillic-ext');
+
+
 html,body{
 	font-family: 'Open Sans',sans-serif;
 	padding: 0px;
-	/*height: 2000px;*/
+	height: 1000px;
 }
 
 #card{
