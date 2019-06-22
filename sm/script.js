@@ -102,22 +102,47 @@ function getTrailer(type,id){
 }
 
 
+var heightValue = 0;
+let isTouched = false;
+document.ontouchend = function(){
+	if(heightValue > 24){
+		$(".header").height(50);
+	}else{
+		$(".header").height(0);
+	}
+	
+	console.log(isTouched);
+}
 
 //Scrolling
 $(document).ready(function() {
 	var header = $(".header"); // Меню
 	var scrollPrev = 0 // Предыдущее значение скролла
 	var heightHeader = 50;
-	$(window).scroll(function() {
+	
+	$(window).scroll(function(e) {
+		// if(isTouched === false){
+		// 	console.log(1);
+		// }
+		isTouched = true;
 		var scrolled = $(window).scrollTop(); // Высота скролла в px
 		if ( scrolled > 0 ) {
 			if($(document).height() === ($(window).scrollTop() + $(window).height())){
 				header.height(50);
+			}
+			if($(window).scrollTop() >= 0 && $(window).scrollTop() <= 30){
+				header.height(50);
 			}else{
-				if(scrolled > scrollPrev ){
-					header.height(0);
-				}else if(scrolled < scrollPrev ){
-						header.height(50);
+				if(scrolled > scrollPrev && heightValue>=0){
+					heightValue -= 4;
+					header.height(heightValue);
+					
+
+				}else if(scrolled < scrollPrev && heightValue<=50){
+					
+						header.height(heightValue);
+					heightValue += 4;
+					
 				}
 			}
 			scrollPrev = scrolled;
