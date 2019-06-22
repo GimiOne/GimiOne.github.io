@@ -8,7 +8,7 @@ searchInput.oninput = apiSearch;
 function apiSearch(event){
 	event.preventDefault();
 	$(window).scrollTop(0);
-	let serverUrl = 'https://api.themoviedb.org/3/search/movie?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&query='+ searchInput.value;
+	let serverUrl = 'https://api.themoviedb.org/3/search/multi?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&query='+ searchInput.value;
 	let objMovies = apiRequest(serverUrl,'GET');
 }
 
@@ -58,12 +58,58 @@ function addCardMovie(objMovies,amount){
 						        <h2 class="title">`+ (objMovies[i].title === undefined ? objMovies[i].name : objMovies[i].title) +`</h2>
 						        <p class="rating">Рейтинг: `+objMovies[i].vote_average+`</p>
 						        <p class="year">Год: `+ ((objMovies[i].release_date !== undefined) ? objMovies[i].release_date.match(/^[0-9]+/gi) : 'неизвестно') +`</p>
+						    	<button class="youtube-btn" data-btn="`+i+`">Трейлер</button>
 						    </div>`
+	});
+
+	document.onclick = function(e) {
+		if(e.target.className === 'youtube-btn'){
+			let index = e.target.attributes[1].nodeValue;
+			getTrailer(objMovies[index].media_type,objMovies[index].id)
+			
+		}else if(e.target.className === 'youtube'){
+			$("#youtube").removeClass('youtube');
+			$("#youtube iframe").remove();
+		}else if(e.target.tagName){
+		console.log(e.target.tagName);
+	}
+	console.log(e.target)
+}
+	
+}
+
+
+
+function getTrailer(type,id){
+	console.log([type,id]);
+	let trailerUrl = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru`;
+	let request = new XMLHttpRequest();
+	request.open('GET',trailerUrl);
+	request.send();
+
+	request.addEventListener('readystatechange',() =>{
+		if(request.readyState !== 4) return;
+		if(request.status !== 200){
+			console.log('error: ' + request.status);
+			return;
+		}
+		let idTrailer = JSON.parse(request.responseText).results[0].key;
+		
+		let iframe = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${idTrailer}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+		$("#youtube").addClass('youtube');
+		$("#youtube").html(iframe);
+		JSON.parse(request.responseText).results.forEach(function(i,item){
+			console.log(`https://www.youtube.com/embed/${i.key}`);
+		});
+		
+
 	});
 	
 }
 
 
+
+//Scrolling
 $(document).ready(function() {
 	
 	var header = $(".header"); // Меню
