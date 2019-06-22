@@ -11,9 +11,16 @@ html,body{
 	padding: 25px;
 	margin: 5px;
 	border-radius: 5px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 #card h2{
 	font-weight: bold;
@@ -27,17 +34,31 @@ html,body{
 
 .movies1{
 	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 
 #movies{
 	width: 1080px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 }
 
 #card h2{
@@ -75,7 +96,10 @@ body{
 	width: 100%;
 	height: 50px;
 	background-color: white;
-	box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
+	        box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
+	-webkit-transition: .2s;
+	-o-transition: .2s;
 	transition: .2s;
 
 }
@@ -84,10 +108,16 @@ body{
 	position: fixed;
 	width: 100%;
 	height: 100vh;
-	background-color: rgb(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.7);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	z-index: 998;
 }
 
@@ -110,5 +140,7 @@ body{
 }
 
 html{
-	transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
 }
