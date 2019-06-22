@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Mali|Open+Sans|Roboto&display=swap&subset=cyrillic,cyrillic-ext');
 html,body{
-	font-family: Arial,sans-serif;
+	font-family: 'Open Sans',sans-serif;
 	padding: 0px;
 
 }
@@ -31,6 +32,35 @@ html,body{
 	margin-top: 6px;
 }
 
+.navbar a{
+	
+	font-family: 'Amatic SC',sans-serif;
+
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.navbar .container{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+
+}
+
+.navbar .container a{
+	margin: 0;
+	border-radius: 10px;
+
+}
+
+
+
+button{
+	font-family: 'Open Sans',sans-serif;
+}
 
 .movies1{
 	width: 100%;
@@ -59,6 +89,7 @@ html,body{
 	    flex-wrap: wrap;
 	-ms-flex-pack: distribute;
 	    justify-content: space-around;
+	margin-bottom: 55px;
 }
 
 #card h2{
@@ -143,4 +174,24 @@ html{
 	-webkit-transform-origin: 0 0;
 	    -ms-transform-origin: 0 0;
 	        transform-origin: 0 0;
+}
+
+
+
+.overview{
+  width: auto;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* сколько оставить строк */
+  -webkit-box-orient: vertical;
+  cursor: pointer;
+}
+
+#overtext{
+	font-size: 13px;
+}
+
+
+.content{
+	width: 100%;
 }
