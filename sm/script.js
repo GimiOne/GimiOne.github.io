@@ -80,6 +80,7 @@ function addCardMovie(objMovies,amount){
 
 
 
+
 function getTrailer(type,id){
 	console.log([type,id]);
 	let trailerUrl = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru`;
@@ -95,13 +96,17 @@ function getTrailer(type,id){
 		}
 		let idTrailer = JSON.parse(request.responseText).results[0].key;
 		
-		let iframe = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${idTrailer}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+		let iframe = `<iframe id="iiframe"  src="https://www.youtube.com/embed/${idTrailer}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 		$("#youtube").addClass('youtube');
 		$("#youtube").html(iframe);
 		JSON.parse(request.responseText).results.forEach(function(i,item){
 			console.log(`https://www.youtube.com/embed/${i.key}`);
 		});
-		
+		let you = document.querySelector('#youtube'),
+		    frame = document.querySelector('#iiframe');
+		    frame.style.height = you.offsetWidth+'px';
+		    frame.style.width = you.offsetHeight+'px';
+		    console.log(you.offsetWidth);
 
 	});
 	
