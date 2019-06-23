@@ -11,7 +11,7 @@ function WriteToFile(datak){
 	let JsonString = datak;
 	$.ajax({
       url: 'getMovies.php',
-      type: 'POST',
+      type: 'GET',
       dataType: 'json',
       data: {key: JsonString},
       success: function (data) {
