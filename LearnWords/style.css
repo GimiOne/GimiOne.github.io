@@ -1,0 +1,28 @@
+html,body{
+	font-family: Arial,sans-serif;
+	padding: 0px;
+	margin: 0;
+	background: linear-gradient(45deg,#18d1d7,#057bce);
+	/*height: 2000px;*/
+	color:white;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	-o-user-select:none;
+	user-select:none;
+}
+
+.row{
+	height: 100vh;
+}
+
+.word{
+	text-shadow: -7px 3px 1px rgba(0,0,0,.4);
+}
+
+
+@media screen and (max-width: 600px){
+	.word{
+		font-size: 48px;
+	}
+}
