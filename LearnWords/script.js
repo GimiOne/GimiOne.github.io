@@ -24,7 +24,7 @@ word.innerHTML = words[0];
 document.body.style.background = bgColor[0];
 
 let index = 0;
-document.onclick = (e)=>{
+document.ondblclick = (e)=>{
 	if(e.clientX>(window.innerWidth/2)){
 		if(index < words.length-1){
 			index++;
