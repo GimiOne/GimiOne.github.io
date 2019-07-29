@@ -10,7 +10,14 @@ html,body{
 	-ms-user-select:none;
 	-o-user-select:none;
 	user-select:none;
+	
 }
+
+#bg{
+	transition: .4s;
+}
+
+
 
 .row{
 	height: 100vh;
@@ -19,6 +26,7 @@ html,body{
 .word{
 	text-shadow: -3px 3px 1px rgba(0,0,0,.4);
 }
+
 
 
 @media screen and (max-width: 600px){

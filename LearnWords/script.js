@@ -11,6 +11,7 @@ let stories = {
 
 
 let word = document.querySelector('#word');
+let bg = document.querySelector('#bg');
 let arrayStories = [];
 for(text in stories){
 	arrayStories.push(stories[text].split(' '));
@@ -26,12 +27,23 @@ document.body.style.background = bgColor[0];
 let index = 0;
 document.ondblclick = (e)=>{
 	if(e.clientX>(window.innerWidth/2)){
-		if(index < words.length-1){
+		if(index >= words.length-1){
+			bg.style.color = '#ff5959';
+			setTimeout(()=>{
+				bg.style.color = 'white';
+			},200);
+			
+		}else{
 			index++;
 			word.innerHTML = words[index];
 		}
 	}else{
-		if(index > 0){
+		if(index <= 0){
+			bg.style.color = '#ff5959';
+			setTimeout(()=>{
+				bg.style.color = 'white';
+			},200);
+		}else{
 			index--;
 			word.innerHTML = words[index];
 		}
