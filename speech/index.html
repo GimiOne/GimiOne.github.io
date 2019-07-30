@@ -115,8 +115,7 @@ audioVK:'https://vk.com/audio'
 
 
 
-	if((result[0].transcript).includes('OK Яндекс')||
-	(result[0].transcript).includes('Ok Яндекс')){
+	if((result[0].transcript).toLowerCase.includes('ок яндекс')){
 		if (result.isFinal) {
       		window.open(links.yandex,'_blank')
    		}
