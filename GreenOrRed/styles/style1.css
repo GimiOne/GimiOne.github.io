@@ -289,7 +289,7 @@ td,tr{
 
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 576px) {
     body{
         background-image: url(../img/10.png);
     }
