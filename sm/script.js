@@ -39,7 +39,7 @@ function apiRequest(url,method){
 			return;
 		}
 		let movies = JSON.parse(request.responseText).results;
-		
+		console.log(movies);
 		addCardMovie(movies,20);
 
 	});
@@ -75,10 +75,9 @@ let isShowOverview = false;
 	document.onclick = function(e) {
 
 		if(e.target.id === 'youtube-btn'){
-
 			let index = e.target.attributes[1].nodeValue;
+			console.log(objMovies[index].media_type);
 			getTrailer(objMovies[index].media_type,objMovies[index].id)
-			
 		}else if(e.target.className === 'youtube'){
 			$("#youtube").removeClass('youtube');
 			$("#youtube iframe").remove();
@@ -102,6 +101,7 @@ let isShowOverview = false;
 
 
 function getTrailer(type,id){
+	if(type === undefined) type = 'movie';
 	let trailerUrl = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru`;
 	let request = new XMLHttpRequest();
 	request.open('GET',trailerUrl);
