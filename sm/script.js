@@ -15,7 +15,7 @@ searchInput.onkeyup = (event) => {
 
 getPopularMovies();
 function getPopularMovies(){
-	let serverUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=ead41c3eaac089640f31601bd088ab4e&language=en-US&page=1';
+	let serverUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&page=1';
 	let objMovies = apiRequest(serverUrl,'GET');
 }
 
