@@ -2,8 +2,22 @@ const searchForm = document.querySelector('#search-form'),
 	  searchInput= document.querySelector('#search-input'),
 	  movies = document.querySelector('#movies');
 
-
 searchInput.oninput = apiSearch;
+searchInput.onkeyup = (event) => {
+	if(event.keyCode === 13 && searchInput.value === ''){
+		getPopularMovies();
+	}
+	else if(event.keyCode === 13){
+		apiSearch(event);
+	}
+	
+}
+
+getPopularMovies();
+function getPopularMovies(){
+	let serverUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=ead41c3eaac089640f31601bd088ab4e&language=en-US&page=1';
+	let objMovies = apiRequest(serverUrl,'GET');
+}
 
 function apiSearch(event){
 	event.preventDefault();
@@ -46,14 +60,14 @@ function addCardMovie(objMovies,amount){
 		movies.innerHTML += `<div  id="card">
 						        <img class="img" width="300" src="`+beginPath + '' + objMovies[i].poster_path +`" alt="">
 						        <div class="content">
-							        <h2 class="title">`+ (objMovies[i].title === undefined ? objMovies[i].name : objMovies[i].title) +`</h2>
+							        <h2 class="title" id="title">`+ (objMovies[i].title === undefined ? objMovies[i].name : objMovies[i].title) +`</h2>
 							        <p class="rating"><span class="badge badge-info">Рейтинг: `+objMovies[i].vote_average+`</span></p>
 							        <p class="year">Год: `+ ((objMovies[i].release_date !== undefined && objMovies[i].release_date !== "") ? objMovies[i].release_date.match(/^[0-9]+/gi) : 'неизвестен') +`</p>
 							    	<div class="overview-block">
 										<p id="overtext" class="overview">`+(objMovies[i].overview)+`</p>
 							    	</div>
 							    	<button id="youtube-btn" data-btn="`+i+`" class="btn btn-info" >Трейлер</button>
-							    	<button id="search-btn" class="btn btn-success" ">Искать</button>
+							    	<button id="search-btn" class="btn btn-success" data-year="${((objMovies[i].release_date !== undefined && objMovies[i].release_date !== "") ? objMovies[i].release_date.match(/^[0-9]+/gi) : 'неизвестен')}" data-title="${(objMovies[i].title === undefined ? objMovies[i].name : objMovies[i].title)}" ">Искать</button>
 							    </div>
 						    </div>`
 	});
@@ -72,8 +86,10 @@ let isShowOverview = false;
 			e.target.className = isShowOverview ? 'overview' : '';
 			isShowOverview = !isShowOverview;
 		}else if(e.target.id === 'search-btn'){
-			let cleanYear = e.path[1].children[2].innerText.replace('Год: ','') === 'неизвестен' ? '' : e.path[1].children[2].innerText.replace('Год: ','');
-			window.open('https://yandex.ru/search/?text='+e.path[1].children[0].innerText.toLowerCase()+' '+cleanYear + ' смотреть онлайн');
+			console.log(e.target.attributes);
+			let cleanYear = e.target.attributes[2].value;
+			window.open('https://yandex.ru/search/?text='+e.target.attributes[3].value.toLowerCase()+' '+cleanYear + ' смотреть онлайн');
+		
 		}else if(e.target.id === 'search-input'){
 			$(window).scrollTop(0);
 		}
