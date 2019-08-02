@@ -122,8 +122,8 @@ function getTrailer(type,id){
 
 
 var heightValue = 50;
-let isEnd = false;
-let isDown = true;
+let isEnd = true;
+let isDown = false;
 
 document.ontouchend = function(){
 	if(isDown){

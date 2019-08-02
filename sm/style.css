@@ -5,6 +5,8 @@ html,body{
 	font-family: 'Open Sans',sans-serif;
 	padding: 0px;
 	height: 1000px;
+	background: url(https://engineer-kadastr.ru/app/uploads/2017/08/paper-12.jpg);
+	background-size: cover;
 }
 
 #card{

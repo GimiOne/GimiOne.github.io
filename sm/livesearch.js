@@ -30,7 +30,7 @@ $(window).ready(function(){
 						
 						let list = JSON.parse(data).results;
 						console.log(JSON.parse(data).results);
-						suggest_count = list.length;
+						suggest_count = list.length > 6 ? 7 : list.length;
 						if(suggest_count > 0){
 							// перед показом слоя подсказки, его обнуляем
 							$("#search_advice_wrapper").html("").show();
