@@ -114,7 +114,7 @@ for(let i = 0;i<4;i++){
 
         $.ajax({
         url: 'php/write.php',
-        type: 'POST',
+        type: 'GET',
         dataType: 'json',
         data: {key: JSON.stringify(data)},
         success: function (data) {
