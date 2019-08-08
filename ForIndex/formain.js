@@ -2,6 +2,7 @@ var i = 1;
 document.getElementById('audio').volume = "0";
 document.getElementById('audio').autoplay;
 
+
 function volume(){
 	if(i===1){
 	    document.getElementById('audio').play();
