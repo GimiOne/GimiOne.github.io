@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap&subset=cyrillic');
+
+html,body{
+	font-family: Arial,sans-serif;
+	padding: 0;
+	margin: 0;
+	background: white;
+}
+
+
+.container{
+	margin-top: 40px;
+}
+
+#main-container h3{
+	margin-top: 30px;
+}
+
+hr{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+#main-container input{
+	width: 100%;
+	margin-bottom: 5px;
+	color:black;
+}
+
+
