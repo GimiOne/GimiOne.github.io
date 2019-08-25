@@ -3,7 +3,7 @@
     "name" : "Расписание",
     "scope" : "/",
     "display" : "standalone",
-    "start_url" : "https://gimione.github.io/GreenOrRed",
+    "start_url" : "https://gimione.github.io/GreenOrRed/",
     "short_name" : "Расписание",
     "theme_color" : "#3abeda",
     "description" : "",
