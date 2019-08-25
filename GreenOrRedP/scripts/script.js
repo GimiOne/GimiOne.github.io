@@ -231,7 +231,7 @@ function mainStyles(){
             document.getElementById('FullB').style.borderColor = 'rgb(218,218,218)';
             document.getElementById('FullA').style.color = 'black';
             var nexxt = document.getElementById('nextWeekButton');
-            nexxt.style.backgroundImage = "url('img/right-arrow.svg')";
+            nexxt.style.backgroundImage = "url('GreenOrRedP/img/right-arrow.svg')";
             nexxt.style.backgroundRepeat = "no-repeat";
             nexxt.style.backgroundPosition = 'center';
             nexxt.style.backgroundSize = '10px';
@@ -301,7 +301,7 @@ function mainStyles(){
             }
             document.getElementById('select').style.fontFamily = '"Open Sans",sans-serif';
             var nexxt = document.getElementById('nextWeekButton');
-            nexxt.style.backgroundImage = "url('img/right-arrow.svg')";
+            nexxt.style.backgroundImage = "url('GreenOrRedP/img/right-arrow.svg')";
             nexxt.style.backgroundRepeat = "no-repeat";
             nexxt.style.backgroundPosition = 'center';
             nexxt.style.backgroundSize = '10px';
