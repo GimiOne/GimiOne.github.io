@@ -5,10 +5,10 @@
     "display" : "standalone",
     "start_url" : "https://gimione.github.io",
     "short_name" : "Расписание",
-    "theme_color" : "#3abeda",
+    "theme_color" : "#000",
     "description" : "",
     "orientation" : "natural",
-    "background_color" : "#3abeda",
+    "background_color" : "#fff",
     "related_applications" : "",
     "prefer_related_applications" : "false",
     "generated" : "true",
@@ -20,6 +20,22 @@
         {
             "src": "PWAicons/44x44.png",
             "sizes": "44x44"
+        },
+        {
+            "src": "PWAicons/48x48.png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "PWAicons/50x50.png",
+            "sizes": "50x50"
+        },
+        {
+            "src": "PWAicons/96x96.png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "PWAicons/150x150.png",
+            "sizes": "150x150"
         },
         {
             "src": "PWAicons/300x300.png",
