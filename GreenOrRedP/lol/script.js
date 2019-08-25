@@ -5,7 +5,8 @@ let table = document.querySelector('#table');
 
 
 
-var rebootCache = "?noCache=" + (new Date().getTime()) + Math.random().toFixed(3);
+// var rebootCache = "?noCache=" + (new Date().getTime()) + Math.random().toFixed(3);
+console.log(rebootCache);
 $.ajax({
 url: '../admin/php/data.json'+rebootCache,
 type: 'GET',

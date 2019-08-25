@@ -84,7 +84,8 @@ var GreenWeek;
 var RedWeek;
 var jsonData;
 
-var rebootCache = "?noCache=" + (new Date().getTime()) + Math.random().toFixed(3);
+// var rebootCache = "?noCache=" + (new Date().getTime()) + Math.random().toFixed(3);
+console.log(rebootCache);
 var xhr = new XMLHttpRequest();
 
 xhr.open('GET', 'GreenOrRedP/admin/php/data.json'+rebootCache, false);
