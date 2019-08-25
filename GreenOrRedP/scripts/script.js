@@ -43,10 +43,10 @@ inputfile.onchange = function(){
         console.log(saveImg.response);
         if(saveImg.response == 1){
             localStorage.setItem('img',inputfile.files[0].name);
-            window.location.href='http://gimionestack.ru/GreenOrRed/';
-            document.location.href='http://gimionestack.ru/GreenOrRed/';
-            self.location='http://gimionestack.ru/GreenOrRed/';
-            window.location.replace('http://gimionestack.ru/GreenOrRed/');
+            window.location.href='http://gimione.github.io';
+            document.location.href='http://gimione.github.io';
+            self.location='http://gimione.github.io';
+            window.location.replace('http://gimione.github.io');
         }else if(saveImg.response === 'big'){
             alert('Слишком большой файл');
         }else{
@@ -87,7 +87,7 @@ var jsonData;
 var rebootCache = "?noCache=" + (new Date().getTime()) + Math.random().toFixed(3);
 var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'admin/php/data.json'+rebootCache, false);
+xhr.open('GET', 'GreenOrRedP/admin/php/data.json'+rebootCache, false);
 xhr.send();
 if (xhr.status != 200) {
   console.log( xhr.status + ': ' + xhr.statusText );
