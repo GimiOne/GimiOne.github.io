@@ -245,10 +245,10 @@ function mainStyles(){
         localStorage.setItem('styles',1);
         var timePar = document.getElementsByClassName('timePar');
         if(window.innerWidth < 767) {
-            document.getElementById('body').style.background = 'url(img/10.png) fixed';
+            document.getElementById('body').style.background = 'url(GreenOrRedP/img/10.png) fixed';
             document.getElementById('body').style.backgroundSize = '100% 100vh';
         } else {
-            document.getElementById('body').style.background = 'url(img/9.png) fixed';
+            document.getElementById('body').style.background = 'url(GreenOrRedP/img/9.png) fixed';
             document.getElementById('body').style.backgroundSize = '100%';
             document.getElementById('body').style.backgroundPosition = '0 -800px';
         }
