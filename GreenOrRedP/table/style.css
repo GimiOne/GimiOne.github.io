@@ -1,0 +1,104 @@
+/*@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap&subset=cyrillic');*/
+
+html,body{
+	font-family: Arial,sans-serif;
+	padding: 0;
+	margin: 0;
+	background: white;
+}
+
+
+.container{
+	margin-top: 40px;
+}
+
+#main-container h3{
+	margin-top: 30px;
+}
+
+hr{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+
+.nav-link{
+	font-size: 18px;
+}
+
+
+.month hr{
+	margin-bottom: 0;
+}
+
+.month h6{
+	margin-bottom: 5px;
+	font-size: 18px;
+	padding-right: 10px;
+}
+
+
+
+#main-container h2{
+	margin-top: 10px;
+}
+
+.menu-responsive{
+	width: 100%;
+	overflow-x: auto;
+}
+
+.menu-responsive ul{
+	width: 500px;
+}
+
+.directName{
+		width: 50%;
+	}
+
+@media screen and (max-width: 576px) {
+
+	#main-container h2{
+		margin-top: 10px;
+
+	}
+
+
+	.directName{
+		width: 310px;
+	}
+
+	.table{
+		width: 600px;
+		margin-bottom: 0;
+		margin: -1px -1px -1px -1px;
+
+	}
+
+	.container{
+		padding: 0;
+	}
+
+	.borderBox{
+		width: 600px;
+		border:1px solid lightgrey;
+		border-radius: 10px;
+		margin-left: 15px;
+		margin-right: -15px;
+		overflow: hidden;
+	}
+
+	.table-responsive{
+		padding-right: 10px;
+		margin-bottom: 25px;	
+	}
+
+	#main-container h2,hr{
+		margin-left: 15px;
+	}
+
+	#main-container hr{
+		/*width: 80%;*/
+		margin-right: 15px;
+	}
+}

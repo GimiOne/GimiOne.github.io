@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:300,400,700&display=swap&subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" href="styles/style1.css?88">
+	<script src="fastclick/fastclick.js"></script>
+	<title>Расписание</title>
+	<script type="application/javascript">
+		window.addEventListener('load', function () {
+			FastClick.attach(document.body);
+		}, false);
+	</script> 
+</head>
+<body id="body">
+	<div id="preloader"><div id="circle"></div></div>
+    <div class="muchMain">
+	<div class="main">
+		<div class="block">
+			<h1 id="greenOrRed">LOL</h1>
+			<h3 id="fullYear"></h3>
+			<h3 id="WhatIsDay"></h3>
+		</div>
+	</div>
+	<div id="blockWeeks">
+		<div class="calls" id="calls">
+		<div class="textCalls" id="textCalls">
+			<p id="timePar" class="timePar one">08:00-09:30</p>
+			<p id="timePar" class="timePar">09:50-11:20</p>
+			<p id="timePar" class="timePar">11:30-13:00</p>
+			<p id="timePar" class="timePar">13:20-14:50</p>
+			<p id="timePar" class="timePar">15:00-16:30</p>
+			
+		</div>
+	</div>
+		<table id="table">
+		    <tr>
+		        <td id="nextWeekButton"></td>
+		        <td id="setColor">
+		        	<select id="select" name="groups" >
+					  <option class="option" value="ivt1" >ИВТ-171[1]</option>
+					  <option class="option" value="ivt2">ИВТ-171[2]</option>
+					  <option class="option" value="ivt3">ИВТ-172[1]</option>
+					  <option class="option" value="ivt4">ИВТ-172[2]</option>
+					</select>
+				</td>
+		    </tr>
+		    <tr>
+		        <td style="width: 40px" class="numbers">1</td>
+		        <td class="hideText"  abbr="0"></td>
+		    </tr>
+		    <tr>
+		        <td class="numbers">2</td>
+		        <td class="hideText"  abbr="1"></td>
+		    </tr>
+		    <tr>
+		        <td class="numbers">3</td>
+		        <td class="hideText"  abbr="2"></td>
+		    </tr>
+		    <tr>
+		        <td class="numbers">4</td>
+		        <td class="hideText"  abbr="3"></td>
+		    </tr>
+		    <tr>
+		        <td class="numbers">5</td>
+		        <td class="hideText" abbr="4" ></td>
+		    </tr>
+		    <tr>
+		        <td class="numbers">6</td>
+		        <td id="sixLine" class="hideText" abbr="5"></td>
+		    </tr>
+	<div id="Full"><a id="FullA" href="lol/">Full</a></div>
+	<div style="transform: translateX(276px);" id="Full"><a id="FullB" href="table/">Full</a></div>
+
+<input type="file" id="inputfile" name="inputfile"></br>
+
+
+	
+		</table>
+
+ <div id="arrow-down"></div>
+
+ </div>
+
+	</div>
+	<script src="jquery.min.js"></script>
+<script src="scripts/script.js?234"></script>
+</body>
+</html>

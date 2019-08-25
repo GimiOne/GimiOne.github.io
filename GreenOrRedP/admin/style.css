@@ -1,0 +1,108 @@
+/*@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap&subset=cyrillic');*/
+
+html,body{
+	font-family: Arial,sans-serif;
+	padding: 0;
+	margin: 0;
+	background: white;
+}
+
+
+.container{
+	margin-top: 40px;
+}
+
+#main-container h3{
+	margin-top: 30px;
+}
+
+hr{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+#main-container input{
+	width: 100%;
+	margin-bottom: 5px;
+	color:black;
+}
+
+.message{
+	width: 300px;
+	position: fixed;
+	right: 50%;
+	transform: translate(150px,25px);
+	bottom: 50%;
+	display: none;
+	background: #28a745;
+	color:white;
+	z-index: 999;
+	transition: 1s;
+}
+
+.nav-link{
+	font-size: 18px;
+}
+
+
+#formAuth{
+	width: 300px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-150px,65px);
+	bottom: 50%;
+}
+
+#hide-data{
+	display: none;
+}
+
+.month hr{
+	margin-bottom: 0;
+}
+
+.month h6{
+	margin-bottom: 5px;
+	font-size: 18px;
+	padding-right: 10px;
+}
+
+
+.left-day{
+	margin-bottom: -5px;
+}
+
+.textForInputsDirections{
+	font-size: 18px;
+	margin-right: 10px;
+	margin-bottom: 0;
+}
+
+.textForInputsDirections span{
+	width: 260px;
+	padding: 12px;
+}
+
+.directColumns input{
+	margin-bottom: 0;
+}
+
+.DIsDisplay{
+	display: flex;
+}
+
+@media screen and (max-width: 576px) {
+	.DIsDisplay{
+		display: block;
+	}
+
+	.textForInputsDirections{
+		margin-top: 10px;
+		margin-bottom: 5px;
+		margin-right: 0;
+	}
+
+	.textForInputsDirections span{
+		width: 100%;
+	}	
+}
