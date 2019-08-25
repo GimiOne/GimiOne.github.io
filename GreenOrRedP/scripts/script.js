@@ -326,10 +326,10 @@ greenOrRed.onclick = function(){
         localStorage.setItem('img','default');
         localStorage.setItem('styles',0);
     }
-    window.location.href='http://gimionestack.ru/GreenOrRed/';
-    document.location.href='http://gimionestack.ru/GreenOrRed/';
-    self.location='http://gimionestack.ru/GreenOrRed/';
-    window.location.replace('http://gimionestack.ru/GreenOrRed/');
+    window.location.href='http://gimione.github.io';
+    document.location.href='http://gimione.github.io';
+    self.location='http://gimione.github.io';
+    window.location.replace('http://gimione.github.io');
 }
 
 
