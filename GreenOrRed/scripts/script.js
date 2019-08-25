@@ -1,9 +1,9 @@
-function include(url) {
-    var script = document.createElement('script');
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
-}
-include('data.json');
+// function include(url) {
+//     var script = document.createElement('script');
+//     script.src = url;
+//     document.getElementsByTagName('head')[0].appendChild(script);
+// }
+// include('data.json');
 
 var arrowDown = document.getElementById('arrow-down');
 var textCalls = document.getElementById('textCalls');
