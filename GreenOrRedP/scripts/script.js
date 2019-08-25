@@ -18,10 +18,10 @@ if(localStorage.getItem('styles') === null){
 if(localStorage.getItem('img') === null){
     localStorage.setItem('img','default');
     if(window.innerWidth < 767) {
-        document.getElementById('body').style.background = 'url(img/10.png) fixed';
+        document.getElementById('body').style.background = 'url(GreenOrRedP/img/10.png) fixed';
         document.getElementById('body').style.backgroundSize = '100% 100vh';
     }else {
-        document.getElementById('body').style.background = 'url(img/9.png) fixed';
+        document.getElementById('body').style.background = 'url(GreenOrRedP/img/9.png) fixed';
         document.getElementById('body').style.backgroundSize = '100%';
         document.getElementById('body').style.backgroundPosition = '0 -800px';
     }
