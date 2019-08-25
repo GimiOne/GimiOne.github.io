@@ -1,1 +1,1 @@
-var rebootCache = '?noCache=2.1';
+var rebootCache = '?noCache=2.2';
