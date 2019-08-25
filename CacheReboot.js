@@ -1,1 +1,2 @@
-var rebootCache = '?noCache=2.4';
+
+localStorage.setItem('cache',5);

@@ -6,15 +6,15 @@
 	<link rel="shortcut icon" href="GreenOrRedP/logo.png" type="image/x-icon">
 	<link rel='manifest' href='manifest.json'>
 	<script src="pwabuilder-sw.js"></script>
-	<script>
+	<!-- <script>
 		function include(url) {
 	        var script = document.createElement('script');
 	        script.src = url;
 	        document.getElementsByTagName('head')[0].appendChild(script);
 	    }
 	    include('CacheReboot.js?noCache='+Math.random()*100);
-	</script>
-	<!-- <script src="CacheReboot.js"></script> -->
+	</script> -->
+	<script src="CacheReboot.js"></script>
 	<script>
 		if ("serviceWorker" in navigator) {
 		  if (navigator.serviceWorker.controller) {

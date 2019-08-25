@@ -2,10 +2,10 @@ let mainContainer = document.querySelector('#main-container');
 
 //Делаем запрос для сбора данных для расписания
 //var rebootCache = "?noCache=" + (new Date().getTime()) + Math.random().toFixed(3);
-console.log(rebootCache);
+console.log(localStorage.getItem('cache'));
 
 $.ajax({
-    url: '../admin/php/data.json'+rebootCache,
+    url: '../admin/php/data.json?noCache='+localStorage.getItem('cache'),
     type: 'GET',
     dataType: 'text',
     success: function (data) {

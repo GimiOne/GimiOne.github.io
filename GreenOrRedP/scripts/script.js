@@ -85,10 +85,13 @@ var RedWeek;
 var jsonData;
 
 // var rebootCache = "?noCache=" + (new Date().getTime()) + Math.random().toFixed(3);
-console.log(rebootCache);
-var xhr = new XMLHttpRequest();
+// if(sol){
 
-xhr.open('GET', 'GreenOrRedP/admin/php/data.json'+rebootCache, false);
+// }
+
+var xhr = new XMLHttpRequest();
+console.log(localStorage.getItem('cache'));
+xhr.open('GET', 'GreenOrRedP/admin/php/data.json?noCache='+localStorage.getItem('cache'), false);
 xhr.send();
 if (xhr.status != 200) {
   console.log( xhr.status + ': ' + xhr.statusText );
