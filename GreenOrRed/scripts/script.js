@@ -1,3 +1,10 @@
+function include(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+include('data.json?noCache='+(Math.random()*1000).toFixed(5));
+
 var arrowDown = document.getElementById('arrow-down');
 var textCalls = document.getElementById('textCalls');
 var greenOrRed = document.getElementById('greenOrRed');
