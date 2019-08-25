@@ -3,7 +3,7 @@ function include(url) {
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
 }
-include('data.json?noCache='+(Math.random()*1000).toFixed(5));
+include('data.json');
 
 var arrowDown = document.getElementById('arrow-down');
 var textCalls = document.getElementById('textCalls');
