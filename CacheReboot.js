@@ -1,2 +1,1 @@
-
-localStorage.setItem('cache',10);
+localStorage.setItem('cache',11);
