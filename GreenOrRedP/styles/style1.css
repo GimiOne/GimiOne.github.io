@@ -159,7 +159,7 @@ td,tr{
 }
 
 #nextWeekButton{
-	background:url('../GreenOrRedP/img/right-arrow.svg');
+	background:url('GreenOrRedP/img/right-arrow.svg');
 	background-size: 10px;
 	background-position: center;
 	background-repeat: no-repeat;
