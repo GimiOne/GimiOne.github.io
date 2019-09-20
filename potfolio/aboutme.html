@@ -1,0 +1,69 @@
+<!DOCTYPE html>  
+<html class="html-about">  
+    <head>  
+        <meta charset="utf-8">
+        <title>Портфолио</title>
+        <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/aboutme.css">
+        <script type="text/javascript" src="scripts/script.js" defer></script>
+    </head>  
+    <body>
+        <!-- MENU   -->
+        <nav id="m-menu">
+            <ul class="header_menu d-flex ">
+                <li class="menu__item " id="btn-close">+</li>
+                <li class="menu__item"><a href="index.html" class="link-main">Главная</a></li>
+                <li class="menu__item"><a href="aboutme.html" class="link">Обо мне</a></li>
+                <li class="menu__item"><a href="contacts.html" class="link-conts">Контакты</a></li>
+            </ul>
+        </nav>
+        <!-- END.MENU -->
+
+        <div id="blur">
+            <!-- LOGO and  MENU-->
+            <canvas  data-depth="0.40" id="canvas" class="canvas-aboutme" width="1000" height="600"></canvas>
+            <header class="header">
+            	<div class="container">
+            		<div class="row">
+    					<div class="col-xm-2 text-center logo"><a href="index.html">WEBDEV</a></div>
+            			<div class="col-xm-1 ml-auto">
+                            <div class="btn-menu fa fa-bars" id="btn-menu"></div>
+            			</div>
+            		</div>
+            	</div>
+            </header>
+            <!-- END.LOGO and  MENU -->
+            <section class="aboutme">
+                <h2 >Я начинающий фронтенд разработчик.</h2>
+                <div class="description">
+                    <p class="description-aboutme"><span>Привет, я Дмитрий и я люблю создавать интерактивные многофункциональные сайты, а также работать над сложными проектами. Буду рад сотрудничать с вами!</span></p>
+                    <div class="description-skills">
+                        <p class="skills">Мои навыки:</p>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>Bootstrap</li>
+                            <li>Ajax</li>
+                            <li>Wordpress</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRELOADER   -->
+        <div id="preloader">
+            <!-- <div id="spinner" class="spinner"></div> -->
+        </div>
+        <!-- END.PRELOADER -->
+
+        <script src="jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+        <script src="script.js"></script>
+    </body>  
+</html>

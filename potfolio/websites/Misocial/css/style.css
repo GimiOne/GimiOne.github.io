@@ -1,0 +1,47 @@
+html{
+	font:18px 'Open Sans';
+}
+
+
+.zagol{
+	display: block;
+	width: 200px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 35px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	border-bottom: 2px solid black;
+	color:green;
+}
+
+
+.container{
+	display: flex;
+	margin: 0 auto;
+	max-width: 1000px;
+	height: 500px;
+	background: lightgrey;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+
+.item{
+	background: grey;
+	border:1px solid red;
+	height: 30px;
+	width: 200px;
+	border-radius:10px;
+	
+}
+
+@media screen and (max-width: 1024){
+	
+
+	.zagol{
+		color:red;
+	}
+}

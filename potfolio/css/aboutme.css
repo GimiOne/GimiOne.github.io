@@ -1,0 +1,113 @@
+html{
+	/*overflow-y: hidden;*/
+	/*padding-bottom: 40px;*/
+}
+
+.canvas-aboutme{
+	background: -webkit-linear-gradient(45deg,rgb(69, 63, 142), rgb(255, 95, 200)) no-repeat;
+	background: -o-linear-gradient(45deg,rgb(69, 63, 142), rgb(255, 95, 200)) no-repeat;
+	background: linear-gradient(45deg,rgb(69, 63, 142), rgb(255, 95, 200)) no-repeat;
+}
+
+.aboutme{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+
+.aboutme h2{
+	font-weight: 100;
+	margin-top: 50px;
+	text-align: center;
+	text-shadow: 3px 3px 2px rgba(0, 0, 0,.6);
+}
+
+
+.aboutme .description{
+	width: 550px;
+	font-size: 20px;
+	font-weight: 300;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	
+}
+
+.aboutme{
+	/*margin-bottom: 50px;*/
+	/*padding-bottom: 40px;*/
+}
+
+.description .skills{
+	background: black;
+	padding-left: 14px;
+}
+
+.aboutme .description ul{
+	margin: 0;
+	padding-left: 20px;
+	padding-right: 30px;
+}
+
+.description-aboutme{
+	padding-right: 20px;
+	line-height: 1.6;
+	margin-top: -8px;
+	text-shadow: 3px 3px 2px rgba(0, 0, 0,.6);
+}
+
+.description-aboutme span{
+	/*background: #000;*/
+	padding-bottom: 4px;
+}
+
+ @media screen and (max-width: 768px){
+ 	.html-about{
+		background: -webkit-linear-gradient(45deg,rgb(69, 63, 142), rgb(255, 95, 200));
+		background: -o-linear-gradient(45deg,rgb(69, 63, 142), rgb(255, 95, 200));
+		background: linear-gradient(45deg,rgb(69, 63, 142), rgb(255, 95, 200));
+		height: auto;
+	}
+ }
+
+ @media screen and (max-width: 576px){
+	
+ 	.aboutme h2{
+		width: 90%;
+ 	}
+
+ 	.description-aboutme{
+		padding-right: 0px;
+	}
+
+ 	.aboutme .description{
+ 		width: 90%;
+ 		display: -webkit-box;
+ 		display: -ms-flexbox;
+ 		display: flex;
+ 		-webkit-box-orient: vertical;
+ 		-webkit-box-direction: normal;
+ 		    -ms-flex-direction: column;
+ 		        flex-direction: column;
+ 	}
+
+ 	.description-aboutme{
+ 		text-align: center;
+ 	}
+
+ 	.skills{
+ 		text-align: center;
+ 	}
+ }
