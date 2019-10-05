@@ -21,40 +21,7 @@ document.onclick = (e)=>{
 		mMenu.style.transform = 'scaleX(0)';
 		blur.style.filter = 'none';
 	}
-
-	// else if(e.target.className === 'link-conts'){
-	// 	preload.style.opacity = 0;
-	// 	preload.style.display = 'flex';
-	// 	setTimeout(()=>{
-	// 		preload.style.opacity = 1;
-	// 	},10);
-	// 	setTimeout(()=>{
-	// 		location.href = 'contacts.html';
-	// 	},1);
-	// }else if(e.target.className === 'link-main'){
-	// 	preload.style.opacity = 0;
-	// 	preload.style.display = 'flex';
-	// 	setTimeout(()=>{
-	// 		preload.style.opacity = 1;
-	// 	},10);
-	// 	setTimeout(()=>{
-	// 		location.href = 'index.html';
-	// 	},1);
-	// }else if(e.target.className === 'link-about'){
-	// 	preload.style.opacity = 0;
-	// 	preload.style.display = 'flex';
-	// 	setTimeout(()=>{
-	// 		preload.style.opacity = 1;
-	// 	},10);
-	// 	setTimeout(()=>{
-	// 		location.href = 'aboutme.html';
-	// 	},1);
-	// }
-	
 }
-
-
-
 
 window.onload = () =>{
 	preload.style.opacity = 0;

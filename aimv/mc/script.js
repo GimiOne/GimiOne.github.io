@@ -19,6 +19,7 @@ var img_data;
 img.onload = function(){
 	ctx.drawImage(img,0,0,img.width,img.height);
 	img_data=ctx.getImageData(0,0,img.width,img.height);
+	
 }
 
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Title</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="ranges">
+        <div class="buttons" id="rgbButton">RGB каналы</div>
+		<div id="RGB-channelsBlock">
+			<input id="R" type="range" value="51" max="100" name="">
+			<input id="G" type="range" value="50" max="100" name="">
+			<input id="B" type="range" value="50" max="100" name="">	
+		</div>
+        <div id="contrastButton" class="buttons">Контраст</div>
+		<div id="contrastBlock">
+			<input id="contrast" type="range" name="" value="50" max="100">
+		</div>
+        <div id="gradientButton" class="buttons">Градиент</div>
+        <div id="gradientBlock">
+            <input id="gradient" type="color" name="">
+            <input id="gradient2" type="color" name="">
+            <input id="gradX0" type="range" value="50" max="1000" name="">
+            <input id="gradY0" type="range" value="50" max="1000" name="">
+            <!-- <input type="gradient" type="range" name="" value="50" max="100"> -->
+        </div>
+	</div>
+	<canvas id="canvas" width="1000" height="562">Обновите браузер</canvas>
+<script type="text/javascript" src="script.js"></script>
+
+</body></html>
