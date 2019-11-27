@@ -9,7 +9,7 @@ let stories = {
 //Конец.Истории
 
 
-
+document.body.style.background = 'linear-gradient(45deg,#18d1d7,#057bce)';
 let word = document.querySelector('#word');
 let bg = document.querySelector('#bg');
 let arrayStories = [];
@@ -19,10 +19,9 @@ for(text in stories){
 console.log(arrayStories);
 
 
-let bgColor = ['linear-gradient(45deg,#18d1d7,#057bce)'];
 let words = arrayStories[parseInt(Math.random()*arrayStories.length)];
 word.innerHTML = words[0];
-document.body.style.background = bgColor[0];
+
 
 let index = 0;
 document.ondblclick = (e)=>{

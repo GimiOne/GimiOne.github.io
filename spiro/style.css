@@ -252,19 +252,19 @@ header{
 	color: white;
 	background-color: cadetblue;
 	border:2px solid cadetblue;
-	cursor: default;
+	cursor: pointer;
 }
 
 .alert{
 	position: absolute;
 	margin-top: 100px;
-	margin-left: 10px;
+	margin-left: 15px;
 	width: 270px;
 	height: auto;
 	padding: 30px;
 	background-color: cadetblue;
 	color:white;
-	border-radius: 20px;
+	border-radius: 15px;
 	-webkit-transform-origin: 0 0;
 	    -ms-transform-origin: 0 0;
 	        transform-origin: 0 0;
