@@ -1,14 +1,13 @@
-var canvas = document.getElementById('c1');
-var ctx = canvas.getContext('2d');
+var R=200,
+	r=140,
+	d=120,
+	teta = 0,
+	s,
+	time = 10;
 
-var R=200;
-var r=140;
-var d=120;
-var teta = 0;
-var s;
-var time = 10;
-
-var range1 = document.getElementById('range1'),
+var canvas = document.getElementById('c1'),
+	ctx = canvas.getContext('2d'),
+	range1 = document.getElementById('range1'),
 	range2 = document.getElementById('range2'),
 	range3 = document.getElementById('range3'),
 	range4 = document.getElementById('range4'),
@@ -22,7 +21,28 @@ var range1 = document.getElementById('range1'),
 	blkCircle = document.getElementById('blk-circle');
 
 
-window.onload = function(){
+var panel = {
+	clear: function(){
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		teta=0;
+		xPrev = (R-r)*Math.cos(teta) + d*Math.cos(((R-r)/r)*teta );
+		yPrev = (R-r)*Math.sin(teta) - d*Math.sin(((R-r)/r)*teta );
+	},
+	stop: function(){
+		isTrue = true;
+	},
+	start: function(){
+		spiro();
+		R = inp1.value;
+		r = inp2.value;
+		d = inp3.value;
+		s = inp4.value;
+		time = inp5.value;
+	}
+}
+
+
+window.onload = function(){//Прелоадер скрывается при загрузке страницы
     preloader.style.opacity = '0';
     function hide(){
         preloader.style.display = 'none';
@@ -113,13 +133,19 @@ function changeColor(){
 
 var isTrue = false;
 var isPravda = false;
+var xPrev = (R-r)*Math.cos(teta) + d*Math.cos(((R-r)/r)*teta );
+var yPrev = (R-r)*Math.sin(teta) - d*Math.sin(((R-r)/r)*teta );
 function spiro(){
 	var x = (R-r)*Math.cos(teta) + d*Math.cos( ((R-r)/r)*teta );
 	var y = (R-r)*Math.sin(teta) - d*Math.sin( ((R-r)/r)*teta );
 	teta = teta+0.1;
 	ctx.fillStyle = color;
 	ctx.beginPath();
-	ctx.arc(300+x, 300+y, s,0,Math.PI*2);
+	//ctx.arc(300+x, 300+y, s,0,Math.PI*2);
+    ctx.moveTo(300+xPrev, 300+yPrev);
+    ctx.lineTo(300+x, 300+y);
+    ctx.lineWidth = s;
+    ctx.stroke();
 	if(isPravda){
 		ctx.fill();
 	}
@@ -128,29 +154,16 @@ function spiro(){
 		isTrue = false;
 		return 0;
 	}
+	xPrev = x;
+	yPrev = y;
+	
 	setTimeout(spiro,time);
 }
 
 
-document.getElementById('start').onclick = function(){
-	spiro();
-	R = inp1.value;
-	r = inp2.value;
-	d = inp3.value;
-	s = inp4.value;
-	time = inp5.value;
-}
-
-
-document.getElementById('stop').onclick = function(){
-	isTrue = true;
-}
-
-
-document.getElementById('clear').onclick = function(){
-	ctx.clearRect(0,0,canvas.width,canvas.height);
-	teta=0;
-}
+document.getElementById('start').onclick = panel.start;//кнопка Старт
+document.getElementById('stop').onclick = panel.stop;//кнопка Стоп
+document.getElementById('clear').onclick = panel.clear;//кнопка Очистить
 
 
 var isArrowDown = true;
