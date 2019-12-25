@@ -338,6 +338,13 @@ html{
 	        transform: translateY(700px);
 }
 
+.img:nth-child(9){
+	margin-top: 50px;
+	-webkit-transform: translateY(800px);
+	    -ms-transform: translateY(800px);
+	        transform: translateY(800px);
+}
+
 .img:nth-child(1):hover{
 	-webkit-transform: translateX(-200px);
 	    -ms-transform: translateX(-200px);
@@ -384,6 +391,12 @@ html{
 	-webkit-transform: translate(-300px,700px);
 	    -ms-transform: translate(-300px,700px);
 	        transform: translate(-300px,700px);
+}
+
+.img:nth-child(9):hover{
+	-webkit-transform: translate(-300px,800px);
+	    -ms-transform: translate(-300px,800px);
+	        transform: translate(-300px,800px);
 }
 
 
