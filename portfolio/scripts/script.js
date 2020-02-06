@@ -28,15 +28,15 @@ document.onclick = (e)=>{
 	}
 }
 
-let plusesScroll = 0;
+// let plusesScroll = 0;
 
-document.onscroll = (e)=>{
-	// console.log(window.pageYOffset);
-	let huh = -(window.pageYOffset * 20 / 100);
+// document.onscroll = (e)=>{
+// 	// console.log(window.pageYOffset);
+// 	let huh = -(window.pageYOffset * 20 / 100);
 	
-	pluses.style.transform = 'translateY('+huh+'px)';
+// 	pluses.style.transform = 'translateY('+huh+'px)';
 
-}
+// }
 
 window.onload = () =>{
 	preload.style.opacity = 0;
