@@ -29,20 +29,13 @@ document.onclick = (e)=>{
 }
 
 let plusesScroll = 0;
-let prevValue = window.pageYOffset;
+
 document.onscroll = (e)=>{
 	// console.log(window.pageYOffset);
-	let huh = -(window.pageYOffset * 20 / 100)
-	setTimeout(()=>{
-		
-		pluses.style.transform = 'translateY('+huh+'px)';
-		console.log(huh);
-	},100);
-		
+	let huh = -(window.pageYOffset * 20 / 100);
 	
-	
-	
-	prevValue = window.pageYOffset;
+	pluses.style.transform = 'translateY('+huh+'px)';
+
 }
 
 window.onload = () =>{
@@ -61,6 +54,8 @@ let plusesXCoord = [20,85,40,20,80,45,10,70,60,40];
 for(let i = 0;i < plusesXCoord.length;i++){
 	plus[i].style.marginLeft = window.innerWidth*(plusesXCoord[i]/100)+'px';
 }
+
+
 
 
 
