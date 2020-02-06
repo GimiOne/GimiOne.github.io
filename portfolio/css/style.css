@@ -160,9 +160,9 @@ html{
 }
 
 .canvas-main{
-	background: -webkit-linear-gradient(79deg,rgb(69, 63, 142), rgb(95, 255, 162));
-	background: -o-linear-gradient(79deg,rgb(69, 63, 142), rgb(95, 255, 162));
-	background: linear-gradient(79deg,rgb(69, 63, 142), rgb(95, 255, 162));
+	background: -webkit-linear-gradient(45deg, rgb(255, 0, 0), rgb(5, 123, 206));
+	background: -o-linear-gradient(45deg, rgb(255, 0, 0), rgb(5, 123, 206));
+	background: linear-gradient(45deg, rgb(255, 0, 0), rgb(5, 123, 206));
 }
 
 .header .logo a{
@@ -599,9 +599,9 @@ html{
 	.main{
 		padding-bottom: 10px;
 		height: auto;
-		background: -webkit-linear-gradient(79deg,rgb(69, 63, 142), rgb(95, 255, 162));
-		background: -o-linear-gradient(79deg,rgb(69, 63, 142), rgb(95, 255, 162));
-		background: linear-gradient(79deg,rgb(69, 63, 142), rgb(95, 255, 162));
+		background: -webkit-linear-gradient(45deg, rgb(255, 0, 0), rgb(5, 123, 206));
+		background: -o-linear-gradient(45deg, rgb(255, 0, 0), rgb(5, 123, 206));
+		background: linear-gradient(45deg, rgb(255, 0, 0), rgb(5, 123, 206));
 	}
 
 	.html-conts{
