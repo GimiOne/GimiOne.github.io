@@ -6,6 +6,9 @@ let btnClose = document.querySelector('#btn-close');
 let mMenu = document.querySelector('#m-menu');
 let blur = document.querySelector('#blur');
 let spinner = document.querySelector('#spinner');
+let pluses = document.querySelector('.pluses');
+let plus = document.querySelectorAll('.plus');
+
 
 
 let isDisplayNone = true;
@@ -14,13 +17,32 @@ let id;
 btnMenu.onclick = ()=>{
 	mMenu.style.transform = 'scaleX(1)';
 	blur.style.filter = 'blur(20px)';
+	pluses.style.display = 'block';
 }
 
 document.onclick = (e)=>{
 	if(e.target.id === 'm-menu' || e.target.id === 'btn-close'){
 		mMenu.style.transform = 'scaleX(0)';
 		blur.style.filter = 'none';
+		pluses.style.display = 'none';
 	}
+}
+
+let plusesScroll = 0;
+let prevValue = window.pageYOffset;
+document.onscroll = (e)=>{
+	// console.log(window.pageYOffset);
+	let huh = -(window.pageYOffset * 20 / 100)
+	setTimeout(()=>{
+		
+		pluses.style.transform = 'translateY('+huh+'px)';
+		console.log(huh);
+	},100);
+		
+	
+	
+	
+	prevValue = window.pageYOffset;
 }
 
 window.onload = () =>{
@@ -31,6 +53,17 @@ window.onload = () =>{
 	},1000);
 	
 }
+
+
+
+let plusesXCoord = [20,85,40,20,80,45,10,70,60,40];
+
+for(let i = 0;i < plusesXCoord.length;i++){
+	plus[i].style.marginLeft = window.innerWidth*(plusesXCoord[i]/100)+'px';
+}
+
+
+
 
 
 

@@ -12,7 +12,7 @@ canvas.height = document.documentElement.scrollHeight+50;
 
 
 var scene = document.getElementById('canvas');
-var parallaxInstance = new Parallax(scene);
+
 
 
 
