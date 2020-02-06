@@ -2,8 +2,8 @@ html,body{
 	font-family: Arial,sans-serif;
 	padding: 0px;
 	margin: 0;
-	background: linear-gradient(45deg,#18d1d7,#057bce);
-	/*height: 2000px;*/
+	background: linear-gradient(45deg,red,#057bce);
+	/*height: 2000px;#18d1d7*/
 	color:white;
 	-webkit-user-select:none;
 	-moz-user-select:none;
