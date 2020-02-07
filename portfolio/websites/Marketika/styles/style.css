@@ -515,11 +515,13 @@ html,body{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-
+	box-sizing: border-box;
 	}
 
 	.section-header-wrapper__form-input input{
 		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	.section-header-wrapper__form-input{
@@ -570,6 +572,13 @@ html,body{
 
 	.advice-card{
 		margin-bottom: 40px;
+		width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+
+	.plan-card{
+		width: 100%;
 	}
 	
 	.section-promo{
