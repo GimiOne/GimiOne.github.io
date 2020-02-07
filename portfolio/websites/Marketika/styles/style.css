@@ -70,7 +70,10 @@ html,body{
 	display: flex;
 	flex-direction: row;
 	margin-top: 50px;
+	box-sizing: border-box;
 }
+
+
 
 .section-header-wrapper{
 	display: flex;
@@ -515,6 +518,10 @@ html,body{
 
 	}
 
+	.section-header-wrapper__form-input input{
+		width: 100%;
+	}
+
 	.section-header-wrapper__form-input{
 		margin-bottom: 30px;
 	}
@@ -633,6 +640,7 @@ html,body{
 
 	.img-person img {
 	   margin-left: 0;
+	   width: 100%;
 	}
 
 	.section-header-wrapper__title{
