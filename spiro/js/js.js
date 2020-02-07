@@ -139,7 +139,7 @@ function spiro(){
 	var x = (R-r)*Math.cos(teta) + d*Math.cos( ((R-r)/r)*teta );
 	var y = (R-r)*Math.sin(teta) - d*Math.sin( ((R-r)/r)*teta );
 	teta = teta+0.1;
-	ctx.fillStyle = color;
+	ctx.strokeStyle = color;
 	ctx.beginPath();
 	//ctx.arc(300+x, 300+y, s,0,Math.PI*2);
     ctx.moveTo(300+xPrev, 300+yPrev);
