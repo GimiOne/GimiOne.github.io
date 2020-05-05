@@ -6,10 +6,13 @@ var buttonWithout = document.querySelector('#buttonWithout');
 var results = document.querySelectorAll('.results');
 var img = new Image();
 
+// img.height =1000;
 img.src = 'yandexSea.png';
-img.height = img.height/(img.width/1000);
+
 img.width = 1000;
+
 canvas.height = img.height;
+img.height = img.height/(img.width/1000);
 canvas.style.width = img.width+'px';
 canvas.style.height = img.height+'px';
 
