@@ -257,6 +257,8 @@ html{
 	color: white;
 }
 
+
+
 .header{
 	margin-top: 40px;
 	font-size: 40px;
@@ -501,6 +503,32 @@ html{
 
 .contact-links .email:hover{
 	color:#f4e33c;
+}
+
+.contact-links .box{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.contact-links .box:hover .text-link{
+	/*display: block;*/
+	transform: scale(1);
+}
+
+.box:hover{
+	padding-bottom: 50px;
+}
+
+.contact-links .text-link{
+	/*display: none;*/
+	color: black;
+	font-weight: bold;
+	transform: scale(0);
+	padding: 10px;
+	position: absolute;
+	bottom: -50px;
+	transition: .5s;
 }
 
  #preloader{
