@@ -15,7 +15,7 @@ searchInput.onkeyup = (event) => {
 
 getPopularMovies();
 function getPopularMovies(){
-	let serverUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&page=1';
+	let serverUrl = 'https://api.themoviedb.org/3/movie/upcoming?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&page=1';
 	let objMovies = apiRequest(serverUrl,'GET');
 }
 
@@ -41,7 +41,6 @@ function apiRequest(url,method){
 		let movies = JSON.parse(request.responseText).results;
 		console.log(movies);
 		addCardMovie(movies,20);
-
 	});
 }
 
@@ -67,7 +66,7 @@ function addCardMovie(objMovies,amount){
 										<p id="overtext" class="overview">`+(objMovies[i].overview)+`</p>
 							    	</div>
 							    	<button id="youtube-btn" data-btn="`+i+`" class="btn btn-info" >Трейлер</button>
-							    	<button id="search-btn" class="btn btn-success" data-year="${((objMovies[i].release_date !== undefined && objMovies[i].release_date !== "") ? objMovies[i].release_date.match(/^[0-9]+/gi) : 'неизвестен')}" data-title="${(objMovies[i].title === undefined ? objMovies[i].name : objMovies[i].title)}" ">Искать</button>
+							    	<button id="search-btn" class="btn btn-success" data-year="${((objMovies[i].release_date !== undefined && objMovies[i].release_date !== "") ? objMovies[i].release_date.match(/^[0-9]+/gi) : '')}" data-title="${(objMovies[i].title === undefined ? objMovies[i].name : objMovies[i].title)}" ">Искать</button>
 							    </div>
 						    </div>`
 	});
@@ -164,3 +163,5 @@ $(document).ready(function() {
 		}	
 	});			
 });
+
+

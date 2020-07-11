@@ -5,13 +5,14 @@ html,body{
 	font-family: 'Open Sans',sans-serif;
 	padding: 0px;
 	height: 1000px;
-	/*background: url(https://engineer-kadastr.ru/app/uploads/2017/08/paper-12.jpg);*/
+	background: url(wall.jpg) fixed 100%;
+	/*background: #0B0B0B;*/
 	background-size: cover;
 }
 
 #card{
 	
-	background-color: lightgrey;
+	background-color: #353746;
 	width: 350px;
 	padding: 25px;
 	margin: 5px;
@@ -34,14 +35,16 @@ html,body{
 
 #search-input{
 	margin-top: 6px;
+	border:1px solid #1b1b1b;
+	background: #353746;
+	color:white;
 }
 
 .navbar a{
-	
 	font-family: 'Amatic SC',sans-serif;
-
 	font-weight: bold;
-	font-size: 50px;
+	font-size: 80px;
+	margin-top: 50px;
 }
 
 .navbar .container{
@@ -51,7 +54,9 @@ html,body{
 	-webkit-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-
+    padding: 40px 0;
+    background: url("wall.jpg");
+    box-shadow: inset 0 0 100px #000;
 }
 
 .navbar .container a{
@@ -130,7 +135,7 @@ body{
 	bottom: 0px;
 	width: 100%;
 	height: 50px;
-	background-color: white;
+	background-color: #272431;
 	-webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
 	        box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
 	-webkit-transition: .2s;
@@ -200,54 +205,90 @@ html{
 	width: 100%;
 }
 
-
-	.search_area{
-			width: 100%;
-			margin: 0px;
-			position: relative;
-		}
-
-		#search_box{
-			width:200px;
-			padding:2px;
-			margin:1px;
-			border:1px solid #000;
-		}
-
-		#search_advice_wrapper{
-			display:none;
-			width: 100%;
-			background-color: white;
-			-moz-opacity: 0.95;
-			opacity: 0.95;
-			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=95);
-			filter: progid:DXImageTransform.Microsoft.Alpha(opacity=95);
-			filter:alpha(opacity=95);
-			position: absolute;
-			bottom: 50px; left: 0px;
-			z-index:0;
-			
-			box-shadow: -2px -1px 2px rgba(0,0,0,0.15), 
-    		2px -1px 2px rgba(0,0,0,0.15);
+.title, .year, .overview, #overtext{
+	color: white;
+}
 
 
-		}
+.search_area{
+	width: 100%;
+	margin: 0px;
+	position: relative;
 
-		#search_advice_wrapper .advice_variant{
-			cursor: pointer;
-			width: 82%;
-			margin: 0 auto;
-			padding: 5px 5px 5px 5px;
-			border-radius: 3px;
-			text-align: left;
-		}
-		#search_advice_wrapper .advice_variant:hover{
-			background-color:#50BAF4;
-			color: white;
-		}
-		#search_advice_wrapper .active{
-			cursor: pointer;
-			padding: 5px;
-			color: white;
-			background-color:#50BAF4;
-		}
+}
+
+#search_box{
+	width:200px;
+	padding:2px;
+	margin:1px;
+	border:1px solid #000;
+}
+
+#search_advice_wrapper{
+	display:none;
+	width: 100%;
+	background-color: #444a69;
+	-moz-opacity: 0.95;
+	opacity: 0.95;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=95);
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=95);
+	filter:alpha(opacity=95);
+	position: absolute;
+	bottom: 50px; left: 0px;
+	z-index:0;
+	
+	box-shadow: -2px -1px 2px rgba(0,0,0,0.15), 
+	2px -1px 2px rgba(0,0,0,0.15);
+
+
+}
+
+#search_advice_wrapper .advice_variant{
+	cursor: pointer;
+	width: 82%;
+	margin: 0 auto;
+	padding: 5px 5px 5px 5px;
+	border-radius: 3px;
+	text-align: left;
+	color:white;
+}
+#search_advice_wrapper .advice_variant:hover{
+	background-color:#2d2d2d;
+	color: white;
+}
+#search_advice_wrapper .active{
+	cursor: pointer;
+	padding: 5px;
+	color: white;
+	background-color:#50BAF4;
+}
+
+
+.link {
+  
+  font-family: 'Amatic SC';
+  color: #fff;
+  text-decoration: overline;
+  font-size: 10.6rem;
+  text-align: center;
+  line-height: 1;
+  animation: neon 0.09s ease-in infinite alternate;
+}
+
+
+/*-- Animation Keyframes --*/
+@keyframes neon {
+  from {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(0, 104, 216, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+  }
+}
+
+
+.link:focus, .link:hover {
+  color: #c6e2ff;
+  text-decoration: overline;
+  text-shadow: 0 0 2px rgba(202, 228, 225, 0.92), 0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(30, 132, 242, 0.52), 0 0 7px rgba(30, 132, 242, 0.92), 0 0 11px rgba(30, 132, 242, 0.78), 0 0 16px rgba(30, 132, 242, 0.92);
+}
