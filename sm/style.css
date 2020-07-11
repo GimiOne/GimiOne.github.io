@@ -297,5 +297,6 @@ html{
 
 	.link{
 		text-shadow: none;
+		animation: none;
 	}
 }
