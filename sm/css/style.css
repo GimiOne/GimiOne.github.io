@@ -456,5 +456,8 @@ html{
 	.navbar .container{
 		background: none;
 		animation: none;
+		box-shadow: none;
 	}
+
+
 }
