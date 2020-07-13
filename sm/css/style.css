@@ -272,7 +272,7 @@ html{
   line-height: 1;
   text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
   
-  animation: leon 3s linear, neon 0.09s ease-in infinite alternate;
+  animation: leon 3s linear;
 }
 
 
