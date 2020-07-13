@@ -357,10 +357,12 @@ html{
   0% {
     background: url("../images/wall-header.png") no-repeat;
   background-position: center -140px;
+  opacity: 0.5;
   }
   5%{
     background: url("../images/wall-header.png") no-repeat;  
   background-position: center -140px;
+  	opacity: 0.5;
   }
   6%{
   	background: black;
@@ -373,6 +375,7 @@ html{
   26% {
     background: url("../images/wall-header.png") no-repeat; 
   background-position: center -140px;
+  opacity: 0.5;
   }
   45% {
     background: url("../images/wall-header.png") no-repeat ;
@@ -381,10 +384,12 @@ html{
   48%{
   	background: black;
   background-position: center -140px;
+  opacity: 0.5;
   }
   50% {
     background: url("../images/wall-header.png") no-repeat ;
   background-position: center -140px;
+  opacity: 1;
   }
   51%{
   	background: black;
