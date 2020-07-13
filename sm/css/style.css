@@ -356,60 +356,70 @@ html{
 @keyframes leonCon {
   0% {
     background: url("../images/wall-header.png") no-repeat;
-  background-position: center -140px;
-  opacity: 0.5;
+    background-position: center -140px;
+    opacity: 0.5;
   }
   5%{
     background: url("../images/wall-header.png") no-repeat;  
-  background-position: center -140px;
+    background-position: center -140px;
   	opacity: 0.5;
   }
   6%{
   	background: black;
-  background-position: center -140px;
+    background-position: center -140px;
   }
   25%{
   	background: black;
-  background-position: center -140px;
+    background-position: center -140px;
   }
   26% {
     background: url("../images/wall-header.png") no-repeat; 
-  background-position: center -140px;
-  opacity: 0.5;
+	background-position: center -140px;
+	opacity: 0.5;
   }
   45% {
     background: url("../images/wall-header.png") no-repeat ;
-  background-position: center -140px;
+    background-position: center -140px;
   }
   48%{
   	background: black;
-  background-position: center -140px;
-  opacity: 0.5;
+	background-position: center -140px;
+	opacity: 0.5;
   }
   50% {
     background: url("../images/wall-header.png") no-repeat ;
-  background-position: center -140px;
-  opacity: 1;
+  	background-position: center -140px;
+ 	opacity: 1;
   }
   51%{
   	background: black;
-  background-position: center -140px;
+ 	background-position: center -140px;
   }
   53% {
     background: url("../images/wall-header.png") no-repeat ;
-  background-position: center -140px;
+ 	background-position: center -140px;
   }
   54%{
   	background: black;
-  background-position: center -140px;
+ 	background-position: center -140px;
   }
   95%{
   	background: black;
   	background-position: center -140px;
   }
+  96%{
+  	background: url("../images/wall-header.png") no-repeat;
+  	background-position: center -140px;
+  	opacity: 0.5;
+  }
+  99%{
+  	background: url("../images/wall-header.png") no-repeat;
+  	background-position: center -140px;
+  	opacity: 0.5;
+  }
   100% {
     background: url("../images/wall-header.png") no-repeat;
-  background-position: center -140px;
+  	background-position: center -140px;
   }
 }
 
@@ -431,6 +441,20 @@ html{
 
 	.link{
 		text-shadow: none;
+		animation: none;
+		
+	}
+
+	.navbar .container a{
+		border-radius: 0;
+	}
+
+	#link{
+		font-size: 55px;
+	}
+
+	.navbar .container{
+		background: none;
 		animation: none;
 	}
 }
