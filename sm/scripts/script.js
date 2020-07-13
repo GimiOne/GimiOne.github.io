@@ -174,7 +174,9 @@ setTimeout(function(){
 	let isLight = true;
 		idInter = setInterval(function(){
 		if(window.matchMedia("(max-width: 700px)").matches){
+			document.querySelector('#link').style.textShadow = 'none';
 			clearInterval(idInter);
+			return;
 		}
 		if(isLight === true){
 			document.querySelector('#link').style.textShadow = '0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(0, 104, 216, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92)';
@@ -187,4 +189,6 @@ setTimeout(function(){
 	},80);
 	
 },4000);
+
+
 
