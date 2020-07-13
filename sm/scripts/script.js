@@ -188,7 +188,7 @@ setTimeout(function(){
 		console.log(1);
 	},80);
 	
-},4000);
+},3000);
 
 
 
