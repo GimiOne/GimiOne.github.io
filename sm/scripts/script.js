@@ -81,7 +81,7 @@ let isShowOverview = false;
 			$("#youtube").removeClass('youtube');
 			$("#youtube iframe").remove();
 		}else if(e.target.id === 'overtext'){
-			e.target.className = isShowOverview ? 'overview' : '';
+			e.target.className = (isShowOverview && e.target.className == '') ? 'overview' : '';
 			isShowOverview = !isShowOverview;
 		}else if(e.target.id === 'search-btn'){
 			console.log(e.target.attributes);
