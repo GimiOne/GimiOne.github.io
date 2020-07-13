@@ -165,21 +165,25 @@ $(document).ready(function() {
 });
 
 
-//Animation 
 
+
+
+// Animation 
+let idInter;
 setTimeout(function(){
 	let isLight = true;
-	setInterval(function(){
+		idInter = setInterval(function(){
+		if(window.matchMedia("(max-width: 700px)").matches){
+			clearInterval(idInter);
+		}
 		if(isLight === true){
 			document.querySelector('#link').style.textShadow = '0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(0, 104, 216, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92)';
 			isLight = false;
-			console.log(1);
 		}else if(isLight === false){
-			document.querySelector('#link').style.textShadow = '0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;'
+			document.querySelector('#link').style.textShadow = '0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #876767, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2';
 			isLight = true;
-			console.log(2);
 		}
-		
+		console.log(1);
 	},80);
 	
 },4000);
