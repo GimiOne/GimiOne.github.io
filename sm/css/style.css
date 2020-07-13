@@ -258,8 +258,7 @@ html{
 }
 
 
-.container{
-	
+.navbar .container{
 	animation: leonCon 3s linear;
 }
 
