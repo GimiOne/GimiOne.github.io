@@ -165,3 +165,9 @@ $(document).ready(function() {
 });
 
 
+//Animation 
+
+setTimeout(function(){
+	document.querySelector('#link').style.animation = 'none';
+},4000);
+

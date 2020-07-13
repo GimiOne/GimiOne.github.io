@@ -5,7 +5,7 @@ html,body{
 	font-family: 'Open Sans',sans-serif;
 	padding: 0px;
 	height: 1000px;
-	background: url(wall.jpg) fixed 100%;
+	background: url('../images/wall.jpg') fixed 100%;
 	/*background: #0B0B0B;*/
 	background-size: cover;
 }
@@ -55,7 +55,7 @@ html,body{
 	    -ms-flex-pack: center;
 	        justify-content: center;
     padding: 40px 0;
-    background: url("wall.jpg");
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat;
     box-shadow: inset 0 0 100px #000;
 }
 
@@ -256,6 +256,12 @@ html{
 }
 
 
+.container{
+	
+	animation: leonCon 3s linear;
+}
+
+
 .link {
   
   font-family: 'Amatic SC';
@@ -264,18 +270,126 @@ html{
   font-size: 10.6rem;
   text-align: center;
   line-height: 1;
-  /*text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;*/
-  animation: neon 0.09s ease-in infinite alternate;
+  text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+  
+  animation: leon 3s linear, neon 0.09s ease-in infinite alternate;
 }
 
 
 /*-- Animation Keyframes --*/
 @keyframes neon {
-  from {
+  0% {
     text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(0, 104, 216, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
   }
-  to {
+  100% {
     text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+  }
+}
+
+
+
+
+@keyframes leon {
+  0% {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(0, 104, 216, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+  	color: white;
+  }
+  5%{
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(0, 104, 216, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+	color: white;  
+  }
+  6%{
+  	/*text-shadow: 0 0 6px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.95), 0 0 12px rgb(0, 0, 0), 0 0 22px #340038, 0 0 38px rgba(0, 0, 0, 0.9), 0 0 60px #000000;*/
+    text-shadow: none;
+    color: black;
+  }
+  25%{
+  	/*text-shadow: 0 0 6px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.95), 0 0 12px rgb(0, 0, 0), 0 0 22px #340038, 0 0 38px rgba(0, 0, 0, 0.9), 0 0 60px #000000;*/
+    text-shadow: none;
+    color: black;
+  }
+  26% {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+	color: white;  
+  }
+  45% {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+  	color: white;
+  }
+  48%{
+  	/*text-shadow: 0 0 6px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.95), 0 0 12px rgb(0, 0, 0), 0 0 22px #340038, 0 0 38px rgba(0, 0, 0, 0.9), 0 0 60px #000000;*/
+    text-shadow: none;
+    color: black;
+  }
+  50% {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+  	color: white;
+  }
+  51%{
+  	/*text-shadow: 0 0 6px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.95), 0 0 12px rgb(0, 0, 0), 0 0 22px #340038, 0 0 38px rgba(0, 0, 0, 0.9), 0 0 60px #000000;*/
+    text-shadow: none;
+    color: black;
+  }
+  53% {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+  	color: white;
+  }
+  54%{
+  	/*text-shadow: 0 0 6px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.95), 0 0 12px rgb(0, 0, 0), 0 0 22px #340038, 0 0 38px rgba(0, 0, 0, 0.9), 0 0 60px #000000;*/
+    text-shadow: none;
+    color: black;
+  }
+  95%{
+  	text-shadow: none;
+  	/*text-shadow: 0 0 6px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.95), 0 0 12px rgb(0, 0, 0), 0 0 22px #340038, 0 0 38px rgba(0, 0, 0, 0.9), 0 0 60px #000000;*/
+    color: black;
+  }
+  100% {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #340038, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2;
+  	color: white;
+  }
+}
+
+
+@keyframes leonCon {
+  0% {
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat;
+  }
+  5%{
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat;  
+  }
+  6%{
+  	background: black;
+  }
+  25%{
+  	background: black;
+  }
+  26% {
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat; 
+  }
+  45% {
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat ;
+  }
+  48%{
+  	background: black;
+  }
+  50% {
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat ;
+  }
+  51%{
+  	background: black;
+  }
+  53% {
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat ;
+  }
+  54%{
+  	background: black;
+  }
+  95%{
+  	background: black;
+  }
+  100% {
+    background: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_1280.png") no-repeat;
   }
 }
 
