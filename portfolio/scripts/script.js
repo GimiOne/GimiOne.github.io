@@ -16,7 +16,7 @@ let count = 0;
 let id;
 btnMenu.onclick = ()=>{
 	mMenu.style.transform = 'scaleX(1)';
-	blur.style.filter = 'blur(20px)';
+	mMenu.style.filter = 'blur(10px)';
 	pluses.style.display = 'block';
 }
 
