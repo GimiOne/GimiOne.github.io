@@ -2,7 +2,15 @@ const searchForm = document.querySelector('#search-form'),
 	  searchInput= document.querySelector('#search-input'),
 	  movies = document.querySelector('#movies');
 
-searchInput.oninput = apiSearch;
+searchInput.oninput = (e) => {
+	console.log(searchInput.value);
+	if(searchInput.value === ""){
+		getPopularMovies();
+	}else{
+		apiSearch;
+	}
+	
+}
 searchInput.onkeyup = (event) => {
 	if(event.keyCode === 13 && searchInput.value === ''){
 		getPopularMovies();
@@ -16,14 +24,14 @@ searchInput.onkeyup = (event) => {
 getPopularMovies();
 function getPopularMovies(){
 	let serverUrl = 'https://api.themoviedb.org/3/movie/upcoming?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&page=1';
-	let objMovies = apiRequest(serverUrl,'GET');
+	apiRequest(serverUrl,'GET');
 }
 
 function apiSearch(event){
 	event.preventDefault();
 	
 	let serverUrl = 'https://api.themoviedb.org/3/search/multi?api_key=ead41c3eaac089640f31601bd088ab4e&language=ru&query='+ searchInput.value;
-	let objMovies = apiRequest(serverUrl,'GET');
+	apiRequest(serverUrl,'GET');
 }
 
 
@@ -111,11 +119,19 @@ function getTrailer(type,id){
 			console.log('error: ' + request.status);
 			return;
 		}
-		let idTrailer = JSON.parse(request.responseText).results[0].key === undefined ? 'notfound' : JSON.parse(request.responseText).results[0].key;
+		
+		let response = JSON.parse(request.responseText);
+		console.log(response.results);
+		if(!response.results.length){
+			alert("Трейлера нет");
+			return;
+		}
+		let idTrailer = response.results[0].key ? 'notfound' : response.results[0].key;
 		let iframe = `<iframe width="560" height="315" id="iiframe"  src="https://www.youtube.com/embed/${idTrailer}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 		$("#youtube").addClass('youtube');
 		$("#youtube").html(iframe);
 	});
+	// alert('outer func')
 	
 }
 
@@ -185,7 +201,6 @@ setTimeout(function(){
 			document.querySelector('#link').style.textShadow = '0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px #876767, 0 0 38px rgba(0, 230, 209, 0.49), 0 0 60px #1e84f2';
 			isLight = true;
 		}
-		console.log(1);
 	},80);
 	
 },3000);
